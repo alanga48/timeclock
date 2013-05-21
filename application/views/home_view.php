@@ -26,25 +26,47 @@
 	//var_dump($records); exit();
 
 ?>
+	<?//php print_rr($records); exit();?>
 
 	<?php foreach($records as $week) { ?>
 	<table id="table">
 			<tr>
-				<td><strong>Week Of:</strong></td>
+				<td colspan="3"><strong>WEEK OF: <?=date("m/d/y", strtotime($week['start'])) . " - " . date("m/d/y", strtotime($week['end']))?></strong></td>
 			</tr>
 			<tr>
 				<td>CLOCK IN</td>
 				<td>CLOCK OUT</td>
+				<td>DAILY TOTAL</td>
 			</tr>
 				
-			<?php foreach($week as $entry) { ?>
+			<?php
+
+			$seconds = 0; 
+
+			foreach($week['records'] as $entry) { 
+
+				$start_sec = strtotime($entry['start']);
+				$end_sec = strtotime($entry['end']);
+				
+				$diff_sec = ($end_sec) - ($start_sec);
+
+				$seconds += $diff_sec;
+
+				$hours = floor($seconds / 3600);
+				$mins = floor(($seconds - ($hours*3600)) / 60);
+
+			?>
 			
 			<tr>
 				<td><?=date("m/d/y, g:i a", strtotime($entry['start']))?></td>
 				<td><?=date("m/d/y, g:i a", strtotime($entry['end']))?></td><br>
+				<td><?=date("H:i:s", $diff_sec);?></td>
 			</tr>
-
 			<?php } ?>
+
+			<tr>
+				<td colspan="3">WEEKLY TOTALS: <?php echo $hours .' hours and ' . $mins . ' minutes'; ?></td>
+			</tr>
 
 		</table>
 

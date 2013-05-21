@@ -45,10 +45,16 @@ body {
 	padding: 0;
 }
 
-td, tr {
+/*#week_td {
+
+	width: 200px;
+}*/
+
+td, tr, th {
 
 	color: #9b848b;
 	padding: 15px;
+	width: 10em;
 }
 
 #login_form {

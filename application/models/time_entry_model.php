@@ -14,14 +14,31 @@
 			foreach($records as $record) {
 
 				$week_number = date('W',strtotime($record['start']));
+				$year = date('Y',strtotime($record['start']));
+
+				
+				$start_timestamp = strtotime("{$year}-W{$week_number}-1");
+				$end_timestamp = strtotime("{$year}-W{$week_number}-7");
+
+
+				$start = date('Y-m-d', $start_timestamp);
+				$end = date('Y-m-d', $end_timestamp);
+				
 
 				if( !isset($weeks[$week_number]) ) {
+					
 					$weeks[$week_number] = array();
+					
 				}
 
-				$weeks[$week_number][] = $record; 
+				$weeks[$week_number]['start'] = $start;
+				$weeks[$week_number]['end'] = $end;
+				$weeks[$week_number]['records'][] = $record;
+				
+				 
 			}
 
+			//print_rr($weeks);
 			return $weeks;
 
 	}
