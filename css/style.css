@@ -1,0 +1,70 @@
+h1, h2, h3, p {
+
+	font-family: Tahoma, sans-serif;
+}
+
+button {
+
+	font-family: Tahoma, sans-serif;
+	color: white;
+	font-size: 14px;
+	font-weight: bold;
+	width: 7em;
+	height: 4em;
+	background: #9b848b;
+	border: none;
+
+}
+
+
+
+a:hover {
+  color:#f00;
+}
+
+#wrapper {
+
+	width: 600px;
+	margin: 0 auto 0;
+	background: white;
+	color: #9b848b;
+	padding: 1.5em 0 3em 3em;
+}
+
+body {
+	background-image:url('/images/background.jpg');
+	background-repeat:no-repeat;
+	background-attachment: fixed;
+	background-size: 1400px 1175px;
+	font-family: Tahoma, sans-serif;
+}
+
+#table{
+
+	border-collapse:collapse;
+	padding: 0;
+}
+
+td, tr {
+
+	color: #9b848b;
+	padding: 15px;
+}
+
+#login_form {
+	width: 300px;
+	margin: 150px auto 0;
+	padding: 1em;
+	display: block;
+	text-align: center;
+	color: #9b848b;
+}
+input[type=text], input[type=password] {
+
+	display: block;
+	margin: 0 0 1em 0;
+	width: 280px;
+	border: 5px;
+	padding: 1em;
+
+}
