@@ -11,14 +11,10 @@
 		<div id="wrapper">
 
 		<p>You are logged in as <?=$this->user['username']?>. <a href="/index.php/user/logout">Log Out</a></p>
+		<a href="/index.php/admin/get_entries">Return to all employees</a>
 
-		<h2>Timeclock Entries for <?=$this->user['first_name'] ." ". $this->user['last_name']; ?></h2>
+		<h2>Timeclock Entries for <?=$user['first_name'] ." ". $user['last_name']; ?></h2>
 
-		<?php if($open_entry == 1) { ?>
-			<button type="button"><a href="end">CLOCK OUT</a></button>
-		<?php } else { ?>
-			<button type="button"><a href="start">CLOCK IN</a></button>
-		<?php } ?>
 
 		<?php foreach($entries as $week) { ?>
 			<table id="table">
@@ -37,6 +33,9 @@
 					<td><?=date("m/d/y, g:i a", strtotime($entry['start']))?></td>
 					<td><?=date("m/d/y, g:i a", strtotime($entry['end']))?></td>
 					<td><?=date("H:i:s", $entry['total_seconds']);?></td>
+					<td><button><a href="/index.php/time_entry/get_entry/<?=$entry['id']?>">Update</a></button></td>
+					<td><button><a href="/index.php/time_entry/delete/<?=$entry['id']?>">Delete</a></button></td>
+
 				</tr>
 				<?php } ?>
 

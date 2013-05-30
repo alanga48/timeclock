@@ -1,7 +1,8 @@
 h1, h2, h3, p {
 
-	font-family: Tahoma, sans-serif;
+	font-family: Trebuchet MS;
 }
+
 
 button {
 
@@ -13,9 +14,9 @@ button {
 	height: 4em;
 	background: #9b848b;
 	border: none;
+	text-decoration: none;
 
 }
-
 
 
 a:hover {
@@ -25,7 +26,7 @@ a:hover {
 #wrapper {
 
 	width: 600px;
-	margin: 0 auto 0;
+	margin: 25px auto 0;
 	background: white;
 	color: #9b848b;
 	padding: 1.5em 0 3em 3em;
@@ -36,19 +37,39 @@ body {
 	background-repeat:no-repeat;
 	background-attachment: fixed;
 	background-size: 1400px 1175px;
+	background-position: center;
 	font-family: Tahoma, sans-serif;
 }
 
 #table{
 
 	border-collapse:collapse;
-	padding: 0;
+	border-bottom: 1px solid #9b848b;
 }
 
-/*#week_td {
+#table_admin{
 
-	width: 200px;
-}*/
+	border-collapse:collapse;
+	border-bottom: 1px solid #9b848b;
+	width: 550px;
+}
+
+form {
+
+	background-color: #9b848b;
+	color: white;
+	width: 320px;
+	display: block;
+	padding: 1em;
+
+}
+
+
+#title {
+
+	border-bottom: 1px solid #9b848b;
+
+}
 
 td, tr, th {
 

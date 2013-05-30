@@ -5,6 +5,7 @@ class User extends CI_Controller {
 	public function login()	{
 
 		$this->load->view('login');
+		//$this->output->enable_profiler(TRUE);
 	
 	}
 
@@ -16,11 +17,23 @@ class User extends CI_Controller {
 		if($user_info) {
 			$data = array (
 				'user_id' => $user_info['id'],
-				'is_logged_in' => true
+				'is_logged_in' => true,
+				'role' => $user_info['role']
 				);
 
 			$this->session->set_userdata($data);
-			redirect('/');
+
+			//print_rr($data);
+
+			if($user_info['role'] == 'admin') { 
+
+				redirect('/admin/get_entries');
+
+			} else {
+			
+				redirect('/');
+
+			}
 		}
 		else {
 

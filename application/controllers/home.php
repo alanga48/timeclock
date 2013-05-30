@@ -10,18 +10,18 @@ class Home extends CI_Controller {
 
 
 	public function index()	{		
-		redirect('time_entry/all_records');
+		redirect('time_entry/all_entries');
 	}
 
 	private function _is_logged_in() {
 
 		$session = $this->session->all_userdata();
 
-		//echo '<pre>'; print_r($session); exit();
+		//print_rr($session);
 
 		if( isset($session['is_logged_in']) && $session['is_logged_in'] == 1 ) {
 			
-			$logged_in == true;
+			$logged_in = true;
 
 		} 
 

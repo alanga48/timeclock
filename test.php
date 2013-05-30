@@ -1,6 +1,20 @@
 <?php
 
-$date = "2013-05-16 22:33:51";
+$this->load->library('table');
+
+$data = array(
+             array('Name', 'Color', 'Size'),
+             array('Fred', 'Blue', 'Small'),
+             array('Mary', 'Red', 'Large'),
+             array('John', 'Green', 'Medium')	
+             );
+
+echo $this->table->generate($data);
+
+
+
+
+/*$date = "2013-05-16 22:33:51";
 $week = date('W',strtotime($date));
 $year = date('Y',strtotime($date));
 
@@ -89,7 +103,7 @@ foreach($clients[2]['pets'] as $pet) {
 echo '<br />---<br />';
 
 echo '<pre>';
-print_r($clients);
+print_r($clients);*/
 
 
 

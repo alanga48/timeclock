@@ -8,3 +8,11 @@ function print_rr($array, $exit = true) {
 	if($exit) exit();
 
 }
+
+function sec_to_output($seconds) {
+
+	$hours = floor($seconds / 3600);
+	$mins = floor(($seconds - ($hours*3600)) / 60);
+	return $hours .' hours and ' . $mins . ' minutes';
+
+}
