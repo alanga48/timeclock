@@ -33,10 +33,7 @@ a:hover {
 }
 
 body {
-	background-image:url('/images/background.jpg');
-	background-repeat:no-repeat;
-	background-attachment: fixed;
-	background-size: 1400px 1175px;
+	background-image:url('/images/binding_dark.png');
 	background-position: center;
 	font-family: Tahoma, sans-serif;
 }

@@ -9,9 +9,10 @@
 	<body>
 			
 		<div id="wrapper">
-
-		<p>You are logged in as <?=$this->user['username']?>. <a href="/index.php/user/logout">Log Out</a></p>
-		<a href="/index.php/admin/get_entries">Return to all employees</a>
+		
+		<p>You are logged in as <?=$this->user['username']?>. 
+		<p><a href="/index.php/admin/get_entries">Home</a> / <a href="/index.php/admin/view_user_info/<?=$user['id'];?>">Edit This Employee</a> / 
+		   <a href="/index.php/admin/new_employee">Add a New Employee</a> / <a href="/index.php/user/logout">Log Out</a></p>
 
 		<h2>Timeclock Entries for <?=$user['first_name'] ." ". $user['last_name']; ?></h2>
 

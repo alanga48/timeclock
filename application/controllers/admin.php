@@ -39,6 +39,61 @@ class Admin extends CI_Controller {
 
 	}
 
+	function view_user_info($user_id) {
+
+		$data['user'] = $this->user_model->get($user_id);
+
+		//print_rr($data);
+
+		$this->load->view('view_user_info', $data);
+
+	}
+
+	function edit_employee() {
+
+		$data = $this->user_model->update_user( $this->input->post() );
+
+		$data['submitted'] = true;
+
+		//print_rr($data);
+
+		$this->load->view('view_user_info', $data);
+	}
+
+	function new_employee() {
+
+		$this->load->view('new_employee');
+
+	}
+
+	function insert_user() {
+
+		//print_rr($this->input->post() );
+		$this->db->insert('user', $this->input->post());
+		
+		$data['submitted'] = true;
+
+		$this->load->view('view_user_info', $data);
+
+
+	}
+
+
+	function delete_employee($id) {
+
+		$result = $this->user_model->delete_user($id);
+
+		if($result == true) {
+
+			$data['submitted'] = true;
+
+			//print_rr($data);
+
+			$this->load->view('view_user_info', $data);
+		}
+	}
+
+
 	private function _is_logged_in() {
 
 		$session = $this->session->all_userdata();
