@@ -3,7 +3,7 @@
 	<meta charset="utf-8" />
 
 	<head>
-		<link rel="stylesheet" media="screen" type="text/css" href="/css/style.css" />
+		<link rel="stylesheet" media="screen" type="text/css" href="/assets/css/style.css"" />
 	</head>
 
 	<body>
@@ -15,9 +15,9 @@
 		<h2>Timeclock Entries for <?=$this->user['first_name'] ." ". $this->user['last_name']; ?></h2>
 
 		<?php if($open_entry == 1) { ?>
-			<button type="button"><a href="end">CLOCK OUT</a></button>
+			<a href="end">CLOCK OUT</a>
 		<?php } else { ?>
-			<button type="button"><a href="start">CLOCK IN</a></button>
+			<a href="start">CLOCK IN</a>
 		<?php } ?>
 
 		<?php foreach($entries as $week) { ?>

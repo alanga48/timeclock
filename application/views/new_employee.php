@@ -3,17 +3,17 @@
 	<meta charset="utf-8" />
 
 	<head>
-		<link rel="stylesheet" media="screen" type="text/css" href="/css/style.css" />
+		<link rel="stylesheet" media="screen" type="text/css" href="/assets/css/style.css" />
 	</head>
 
 	<body>
 			
 		<div id="wrapper">
 
-			<p>You are logged in as <?=$this->user['username']?>. <a href="/index.php/user/logout">Log Out</a></p>
-			<a href="/index.php/admin/get_entries">Return to all employees</a>
+			<p>You are logged in as <?=$this->user['username']?>.<br><br> 
+				<a href="/index.php/admin/get_entries">Home</a> / <a href="/index.php/admin/new_employee">Add a New Employee</a> / <a href="/index.php/user/logout">Log Out</a> 
 
-			<h3>Update Time Entry</h3>
+			<h1>Add a New Employee</h1>
 
 			<?= form_open('admin/insert_user') ?>
 			
@@ -27,14 +27,17 @@
 				<?= form_input('username') ?>
 
 				<label for="password">Password</label>
-				<?= form_input('password'); ?>
+				<?= form_password('password'); ?>
 
 				<label for="role">Role</label>
 				<?= form_dropdown('role', array('employee' => 'Employee', 'administrator' => 'Administrator'), 'employee' ); ?>
 
-				<button type='submit'>Submit</button>
+				<br><br><button type='submit'>Submit</button>&nbsp;<button action="/index.php/admin/get_entries">Cancel</button>
+
 
 			<?= form_close() ?>
+			
+
 
 		</div>
 

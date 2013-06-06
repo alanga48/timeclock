@@ -3,7 +3,7 @@
 	<meta charset="utf-8" />
 
 	<head>
-		<link rel="stylesheet" media="screen" type="text/css" href="/css/style.css" />
+		<link rel="stylesheet" media="screen" type="text/css" href="/assets/css/style.css"" />
 	</head>
 
 	<body>
@@ -22,7 +22,7 @@
 
 			<p><a href="/index.php/admin/get_entries">Home</a> / <a href="/index.php/admin/view_user_info/<?=$user['id'];?>">Edit Employee</a> / <a href="/index.php/user/logout">Log Out</a></p>
 
-			<h2>Edit Employee Information</h2>
+			<h1>Edit Employee Information</h1>
 			<h4>Update Existing Employee #<?=$user['id']?></h4>
 
 			<?= form_open('admin/edit_employee', '', $id = array('id'=>$user['id']) ) ?>
@@ -39,13 +39,10 @@
 				<label for='password'>Password</label>
 					<?= form_input('password', $user['password'], 'id="password"') ?>
 
-				<?= form_submit('submit', 'Update') ?>
+				<?= form_submit('submit', 'Update') ?>&nbsp;<button><a href="/index.php/admin/get_entries">Cancel</a></button>
 
 			<?= form_close() ?>
-			<br> <br />
-			<h2>Delete this Employee</h2>
-			<p>Clicking the following link will permanently delete <?=$user['first_name'] ." ". $user['last_name']?>, Employee ID#<?=$user['id']?>. This action cannot be undone.</p>
-			<p><a href="/index.php/admin/delete_employee/<?=$user['id']?>">Delete this Employee</a></p>
+		
 
 		<?php } ?>
 

@@ -1,23 +1,13 @@
-h1, h2, h3, p {
+h1 {
 
+	color: #CC3366;
+}
+
+h2, h3 {
+
+	color: #663366;
 	font-family: Trebuchet MS;
 }
-
-
-button {
-
-	font-family: Tahoma, sans-serif;
-	color: white;
-	font-size: 14px;
-	font-weight: bold;
-	width: 7em;
-	height: 4em;
-	background: #9b848b;
-	border: none;
-	text-decoration: none;
-
-}
-
 
 a:hover {
   color:#f00;
@@ -28,7 +18,7 @@ a:hover {
 	width: 600px;
 	margin: 25px auto 0;
 	background: white;
-	color: #9b848b;
+	color: #336699;
 	padding: 1.5em 0 3em 3em;
 }
 
@@ -41,20 +31,19 @@ body {
 #table{
 
 	border-collapse:collapse;
-	border-bottom: 1px solid #9b848b;
+	border-bottom: 1px solid #336699;
 }
 
 #table_admin{
 
 	border-collapse:collapse;
-	border-bottom: 1px solid #9b848b;
+	border-bottom: 1px solid #336699;
 	width: 550px;
 }
 
 form {
 
-	background-color: #9b848b;
-	color: white;
+	color: #CC3366;
 	width: 320px;
 	display: block;
 	padding: 1em;
@@ -62,15 +51,16 @@ form {
 }
 
 
+
 #title {
 
-	border-bottom: 1px solid #9b848b;
+	border-bottom: 1px solid #336699;
 
 }
 
 td, tr, th {
 
-	color: #9b848b;
+	color: #336699;
 	padding: 15px;
 	width: 10em;
 }
@@ -81,14 +71,26 @@ td, tr, th {
 	padding: 1em;
 	display: block;
 	text-align: center;
-	color: #9b848b;
+	color: #336699;
 }
-input[type=text], input[type=password] {
+#login_heading {
+
+	padding: 0 0 0 1.5em;
+	color: #CC3366;
+	font-family: Trebuchet MS;
+}
+input {
 
 	display: block;
-	margin: 0 0 1em 0;
+	margin: 1em 0 1em 1.5em;
 	width: 280px;
-	border: 5px;
+	border: 1px solid black;
 	padding: 1em;
+
+}
+
+.hidden {
+
+	display: none;
 
 }
