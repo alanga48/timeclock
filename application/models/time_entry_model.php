@@ -6,10 +6,13 @@
 		public function get_employee_entries($user_id) {
 			
 			$this->db->where('user_id', $user_id);
-			$this->db->where('end !=', 'NULL');
+			//$this->db->where('end !=', 'NULL');
+			$this->db->order_by('id', 'desc');
 			$result = $this->db->get('time_entry');
 			
 			$entries = $result->result_array();
+
+			//print_rr($entries);
 			$grouped_entries = array();
 
 			foreach($entries as $entry) {
@@ -151,6 +154,16 @@
 
 		}
 
+		public function insert_entry($array) {
+
+			$array = array('user_id' => $this->input->post('user_id'),
+					       'start' => $this->input->post('start'),
+					       'end' => $this->input->post('end'));
+			
+
+			$this->db->insert('time_entry', $array);
+
+		}
 
 		private function _calculate_week($week_entries) {
 

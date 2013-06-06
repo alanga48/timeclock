@@ -18,9 +18,8 @@ class Time_entry extends CI_Controller {
 		
 		$data['entries'] = $this->time_entry_model->get_employee_entries($this->user['id']);
 		$data['open_entry'] = $this->time_entry_model->open_entry();
-		$data['parents'] = 'mom and dad';
 
-		$this->load->view('home_view', $data);
+		$this->template->load('default','home_view', $data);
 		
 	}
 	
@@ -52,7 +51,7 @@ class Time_entry extends CI_Controller {
 		
 		//print_rr($entry);
 
-		$this->load->view('update_entry', $entry);
+		$this->template->load('default','update_entry', $entry);
 
 
 	}
@@ -85,6 +84,13 @@ class Time_entry extends CI_Controller {
 
 		redirect('admin/view_employee/' . $entry['user_id']);
 
+	}
+
+	public function insert_entry() {
+		
+		$this->time_entry_model->insert_entry($this->input->post());
+
+		redirect('admin/view_employee/' . $this->input->post('user_id') );
 	}
 
 

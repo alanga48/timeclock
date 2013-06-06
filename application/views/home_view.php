@@ -1,56 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-	<meta charset="utf-8" />
+<div id="wrapper">
 
-	<head>
-		<link rel="stylesheet" media="screen" type="text/css" href="/assets/css/style.css"" />
-	</head>
+<p>You are logged in as <?=$this->user['username']?>. <a href="/index.php/user/logout">Log Out</a></p>
 
-	<body>
-			
-		<div id="wrapper">
+<h2>Timeclock Entries for <?=$this->user['first_name'] ." ". $this->user['last_name']; ?></h2>
 
-		<p>You are logged in as <?=$this->user['username']?>. <a href="/index.php/user/logout">Log Out</a></p>
+<?php if($open_entry == 1) { ?>
+	<a href="end">CLOCK OUT</a>
+<?php } else { ?>
+	<a href="start">CLOCK IN</a>
+<?php } ?>
 
-		<h2>Timeclock Entries for <?=$this->user['first_name'] ." ". $this->user['last_name']; ?></h2>
+<?php foreach($entries as $week) { ?>
+	<table id="table">
+		<tr>
+			<td div id= "title" colspan="3"><strong>WEEK OF: 
+				<?=date("m/d/y", strtotime($week['start'])) . " - " . date("m/d/y", strtotime($week['end']))?></strong>
+			</td>
+		</tr>
+		<tr>
+			<td>CLOCK IN</td>
+			<td>CLOCK OUT</td>
+			<td>DAILY TOTAL</td>
+		</tr>
+		<?php foreach($week['entries'] as $entry) { ?>
+		<tr>
 
-		<?php if($open_entry == 1) { ?>
-			<a href="end">CLOCK OUT</a>
-		<?php } else { ?>
-			<a href="start">CLOCK IN</a>
+			<td><?=date("m/d/y, g:i a", strtotime($entry['start']))?></td>
+			<td>
+				<?php 
+				if($entry['end'] == NULL) { 
+					echo ' - ';
+				} else { 
+					echo date("m/d/y, g:i a", strtotime($entry['end']));
+				}?>
+			</td>
+			<td>
+				<?php 
+				if($entry['end'] == NULL) { 
+					echo ' - ';
+				} else { 
+					echo date("H:i:s", $entry['total_seconds']);
+				}?>
+			</td>
+		</tr>
 		<?php } ?>
 
-		<?php foreach($entries as $week) { ?>
-			<table id="table">
-				<tr>
-					<td div id= "title" colspan="3"><strong>WEEK OF: 
-						<?=date("m/d/y", strtotime($week['start'])) . " - " . date("m/d/y", strtotime($week['end']))?></strong>
-					</td>
-				</tr>
-				<tr>
-					<td>CLOCK IN</td>
-					<td>CLOCK OUT</td>
-					<td>DAILY TOTAL</td>
-				</tr>
-				<?php foreach($week['entries'] as $entry) { ?>
-				<tr>
-					<td><?=date("m/d/y, g:i a", strtotime($entry['start']))?></td>
-					<td><?=date("m/d/y, g:i a", strtotime($entry['end']))?></td>
-					<td><?=date("H:i:s", $entry['total_seconds']);?></td>
-				</tr>
-				<?php } ?>
+		<tr>
 
-				<tr>
-					<td colspan="3">WEEKLY TOTALS: <?=sec_to_output($week['total_seconds'])?></td>
-				</tr>
+			<td colspan="3">
+				WEEKLY TOTALS: 
+				<?php 
+				$count = time() + $week['total_seconds'];
+				if($week['total_seconds'] < 0) {
+					echo sec_to_output($count);
+				
+				} else {
+					echo sec_to_output($week['total_seconds']);
+
+				} ?>   
+			</td>
+		</tr>
 
 
-			</table>
+	</table>
 
-		<?php } ?>
 
-		</div>
+<?php } ?>
 
-	</body>
-</html>
+</div>
 

@@ -4,7 +4,7 @@ class User extends CI_Controller {
 
 	public function login()	{
 
-		$this->load->view('login');
+		$this->template->load('default','login');
 		//$this->output->enable_profiler(TRUE);
 	
 	}

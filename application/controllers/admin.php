@@ -23,7 +23,7 @@ class Admin extends CI_Controller {
 
 		//print_rr($data);
 
-		$this->load->view('admin_view', $data);
+		$this->template->load('default', 'admin_view', $data);
 
 
 	}
@@ -35,45 +35,35 @@ class Admin extends CI_Controller {
 
 		//print_rr($data);
 
-		$this->load->view('admin_employee_view', $data);
+		
+		$this->template->load('default','admin_employee_view', $data);
 
 	}
 
-	function view_user_info($user_id) {
+	// function view_user_info($user_id) {
 
-		$data['user'] = $this->user_model->get($user_id);
+	// 	$data['user'] = $this->user_model->get($user_id);
 
-		//print_rr($data);
+	// 	//print_rr($data);
 
-		$this->load->view('view_user_info', $data);
+	// 	$this->template->load('default','view_user_info', $data);
 
-	}
+	// }
 
 	function edit_employee() {
 
 		$data = $this->user_model->update_user( $this->input->post() );
 
-		$data['submitted'] = true;
-
-		//print_rr($data);
-
-		$this->load->view('view_user_info', $data);
+		redirect('admin/get_entries');
 	}
 
-	function new_employee() {
-
-		$this->load->view('new_employee');
-
-	}
-
-	function insert_user() {
+	
+	function insert_employee() {
 
 		//print_rr($this->input->post() );
 		$this->db->insert('user', $this->input->post());
-		
-		$data['submitted'] = true;
 
-		$this->load->view('view_user_info', $data);
+		redirect('admin/get_entries');
 
 
 	}
@@ -83,16 +73,9 @@ class Admin extends CI_Controller {
 
 		$result = $this->user_model->delete_user($id);
 
-		if($result == true) {
-
-			$data['submitted'] = true;
-
-			//print_rr($data);
-
-			$this->load->view('view_user_info', $data);
-		}
+		redirect('admin/get_entries');
+		
 	}
-
 
 	private function _is_logged_in() {
 
