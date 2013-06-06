@@ -64,6 +64,15 @@ $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
+if(ENVIRONMENT == 'production') {
+    $db['default']['hostname'] = 'mysql51-027.wc2.dfw1.stabletransit.com';
+    $db['default']['username'] = '444035_timeclock';
+    $db['default']['password'] = 'Btpdb123';
+    $db['default']['database'] = '444035_timeclock';
+    $db['default']['db_debug'] = FALSE;
+}
+
+
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */
