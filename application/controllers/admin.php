@@ -54,6 +54,8 @@ class Admin extends CI_Controller {
 
 		$data = $this->user_model->update_user( $this->input->post() );
 
+		$this->session->set_flashdata('message', 'Employee Updated Successfully');
+
 		redirect('admin/get_entries');
 	}
 
@@ -62,6 +64,8 @@ class Admin extends CI_Controller {
 
 		//print_rr($this->input->post() );
 		$this->db->insert('user', $this->input->post());
+
+		$this->session->set_flashdata('message', 'Employee Added Successfully');
 
 		redirect('admin/get_entries');
 
@@ -72,6 +76,8 @@ class Admin extends CI_Controller {
 	function delete_employee($id) {
 
 		$result = $this->user_model->delete_user($id);
+
+		$this->session->set_flashdata('message', 'Employee Deleted Successfully');
 
 		redirect('admin/get_entries');
 		

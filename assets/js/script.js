@@ -42,3 +42,6 @@ $(function() {
 	$("#end").datetimepicker();
 });
 
+ $(function() {
+    $( "#message" ).dialog();
+  });

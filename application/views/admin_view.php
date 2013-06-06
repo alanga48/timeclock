@@ -1,9 +1,14 @@
 <div id="wrapper">
 
+		<div class = "flash">
+			<h3><?= $this->session->flashdata('message'); ?></h3>
+		</div>
+
 		<p>You are logged in as <?=$this->user['username']?>.<br><br> 
 		<a href="/index.php/admin/get_entries">Home</a> / <a href="#insert_employee" class = "insert_employee">Add a New Employee</a> / <a href="/index.php/user/logout">Log Out</a> 
 
 		<h1>Employee and Timeclock Summary</h1>
+
 
 		<?php foreach($users as $key => $user) { ?>
 
