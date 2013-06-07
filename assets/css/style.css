@@ -1,25 +1,28 @@
 h1 {
 
-	color: #CC3366;
+	color: #102E37;
+	text-align: center;
+	font-family: Trebuchet MS;
 }
 
 h2, h3 {
 
-	color: #663366;
+	color: #102E37;
+	text-align: center;
 	font-family: Trebuchet MS;
 }
 
-a:hover {
-  color:#f00;
-}
+p {
 
+	text-align: center;
+}
 #wrapper {
 
-	width: 650px;
+	width: 700px;
 	margin: 25px auto 0;
 	background: white;
-	color: #336699;
-	padding: 1.5em 0 3em 3em;
+	color: #102E37;
+	padding: 3em;
 }
 
 body {
@@ -28,17 +31,61 @@ body {
 	font-family: Tahoma, sans-serif;
 }
 
-#table{
+.logged_in p{
+
+	text-align: right;
+}
+
+#table {
 
 	border-collapse:collapse;
-	border-bottom: 1px solid #336699;
+	width: 700px;
+	margin: 0 auto;
 }
 
 #table_admin{
 
 	border-collapse:collapse;
-	border-bottom: 1px solid #336699;
-	width: 550px;
+	width: 700px;
+	margin: 0 auto;
+}
+
+td { 
+
+	color: ##6B6C64;
+	padding: 15px;
+	width: 10em;
+	text-align: center;
+	border-collapse:collapse;
+}
+
+tr {
+
+	color: ##6B6C64;
+	padding: 15px;
+	width: 10em;
+	text-align: center;
+
+}
+
+tr:nth-child(odd) {
+
+	background: #E8EDE0;
+	
+}
+
+tr:nth-child(even) {
+
+	background: #ffffff;
+	
+}
+
+th {
+
+	color: black;
+	background: #ffffff;
+	padding: 15px;
+	border-collapse:collapse;
 }
 
 form {
@@ -51,32 +98,23 @@ form {
 }
 
 
-
 #title {
 
-	border-bottom: 1px solid #336699;
+	border-bottom: 1px solid ##6B6C64;
 
-}
-
-td, tr, th {
-
-	color: #336699;
-	padding: 15px;
-	width: 10em;
 }
 
 #login_form {
 	width: 300px;
 	margin: 150px auto 0;
 	padding: 1em;
-	display: block;
+	/*display: block;*/
 	text-align: center;
-	color: #336699;
 }
 #login_heading {
 
 	padding: 0 0 0 1.5em;
-	color: #CC3366;
+	color: #2BBBD8;
 	font-family: Trebuchet MS;
 }
 input {
@@ -98,5 +136,64 @@ input {
 .flash h3{
 
 	font-style: italic;
+
+}
+
+.nav_bar {
+
+	text-align: center;
+	background: #2BBBD8;
+	width: 680px;
+	margin: 0 auto;
+	padding: 10px;
+	color: #FFFF99;
+
+}
+.nav_bar ul {
+
+	list-style-type: none;
+	margin: 0;
+
+}
+
+.nav_bar li {
+
+	display: inline;
+	padding: 5px;
+	font-weight: bold;
+}
+
+.nav_bar a {
+
+	text-decoration: none;
+	color: white;
+}
+
+.nav_bar a:hover {
+
+	color: purple;
+}
+
+
+
+.button {
+
+	text-align: center;
+
+	padding: 10px;
+}
+.button a{
+	padding: 5px;
+	text-decoration: none;
+	background: #2BBBD8;
+	color: white;
+	font-weight: bold;
+	
+
+}
+
+.button a:hover {
+
+	color: purple;
 
 }

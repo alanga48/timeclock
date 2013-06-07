@@ -1,26 +1,11 @@
-<div id="wrapper">
-
-<p>You are logged in as <?=$this->user['username']?>. <a href="/index.php/user/logout">Log Out</a></p>
-
-<h2>Timeclock Entries for <?=$this->user['first_name'] ." ". $this->user['last_name']; ?></h2>
-
-<?php if($open_entry == 1) { ?>
-	<a href="end">CLOCK OUT</a>
-<?php } else { ?>
-	<a href="start">CLOCK IN</a>
-<?php } ?>
-
 <?php foreach($entries as $week) { ?>
+
+<h3>WEEK OF: <?=date("m/d/y", strtotime($week['start'])) . " - " . date("m/d/y", strtotime($week['end']))?></h3>
 	<table id="table">
 		<tr>
-			<td div id= "title" colspan="3"><strong>WEEK OF: 
-				<?=date("m/d/y", strtotime($week['start'])) . " - " . date("m/d/y", strtotime($week['end']))?></strong>
-			</td>
-		</tr>
-		<tr>
-			<td>CLOCK IN</td>
-			<td>CLOCK OUT</td>
-			<td>DAILY TOTAL</td>
+			<th>CLOCK IN</th>
+			<th>CLOCK OUT</th>
+			<th>DAILY TOTAL</th>
 		</tr>
 		<?php foreach($week['entries'] as $entry) { ?>
 		<tr>
@@ -58,5 +43,5 @@
 
 <?php } ?>
 
-</div>
+
 

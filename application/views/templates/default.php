@@ -18,13 +18,33 @@
  
    <body>
        
-      <div class="wrapper">
+      
+
+		<?php if($this->session->userdata('is_logged_in') == TRUE ) { ?>
+
+		<div id="wrapper">
+		<div class="nav_bar">
+			<ul>
+				<li>You are logged in as <?=$this->user['username']?>. <a href="/index.php/user/logout">Log Out</a></li>
+			</ul>
+		</div>
+
+		<h1>By The Pixel Timeclock Entries</h1>
+
+		<h3>Employee Name: <?=$this->user['first_name'] ." ". $this->user['last_name']; ?></h3>
+		<?php if($open_entry == 1) { ?>
+			<div class="button"><a href="end">CLOCK OUT</a></div>
+		<?php } else { ?>
+			<div class="button"><a href="start">CLOCK IN</a></div>
+		<?php } ?>
           
-         <?php echo $body; ?>
-          
+        <h3>Previous Employee Timeclock Entries</h3>
+        	<?php echo $body; ?>
+ 
+
       </div>
 
-
+      <?php } else { echo $body; } ?>
        
    </body>
     

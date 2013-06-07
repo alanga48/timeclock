@@ -26,11 +26,16 @@
 				<h3><?= $this->session->flashdata('message'); ?></h3>
 			</div>
 			<?php } ?>
-		
-			<p>You are logged in as <?=$this->user['username']?>
-			<a href="/index.php/admin/get_entries">Home</a> / 
-			<a href="#insert_employee" class ="modal_popup" class = "insert_employee">Add a New Employee</a> / 
-			<a href="/index.php/user/logout">Log Out</a> 
+			
+			<div class="nav_bar"
+				<ul>
+					<li><a href="/index.php/admin/get_entries">Home</a></li> |
+					<li><a href="#insert_employee" class ="modal_popup" class = "insert_employee">Add a New Employee</a></li> |
+					<li>Logged in as <?=$this->user['username']?>. <a href="/index.php/user/logout">Log Out</a></li>
+				</ul> 
+			</div>
+
+			<h1>By The Pixel Timeclock Entries</h1>
 	          
 	         <?php echo $body; ?>
           

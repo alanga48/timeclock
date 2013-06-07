@@ -1,17 +1,14 @@
-<h1>Timeclock Entries for <?=$user['first_name'] ." ". $user['last_name']; ?></h1>
-<a href="#insert_entry_<?=$user['id'];?>" class="modal_popup">Add New Time Entry</a> 
-
-
+<h3>EMPLOYEE NAME: <?=$user['first_name'] ." ". $user['last_name']; ?></h3>
 <?php foreach($entries as $week) { ?>
-	<h2>WEEK OF: <?=date("m/d/y", strtotime($week['start'])) . " - " . date("m/d/y", strtotime($week['end']))?></h2>
+	<h3>WEEK OF: <?=date("m/d/y", strtotime($week['start'])) . " - " . date("m/d/y", strtotime($week['end']))?></h3>
+	<h3>WEEKLY TOTALS: <?=sec_to_output($week['total_seconds']) ?></h3>
+	<div class="button"><a href="#insert_entry_<?=$user['id'];?>" class="modal_popup">Add New Time Entry</a></div>
 	<table id="table">
-		
-		
 		<tr>
-			<td>CLOCK IN</td>
-			<td>CLOCK OUT</td>
-			<td>DAILY TOTAL</td>
-			<td>ACTIONS</td>
+			<th>CLOCK IN</th>
+			<th>CLOCK OUT</th>
+			<th>DAILY TOTAL</th>
+			<th>ACTIONS</th>
 		</tr>
 		<?php foreach($week['entries'] as $entry) { ?>
 
@@ -54,11 +51,9 @@
 		</tr>
 		<?php } ?>
 
-		<tr>
-			<td colspan="3">WEEKLY TOTALS: <?=sec_to_output($week['total_seconds']) ?></td>
-		</tr>
-
 	</table>
+
+	
 
 <?php } ?>
 
