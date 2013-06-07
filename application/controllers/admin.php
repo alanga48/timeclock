@@ -23,7 +23,7 @@ class Admin extends CI_Controller {
 
 		//print_rr($data);
 
-		$this->template->load('default', 'admin_view', $data);
+		$this->template->load('admin', 'admin_view', $data);
 
 
 	}
@@ -34,9 +34,7 @@ class Admin extends CI_Controller {
 		$data['entries'] = $this->time_entry_model->get_employee_entries($user_id);
 
 		//print_rr($data);
-
-		
-		$this->template->load('default','admin_employee_view', $data);
+		$this->template->load('admin','admin_employee_view', $data);
 
 	}
 
@@ -46,7 +44,7 @@ class Admin extends CI_Controller {
 
 	// 	//print_rr($data);
 
-	// 	$this->template->load('default','view_user_info', $data);
+	// 	$this->template->load('admin','view_user_info', $data);
 
 	// }
 

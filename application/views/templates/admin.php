@@ -13,23 +13,40 @@
 	</head>
  
    <body>
-       
-      <div class="wrapper">
+
 
       	<div id="wrapper">
-	
+	      	
+	      	<?php if ($this->session->flashdata('message')) { ?>
+	      	<div class = "flash">
+				<h3><?= $this->session->flashdata('message'); ?></h3>
+			</div>
+			<?php } ?>
+		
 			<p>You are logged in as <?=$this->user['username']?>
-			<p><a href="/index.php/admin/get_entries">Home</a> / 
-			   <a href="#insert_employee" class = "insert_employee">Add a New Employee</a> / <a href="/index.php/user/logout">Log Out</a></p>
+			<a href="/index.php/admin/get_entries">Home</a> / 
+			<a href="#insert_employee" class = "insert_employee">Add a New Employee</a> / 
+			<a href="/index.php/user/logout">Log Out</a> 
+	          
+	         <?php echo $body; ?>
+          
+    	</div>       
 
-			<h1>Timeclock Entries for <?=$user['first_name'] ." ". $user['last_name']; ?></h1>
-			<a href="#insert_entry_<?=$user['id'];?>" class="insert_entry">Add New Time Entry</a> 
-          
-         <?php echo $body; ?>
-          
-        </div>
-       
-     </div>
+	 	<div class = "hidden">
+			<?= form_open('admin/insert_employee', $attributes = array('id' => 'insert_employee') ) ?>
+				<label for="first_name">First Name </label>			
+				<?= form_input('first_name') ?>
+				<label for="last_name">Last Name</label>
+				<?= form_input('last_name') ?>
+				<label for="username">Username</label>
+				<?= form_input('username') ?>
+				<label for="password">Password</label>
+				<?= form_password('password'); ?>
+				<label for="role">Role</label>
+				<?= form_dropdown('role', array('employee' => 'Employee', 'administrator' => 'Administrator'), 'employee' ); ?>
+				<br><br><button type='submit'>Submit</button>
+			<?= form_close() ?>
+		</div>
 
    </body>
     

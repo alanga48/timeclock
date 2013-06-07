@@ -48,16 +48,7 @@
 		<tr>
 
 			<td colspan="3">
-				WEEKLY TOTALS: 
-				<?php 
-				$count = time() + $week['total_seconds'];
-				if($week['total_seconds'] < 0) {
-					echo sec_to_output($count);
-				
-				} else {
-					echo sec_to_output($week['total_seconds']);
-
-				} ?>   
+				WEEKLY TOTALS: <?=sec_to_output($week['total_seconds'])?>   
 			</td>
 		</tr>
 

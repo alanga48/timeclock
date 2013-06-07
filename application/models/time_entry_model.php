@@ -196,6 +196,9 @@
 
 		private function _calculate_entry_seconds($entry) {
 
+			if(!$entry['end'] || $entry['end'] == '0000-00-00 00:00:00') {
+				return 0;
+			}
 			// Calculate total seconds for entry
 			$start_sec = strtotime($entry['start']);
 			$end_sec = strtotime($entry['end']);
