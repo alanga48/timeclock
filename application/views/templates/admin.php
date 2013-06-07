@@ -7,8 +7,12 @@
 	<head>
 		<link rel="stylesheet" media="screen" type="text/css" href="/assets/css/style.css" />
 		<link rel="stylesheet" media="screen" type="text/css" href="/assets/css/colorbox.css" />
+		<link rel="stylesheet" media="screen" type="text/css" href="/assets/css/jquery-ui-1.10.3.custom.css" />
+		<link rel="stylesheet" media="screen" type="text/css" href="/assets/css/jquery-ui-timepicker.css" />
 		<script type="text/javascript" src="/assets/js/jquery-2.0.2.min.js"></script>
 		<script type="text/javascript" src="/assets/js/jquery.colorbox-min.js"></script>
+		<script type="text/javascript" src="/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+		<script type="text/javascript" src="/assets/js/jquery-ui-timepicker-addon.js"></script>
 		<script type="text/javascript" src="/assets/js/script.js"></script>
 	</head>
  
@@ -25,7 +29,7 @@
 		
 			<p>You are logged in as <?=$this->user['username']?>
 			<a href="/index.php/admin/get_entries">Home</a> / 
-			<a href="#insert_employee" class = "insert_employee">Add a New Employee</a> / 
+			<a href="#insert_employee" class ="modal_popup" class = "insert_employee">Add a New Employee</a> / 
 			<a href="/index.php/user/logout">Log Out</a> 
 	          
 	         <?php echo $body; ?>

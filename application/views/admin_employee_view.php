@@ -1,19 +1,17 @@
 <h1>Timeclock Entries for <?=$user['first_name'] ." ". $user['last_name']; ?></h1>
-<a href="#insert_entry_<?=$user['id'];?>" class="insert_entry">Add New Time Entry</a> 
+<a href="#insert_entry_<?=$user['id'];?>" class="modal_popup">Add New Time Entry</a> 
+
 
 <?php foreach($entries as $week) { ?>
-
+	<h2>WEEK OF: <?=date("m/d/y", strtotime($week['start'])) . " - " . date("m/d/y", strtotime($week['end']))?></h2>
 	<table id="table">
-		<tr>
-			<td div id= "title" colspan="3"><strong>WEEK OF: 
-				<?=date("m/d/y", strtotime($week['start'])) . " - " . date("m/d/y", strtotime($week['end']))?></strong>
-			</td>
-		</tr>
+		
+		
 		<tr>
 			<td>CLOCK IN</td>
 			<td>CLOCK OUT</td>
 			<td>DAILY TOTAL</td>
-			<td>EDIT</td>
+			<td>ACTIONS</td>
 		</tr>
 		<?php foreach($week['entries'] as $entry) { ?>
 
@@ -23,9 +21,9 @@
 				<div class = "hidden">
 					<?= form_open('time_entry/update', $attributes = array('id' => 'update_entry_' . $entry['id'], 'input type' => 'text'), array('id' => $entry['id'], 'user_id' => $entry['user_id']) ) ?>
 						<label for="start">Start</label>
-						<?= form_input('start', '', 'id="start"') ?>
+						<?= form_input('start', date("m/d/Y H:i", strtotime($entry['start']) ), 'class="datetimepicker"') ?>
 						<label for="end">End</label>
-						<?= form_input('end', '', 'id="end"') ?>
+						<?= form_input('end', date("m/d/Y H:i", strtotime($entry['end']) ), 'class="datetimepicker"') ?>
 						<?= form_submit('submit', 'Submit') ?>
 					<?= form_close() ?>
 				</div>
@@ -50,8 +48,8 @@
 					}
 				?>
 			</td>
-			<td><a href="#update_entry_<?=$entry['id']?>" class="edit_entry">Update</a></td>
-			<td><a href="/index.php/time_entry/delete/<?=$entry['id']?>" onclick="return confirm('Are you sure you want to delete this time entry?')">Delete</a></td>
+			<td><a href="#update_entry_<?=$entry['id']?>" class ="modal_popup" class="edit_entry">Update</a> | 
+			<a href="/index.php/time_entry/delete/<?=$entry['id']?>" onclick="return confirm('Are you sure you want to delete this time entry?')">Delete</a></td>
 
 		</tr>
 		<?php } ?>
@@ -68,9 +66,9 @@
 <div class = "hidden">
 	<?= form_open('time_entry/insert_entry', $attributes = array('id' => 'insert_entry_' . $entry['user_id']), array('user_id' => $entry['user_id']) ) ?>
 		<label for="start">Start</label>
-		<?= form_input('start', $entry['start'], 'id="start"') ?>
+		<?= form_input('start', date("m/d/Y H:i"), 'class="datetimepicker"') ?>
 		<label for="end">End (Optional)</label>
-		<?= form_input('end', $entry['end'], 'id="end"') ?>
+		<?= form_input('end', date("m/d/Y H:i"), 'class="datetimepicker"') ?>
 		<?= form_submit('submit', 'Submit') ?>
 	<?= form_close() ?>
 </div>

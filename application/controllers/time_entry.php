@@ -58,11 +58,15 @@ class Time_entry extends CI_Controller {
 
 	public function update() {
 
-		$this->load->model('time_entry_model');
-
 		$id = $this->input->post('id');
-		$start = $this->input->post('start');
-		$end = $this->input->post('end');
+		
+		$start = DateTime::createFromFormat('m/d/Y H:i', $this->input->post('start'));
+		$start = $start->format('Y-m-d H:i:s');
+		
+		$end = DateTime::createFromFormat('m/d/Y H:i', $this->input->post('end'));
+		$end = $end->format('Y-m-d H:i:s');
+
+		$this->load->model('time_entry_model');
 		
 		$entry = $this->time_entry_model->get_entry($id);
 
@@ -88,7 +92,15 @@ class Time_entry extends CI_Controller {
 
 	public function insert_entry() {
 		
-		$this->time_entry_model->insert_entry($this->input->post());
+		$user_id = $this->input->post('user_id');
+		
+		$start = DateTime::createFromFormat('m/d/Y H:i', $this->input->post('start'));
+		$start = $start->format('Y-m-d H:i:s');
+		
+		$end = DateTime::createFromFormat('m/d/Y H:i', $this->input->post('end'));
+		$end = $end->format('Y-m-d H:i:s');
+
+		$this->time_entry_model->insert_entry($user_id, $start, $end);
 
 		redirect('admin/view_employee/' . $this->input->post('user_id') );
 	}

@@ -7,7 +7,7 @@
 			
 			$this->db->where('user_id', $user_id);
 			//$this->db->where('end !=', 'NULL');
-			$this->db->order_by('id', 'desc');
+			$this->db->order_by('start', 'desc');
 			$result = $this->db->get('time_entry');
 			
 			$entries = $result->result_array();
@@ -154,11 +154,11 @@
 
 		}
 
-		public function insert_entry($array) {
+		public function insert_entry($user_id, $start, $end) {
 
-			$array = array('user_id' => $this->input->post('user_id'),
-					       'start' => $this->input->post('start'),
-					       'end' => $this->input->post('end'));
+			$array = array('user_id' => $user_id,
+					       'start' => $start,
+					       'end' => $end);
 			
 
 			$this->db->insert('time_entry', $array);

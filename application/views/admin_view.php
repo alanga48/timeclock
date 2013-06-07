@@ -1,6 +1,3 @@
-
-
-
 <h1>Employee and Timeclock Summary</h1>
 
 
@@ -25,7 +22,7 @@
 	<h3><?=$user['first_name'] . " " . $user['last_name'] . " #" . $user['id']?></h3> 
 	<p>
 		<a href="/index.php/admin/delete_employee/<?=$user['id']?>" onclick="return confirm('Are you sure you want to delete this employee?')">Delete Employee</a> /
-		<a href="#update_form_<?=$user['id']?>" class="edit_employee">Edit Employee Info</a> /
+		<a href="#update_form_<?=$user['id']?>" class ="modal_popup" class="edit_employee">Edit Employee Info</a> /
 		<a href="/index.php/admin/view_employee/<?=$user['id']?>">View TimeClock Detail</a>
 
 	<table id="table_admin">
