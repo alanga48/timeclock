@@ -25,25 +25,16 @@ $(document).ready( function() {
 				$.colorbox.resize();
 			}
 
-		});
+		})
 	})
 
-	
 	$('.clear').click( function() {
 
-		$('.clearable').val('');
+		$(this).parent().find('.clearable').val('');
 
 	})
-
-	// $('.clear').each().click( function() {
-	// 	$(this).clear({
-
-	// 	$('.clearable').val('');
-
-	// 	})
-	// })
-
-
+	
 
 });
 
+	

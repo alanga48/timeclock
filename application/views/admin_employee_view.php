@@ -65,7 +65,7 @@
 		<?= form_input('start', date("m/d/Y H:i"), 'class="datetimepicker clearable"') ?>
 		<label for="end">End (Optional)</label>
 		<?= form_input('end', date("m/d/Y H:i"), 'class="datetimepicker clearable"') ?>
-		<a href="#" class="clear">clear</a>
+		<a href="#" class="clear">Clear</a>
 		<?= form_submit(array('name' => 'submit','value' => 'Submit','id' => 'submit')) ?>
 	<?= form_close() ?>
 </div>

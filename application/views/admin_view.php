@@ -19,7 +19,7 @@
 
 	<h3>EMPLOYEE NAME: <?=$user['first_name'] . " " . $user['last_name'] . " #" . $user['id']?></h3> 
 		
-	<div class="nav_bar">
+	<div class="nav_bar nav_bar_b">
 		<ul>
 		<li><a href="#update_form_<?=$user['id']?>" class ="modal_popup" class="edit_employee">Edit Employee Info</a></li> |
 		<li><a href="/index.php/admin/delete_employee/<?=$user['id']?>" onclick="return confirm('Are you sure you want to delete this employee?')">Delete Employee</a></li> |

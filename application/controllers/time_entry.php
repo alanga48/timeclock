@@ -58,15 +58,25 @@ class Time_entry extends CI_Controller {
 
 	public function update() {
 
+		// print_rr($this->input->post());
+
 		$id = $this->input->post('id');
 		
 		$start = DateTime::createFromFormat('m/d/Y H:i', $this->input->post('start'));
 		$start = $start->format('Y-m-d H:i:s');
 		
-		$end = DateTime::createFromFormat('m/d/Y H:i', $this->input->post('end'));
-		$end = $end->format('Y-m-d H:i:s');
+		if(!$this->input->post('end')) {
+			
+			$end = '0000-00-00 00:00:00';
+		}
+		
+		else {
 
-		$this->load->model('time_entry_model');
+			$end = DateTime::createFromFormat('m/d/Y H:i', $this->input->post('end'));
+			$end = $end->format('Y-m-d H:i:s');
+		}
+
+		
 		
 		$entry = $this->time_entry_model->get_entry($id);
 
