@@ -19,6 +19,7 @@ class Time_entry extends CI_Controller {
 		$data['entries'] = $this->time_entry_model->get_employee_entries($this->user['id']);
 		$data['open_entry'] = $this->time_entry_model->open_entry();
 
+
 		$this->template->load('default','home_view', $data);
 		
 	}

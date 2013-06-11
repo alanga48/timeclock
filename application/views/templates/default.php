@@ -1,3 +1,6 @@
+<!-- Display dashes for clock out time when open entry  -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 	<meta charset="utf-8" />

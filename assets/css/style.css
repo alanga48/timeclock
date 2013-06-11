@@ -14,8 +14,10 @@ h2, h3, h4 {
 
 .week_title {
 
-	background: #E8EDE0;
+	background: #DFE3D8;
+	border: 6px solid white;
 }
+
 
 p {
 
@@ -75,13 +77,13 @@ tr {
 
 tr:nth-child(odd) {
 
-	background: #E8EDE0;
+	background: #ffffff;
 	
 }
 
 tr:nth-child(even) {
 
-	background: #ffffff;
+	background: #E8EDE0;
 	
 }
 
