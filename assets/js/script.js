@@ -33,8 +33,15 @@ $(document).ready( function() {
 		$(this).parent().find('.clearable').val('');
 
 	})
-	
 
+	$('.details_box').hide();
+
+	$('.details').click(function (e) {
+		e.preventDefault();
+		href = $(this).attr('href');
+		$(href).slideToggle(500);
+	})
+	
 });
 
 	

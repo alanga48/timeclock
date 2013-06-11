@@ -5,11 +5,16 @@ h1 {
 	font-family: Trebuchet MS;
 }
 
-h2, h3 {
+h2, h3, h4 {
 
 	color: #102E37;
 	text-align: center;
 	font-family: Trebuchet MS;
+}
+
+.week_title {
+
+	background: #E8EDE0;
 }
 
 p {
