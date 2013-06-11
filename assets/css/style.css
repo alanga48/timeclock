@@ -197,3 +197,13 @@ input {
 	color: purple;
 
 }
+
+label.invalid {
+	color: red;
+	font-style: italic;
+	font-family: Trebuchet MS;
+	display: block;
+	padding: 0 0 20px 0;
+}
+
+input.invalid { border-color: red;}

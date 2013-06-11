@@ -3,15 +3,15 @@
 
 	<div class="hidden">
 
-		<?= form_open('admin/edit_employee', $attributes = array('id' => 'update_form_' . $user['id']), $id = array('id'=>$user['id']) ) ?>
-			<label for='first_name'>First Name</label>
-				<?= form_input('first_name',$user['first_name'], 'id="first_name"') ?>
-			<label for='last_name'>Last Name</label>
-				<?= form_input('last_name',$user['last_name'], 'id="last_name"') ?>
-			<label for='username'>Username</label>
-				<?= form_input('username',$user['username'], 'id="username"') ?>
-			<label for='password'>Password</label>
-				<?= form_password('password',$user['password'], 'id="password"') ?>
+		<?= form_open('admin/edit_employee', $attributes = array('name' => 'edit_employee', 'id' => 'update_form_' . $user['id'], 'class' => 'validate'), array('id'=>$user['id']) ) ?>
+			<label for='first_name_<?=$user['id']?>'>First Name</label>
+				<?= form_input(array('name'=>'first_name', 'value'=>$user['first_name'], 'id' =>'first_name_' . $user['id'], 'class'=>'required')) ?>
+			<label for='last_name_<?=$user['id']?>'>Last Name</label>
+				<?= form_input(array('name'=>'last_name', 'value'=>$user['last_name'], 'id' =>'last_name_' . $user['id'], 'class'=>'required')) ?>
+			<label for='username_<?=$user['id']?>'>Username</label>
+				<?= form_input(array('name'=>'username', 'value'=>$user['username'], 'id' =>'username_' . $user['id'], 'class'=>'required')) ?>
+			<label for='password_<?=$user['id']?>'>Password</label>
+				<?= form_password(array('name'=>'password', 'value'=>$user['password'], 'id' =>'password_' . $user['id'], 'class'=>'required')) ?>
 			<?= form_submit('submit', 'Update') ?>
 		<?= form_close() ?>
 

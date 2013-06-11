@@ -18,9 +18,10 @@
 				<div class = "hidden">
 					<?= form_open('time_entry/update', $attributes = array('id' => 'update_entry_' . $entry['id'], 'input type' => 'text'), array('id' => $entry['id'], 'user_id' => $entry['user_id']) ) ?>
 						<label for="start">Start</label>
-						<?= form_input('start', date("m/d/Y H:i", strtotime($entry['start']) ), 'class="datetimepicker"') ?>
+						<?= form_input('start', date("m/d/Y H:i", strtotime($entry['start']) ), 'class="datetimepicker clearable"') ?>
 						<label for="end">End</label>
-						<?= form_input('end', date("m/d/Y H:i", strtotime($entry['end']) ), 'class="datetimepicker"') ?>
+						<?= form_input('end', date("m/d/Y H:i", strtotime($entry['end']) ), 'class="datetimepicker clearable"') ?>
+						<a href="#" class="clear">clear</a>
 						<?= form_submit('submit', 'Submit') ?>
 					<?= form_close() ?>
 				</div>
@@ -61,9 +62,10 @@
 <div class = "hidden">
 	<?= form_open('time_entry/insert_entry', $attributes = array('id' => 'insert_entry_' . $entry['user_id']), array('user_id' => $entry['user_id']) ) ?>
 		<label for="start">Start</label>
-		<?= form_input('start', date("m/d/Y H:i"), 'class="datetimepicker"') ?>
+		<?= form_input('start', date("m/d/Y H:i"), 'class="datetimepicker clearable"') ?>
 		<label for="end">End (Optional)</label>
-		<?= form_input('end', date("m/d/Y H:i"), 'class="datetimepicker"') ?>
-		<?= form_submit('submit', 'Submit') ?>
+		<?= form_input('end', date("m/d/Y H:i"), 'class="datetimepicker clearable"') ?>
+		<a href="#" class="clear">clear</a>
+		<?= form_submit(array('name' => 'submit','value' => 'Submit','id' => 'submit')) ?>
 	<?= form_close() ?>
 </div>

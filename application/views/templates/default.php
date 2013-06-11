@@ -13,8 +13,10 @@
 		<script type="text/javascript" src="/assets/js/jquery.colorbox-min.js"></script>
 		<script type="text/javascript" src="/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
 		<script type="text/javascript" src="/assets/js/jquery-ui-timepicker-addon.js"></script>
+		<script type="text/javascript" src="/assets/js/jquery-validation.js"></script>
 		<script type="text/javascript" src="/assets/js/script.js"></script>
 	</head>
+ 
  
    <body>
        

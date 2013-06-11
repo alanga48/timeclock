@@ -13,6 +13,7 @@
 		<script type="text/javascript" src="/assets/js/jquery.colorbox-min.js"></script>
 		<script type="text/javascript" src="/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
 		<script type="text/javascript" src="/assets/js/jquery-ui-timepicker-addon.js"></script>
+		<script type="text/javascript" src="/assets/js/jquery-validation.js"></script>
 		<script type="text/javascript" src="/assets/js/script.js"></script>
 	</head>
  
@@ -42,15 +43,15 @@
     	</div>       
 
 	 	<div class = "hidden">
-			<?= form_open('admin/insert_employee', $attributes = array('id' => 'insert_employee') ) ?>
-				<label for="first_name">First Name </label>			
-				<?= form_input('first_name') ?>
-				<label for="last_name">Last Name</label>
-				<?= form_input('last_name') ?>
-				<label for="username">Username</label>
-				<?= form_input('username') ?>
-				<label for="password">Password</label>
-				<?= form_password('password'); ?>
+			<?= form_open('admin/insert_employee', $attributes = array('name' => 'insert_employee', 'id' => 'insert_employee', 'class' => 'validate') ) ?>
+				<label for='first_name_new'>First Name</label>
+				<?= form_input(array('name'=>'first_name', 'id' =>'first_name_new', 'class'=>'required')) ?>
+			<label for='last_name_new'>Last Name</label>
+				<?= form_input(array('name'=>'last_name', 'id' =>'last_name_new', 'class'=>'required')) ?>
+			<label for='username_new'>Username</label>
+				<?= form_input(array('name'=>'username', 'id' =>'username_new', 'class'=>'required')) ?>
+			<label for='password_new'>Password</label>
+				<?= form_password(array('name'=>'password', 'id' =>'password_new', 'class'=>'required')) ?>
 				<label for="role">Role</label>
 				<?= form_dropdown('role', array('employee' => 'Employee', 'administrator' => 'Administrator'), 'employee' ); ?>
 				<br><br><button type='submit'>Submit</button>
