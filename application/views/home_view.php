@@ -1,7 +1,7 @@
 <?php foreach($entries as $week) { ?>
 
 <h3>WEEK OF: <?=date("m/d/y", strtotime($week['start'])) . " - " . date("m/d/y", strtotime($week['end']))?></h3>
-	<table id="table">
+	<table>
 		<tr>
 			<th>CLOCK IN</th>
 			<th>CLOCK OUT</th>

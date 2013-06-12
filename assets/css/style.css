@@ -3,36 +3,35 @@ h1 {
 	color: #102E37;
 	text-align: center;
 	font-family: Trebuchet MS;
+	font-size: 30px;
+	padding: 1em;
 }
 
-h2, h3, h4 {
+h2 {
 
+	font-size: 20px;
+	padding: 0 0 1em 0;
 	color: #102E37;
 	text-align: center;
 	font-family: Trebuchet MS;
 }
 
-.week_title {
+h3 {
 
-	background: #8FD8D8;
+	font-size: 18px;
+	color: #102E37;
+	text-align: center;
+	font-family: Trebuchet MS;
+	padding: 0 0 1.5em 0;
 }
 
-.week_title h4 {
+h4 {
 
-	color: #FFFFFF;
+	font-size: 16px;
+	color: #102E37;
+	text-align: center;
+	font-family: Trebuchet MS;
 }
-
-.week_title a {
-
-	color: #FFFF99;
-	text-decoration: none;
-}
-
-.week_title a:hover {
-
-	color: white;
-}
-
 
 p {
 
@@ -63,25 +62,44 @@ body {
 	text-align: right;
 }
 
-#table {
+.week_title {
 
-	border-collapse:collapse;
-	width: 700px;
-	margin: 0 auto;
+	padding: 10px;
+	margin: 15px 0 15px 0;
+	width: 100%;
+	background: #2BBBD8;
+
 }
 
-#table_admin{
+.week_title h4 {
+
+	color: white;
+	font-size: 18px;
+}
+
+.week_title a {
+
+	color: #FFFF99;
+	text-decoration: none;
+}
+
+.week_title a:hover {
+
+	color: blue;
+}
+
+table {
 
 	border-collapse:collapse;
-	width: 700px;
-	margin: 0 auto;
+	width:100%;
+	margin: 25px 0 25px 0;
+	border: 1px solid #DDE3D3;
 }
 
 td { 
 
 	color: ##6B6C64;
 	padding: 15px;
-	width: 10em;
 	text-align: center;
 	border-collapse:collapse;
 }
@@ -90,7 +108,6 @@ tr {
 
 	color: ##6B6C64;
 	padding: 15px;
-	width: 10em;
 	text-align: center;
 
 }
@@ -113,6 +130,7 @@ th {
 	background: #ffffff;
 	padding: 15px;
 	border-collapse:collapse;
+	text-align: center;
 }
 
 form {
@@ -170,10 +188,11 @@ input {
 
 	text-align: center;
 	background: #2BBBD8;
-	width: 680px;
+	width: 100%;
 	margin: 0 auto;
 	padding: 10px;
 	color: #FFFF99;
+	border-radius: 15px;
 
 }
 .nav_bar ul {
@@ -201,13 +220,6 @@ input {
 	color: #FFFF99;
 }
 
-.nav_bar_b {
-
-	background-color: #8FD8D8;
-}
-
-
-
 .button {
 
 	text-align: center;
@@ -221,7 +233,6 @@ input {
 	color: white;
 	font-weight: bold;
 	
-
 }
 
 .button a:hover {

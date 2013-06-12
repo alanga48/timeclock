@@ -22,20 +22,12 @@
 		<i class="icon-pencil"> </i><a href="#update_form_<?=$user['id']?>" class ="modal_popup" class="edit_employee">Edit</a> |
 		<i class="icon-remove"> </i><a href="/index.php/admin/delete_employee/<?=$user['id']?>" onclick="return confirm('Are you sure you want to delete this employee?')">Delete</a>
 	</p> 
-		
-	<!-- <div class="nav_bar nav_bar_b">
-		<ul>
-		<li><a href="#update_form_<?=$user['id']?>" class ="modal_popup" class="edit_employee">Edit Employee Info</a></li> |
-		<li><a href="/index.php/admin/delete_employee/<?=$user['id']?>" onclick="return confirm('Are you sure you want to delete this employee?')">Delete Employee</a></li> |
-		<li><a href="/index.php/admin/view_employee/<?=$user['id']?>">View TimeClock Detail</a></li> 
-		</ul>
-	</div> -->
 
 	<table id="table_admin">
 		<thead id="thead_admin">		
 			<tr>
-				<th>Week Of:</th>
-				<th>Week Total: </th>
+				<th>WEEK OF</th>
+				<th>WEEK TOTAL: </th>
 			</tr>
 		</thead>
 

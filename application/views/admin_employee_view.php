@@ -10,8 +10,8 @@ foreach($entries as $week) {
 		<h4>WEEK OF: 
 			<?=date("m/d/y", strtotime($week['start'])) . " - " . date("m/d/y", strtotime($week['end']))?>, 
 			<?=sec_to_output($week['total_seconds']) ?>. 
-			<a href="#details_<?=$week_number?>" class="details">Details</a> |
-			<a href="#insert_entry_<?=$user['id'];?>" class="modal_popup">New Entry</a>
+			<a href="#insert_entry_<?=$user['id'];?>" class="modal_popup">New Entry</a> |
+			<a href="#details_<?=$week_number?>" class="details">Details</a> 
 		</h4>
 	</div>
 

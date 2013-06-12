@@ -5,6 +5,7 @@
 	<title>BTP TimeClock</title>
 
 	<head>
+		<link rel="stylesheet" media="screen" type="text/css" href="/assets/css/reset.css" />
 		<link rel="stylesheet" media="screen" type="text/css" href="/assets/css/style.css" />
 		<link rel="stylesheet" media="screen" type="text/css" href="/assets/css/colorbox.css" />
 		<link rel="stylesheet" media="screen" type="text/css" href="/assets/css/jquery-ui-1.10.3.custom.css" />
@@ -15,7 +16,7 @@
 		<script type="text/javascript" src="/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
 		<script type="text/javascript" src="/assets/js/jquery-ui-timepicker-addon.js"></script>
 		<script type="text/javascript" src="/assets/js/jquery-validation.js"></script>
-		<script type="text/javascript" src="/assets/js/jquery-validation.js"></script>
+		<script type="text/javascript" src="/assets/js/script.js"></script>
 	</head>
  
    <body>
