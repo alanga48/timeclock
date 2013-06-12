@@ -1,13 +1,21 @@
-<h3>EMPLOYEE NAME: <?=$user['first_name'] ." ". $user['last_name']; ?></h3>
-<?php $i = 0; 
-foreach($entries as $week) { $i++; ?>
+<script type="text/javascript" src="/assets/js/employee_admin.js"></script>
 
-	<div class="week_title">
-		<h4>WEEK OF: <?=date("m/d/y", strtotime($week['start'])) . " - " . date("m/d/y", strtotime($week['end']))?>, <?=sec_to_output($week['total_seconds']) ?>. <a href="#details_<?=$i?>" class="details">Details</a></h4>
+<h3>EMPLOYEE NAME: <?=$user['first_name'] ." ". $user['last_name']; ?></h3>
+<?php 
+foreach($entries as $week) { 
+
+	$week_number = date("W", strtotime($week['start'])); ?>
+
+	<div class="week_title" id="week_<?=$week_number?>">
+		<h4>WEEK OF: 
+			<?=date("m/d/y", strtotime($week['start'])) . " - " . date("m/d/y", strtotime($week['end']))?>, 
+			<?=sec_to_output($week['total_seconds']) ?>. 
+			<a href="#details_<?=$week_number?>" class="details">Details</a> |
+			<a href="#insert_entry_<?=$user['id'];?>" class="modal_popup">New Entry</a>
+		</h4>
 	</div>
 
-	<div class="details_box" id="details_<?=$i?>">
-		<div class="button"><a href="#insert_entry_<?=$user['id'];?>" class="modal_popup">Add New Time Entry</a></div>
+	<div class="details_box" id="details_<?=$week_number?>">
 		<table class="table">
 			<tr>
 				<th>CLOCK IN</th>

@@ -14,8 +14,23 @@ h2, h3, h4 {
 
 .week_title {
 
-	background: #DFE3D8;
-	border: 6px solid white;
+	background: #8FD8D8;
+}
+
+.week_title h4 {
+
+	color: #FFFFFF;
+}
+
+.week_title a {
+
+	color: #FFFF99;
+	text-decoration: none;
+}
+
+.week_title a:hover {
+
+	color: white;
 }
 
 
@@ -23,9 +38,14 @@ p {
 
 	text-align: center;
 }
+
+.employee_info {
+
+	font-size: 18px;
+}
 #wrapper {
 
-	width: 700px;
+	width: 750px;
 	margin: 25px auto 0;
 	background: white;
 	color: #102E37;
@@ -77,13 +97,13 @@ tr {
 
 tr:nth-child(odd) {
 
-	background: #ffffff;
+	background: #EDF5E1;
 	
 }
 
 tr:nth-child(even) {
 
-	background: #E8EDE0;
+	background: #DDE3D3;
 	
 }
 
@@ -178,7 +198,7 @@ input {
 
 .nav_bar a:hover {
 
-	color: purple;
+	color: #FFFF99;
 }
 
 .nav_bar_b {

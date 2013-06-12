@@ -17,15 +17,19 @@
 
 	</div>
 
-	<h3>EMPLOYEE NAME: <?=$user['first_name'] . " " . $user['last_name'] . " #" . $user['id']?></h3> 
+	<p class="employee_info">
+		EMPLOYEE NAME: <?=$user['first_name'] . " " . $user['last_name'] . " #" . $user['id']?>
+		<i class="icon-pencil"> </i><a href="#update_form_<?=$user['id']?>" class ="modal_popup" class="edit_employee">Edit</a> |
+		<i class="icon-remove"> </i><a href="/index.php/admin/delete_employee/<?=$user['id']?>" onclick="return confirm('Are you sure you want to delete this employee?')">Delete</a>
+	</p> 
 		
-	<div class="nav_bar nav_bar_b">
+	<!-- <div class="nav_bar nav_bar_b">
 		<ul>
 		<li><a href="#update_form_<?=$user['id']?>" class ="modal_popup" class="edit_employee">Edit Employee Info</a></li> |
 		<li><a href="/index.php/admin/delete_employee/<?=$user['id']?>" onclick="return confirm('Are you sure you want to delete this employee?')">Delete Employee</a></li> |
 		<li><a href="/index.php/admin/view_employee/<?=$user['id']?>">View TimeClock Detail</a></li> 
 		</ul>
-	</div>
+	</div> -->
 
 	<table id="table_admin">
 		<thead id="thead_admin">		
@@ -37,12 +41,10 @@
 
 		<tbody>
 		<?php foreach($user['weeks'] as $week) { ?>
+			<?php $week_number = date("W", strtotime($week['start']) )?>
 			<tr>
 				<td><?=$week['start'] . " - " . $week['end']?></td>
-				<td><?=sec_to_output($week['total_seconds'])?>
-
-
-				</td>
+				<td><a href="/index.php/admin/view_employee/<?=$user['id']?>/#details_<?=$week_number?>"><?=sec_to_output($week['total_seconds'])?></a></td>
 			</tr>
 		<?php } ?>
 		</tbody>				

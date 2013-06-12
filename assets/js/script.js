@@ -36,12 +36,23 @@ $(document).ready( function() {
 
 	$('.details_box').hide();
 
+
+
 	$('.details').click(function (e) {
 		e.preventDefault();
 		href = $(this).attr('href');
+		console.log(href);
 		$(href).slideToggle(500);
 	})
-	
+
 });
+
+
+// function expand(target) {
+
+// 	$(target).slideToggle(500);
+
+
+// }
 
 	
