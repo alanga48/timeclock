@@ -24,7 +24,6 @@
 				}
 
 				$entry['total_seconds'] = $this->_calculate_entry_seconds($entry);
-				print_rr($entry, false);
 
 				$grouped_entries[$week_number]['entries'][] = $entry; 
 
