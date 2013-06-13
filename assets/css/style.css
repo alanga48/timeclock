@@ -44,11 +44,11 @@ p {
 }
 #wrapper {
 
-	width: 750px;
+	width: 960px;
 	margin: 25px auto 0;
 	background: white;
 	color: #102E37;
-	padding: 3em;
+	padding: 0 2em 2em 2em;
 }
 
 body {
@@ -65,8 +65,7 @@ body {
 .week_title {
 
 	padding: 10px;
-	margin: 15px 0 15px 0;
-	width: 100%;
+	margin: 15px 0 0 0;
 	background: #2BBBD8;
 
 }
@@ -91,9 +90,15 @@ body {
 table {
 
 	border-collapse:collapse;
-	width:100%;
-	margin: 25px 0 25px 0;
+	width: 100%;
+	margin: 0 0 25px 0;
 	border: 1px solid #DDE3D3;
+}
+
+.admin_table {
+
+	margin: 2em 0 0 0;
+
 }
 
 td { 
@@ -127,7 +132,7 @@ tr:nth-child(even) {
 th {
 
 	color: black;
-	background: #ffffff;
+	background: #C3E2E8;
 	padding: 15px;
 	border-collapse:collapse;
 	text-align: center;
@@ -187,18 +192,13 @@ input {
 .nav_bar {
 
 	text-align: center;
-	background: #2BBBD8;
-	width: 100%;
-	margin: 0 auto;
+	background: #156C7D;
 	padding: 10px;
 	color: #FFFF99;
-	border-radius: 15px;
-
 }
 .nav_bar ul {
 
 	list-style-type: none;
-	margin: 0;
 
 }
 

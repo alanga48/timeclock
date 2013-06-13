@@ -23,8 +23,8 @@
 		<i class="icon-remove"> </i><a href="/index.php/admin/delete_employee/<?=$user['id']?>" onclick="return confirm('Are you sure you want to delete this employee?')">Delete</a>
 	</p> 
 
-	<table id="table_admin">
-		<thead id="thead_admin">		
+	<table class="admin_table">
+		<thead>		
 			<tr>
 				<th>WEEK OF</th>
 				<th>WEEK TOTAL: </th>
