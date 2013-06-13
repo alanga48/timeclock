@@ -11,10 +11,10 @@ class Time_entry extends CI_Controller {
 
 	public function all_entries() {
 
-		$this->load->model('time_entry_model');
-		
-		//store the result in a multidemensional array in order to access the first
-		//level as variables in the view
+		if($session_id = $this->session->userdata('role')) {
+
+			redirect('/admin/get_entries');
+		}
 		
 		$data['entries'] = $this->time_entry_model->get_employee_entries($this->user['id']);
 		$data['open_entry'] = $this->time_entry_model->open_entry();

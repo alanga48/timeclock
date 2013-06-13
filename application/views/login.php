@@ -4,9 +4,11 @@
 
 	<?php
 
+	$user_placeholder = 'placeholder="Username"';
+	$password_placeholder = 'placeholder="Password"';
 	echo form_open('user/verify_credentials');
-	echo form_input('username', 'Username');
-	echo form_password('password', 'Password');
+	echo form_input('username', '',  $user_placeholder);
+	echo form_password('password', '', $password_placeholder);
 	echo form_submit('submit', 'Log In');
 
 	?>
