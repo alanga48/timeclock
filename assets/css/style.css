@@ -44,11 +44,11 @@ p {
 }
 #wrapper {
 
-	width: 960px;
+	width: 900px;
 	margin: 25px auto 0;
 	background: white;
 	color: #102E37;
-	padding: 0 2em 2em 2em;
+	padding: 0 30px 30px 30px;
 }
 
 body {
@@ -195,6 +195,7 @@ input {
 	background: #156C7D;
 	padding: 10px;
 	color: #FFFF99;
+	margin: 0 -30px;
 }
 .nav_bar ul {
 
