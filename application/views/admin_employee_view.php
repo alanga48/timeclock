@@ -55,7 +55,7 @@ foreach($entries as $week) {
 					<?php if($entry['end'] == '0000-00-00 00:00:00') { 
 						echo ' - ';
 						} else { 
-							echo date("H:i:s", $entry['total_seconds']);
+							echo gmdate("H:i:s", $entry['total_seconds']);
 						}
 					?>
 				</td>
