@@ -22,7 +22,7 @@
    <body>
        
       
-
+   		<?php date_default_timezone_set('America/Denver'); ?>
 		<?php if($this->session->userdata('is_logged_in') == TRUE ) { ?>
 
 		<div id="wrapper">

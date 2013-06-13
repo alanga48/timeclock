@@ -21,7 +21,9 @@
  
    <body>
 
+   		<?php date_default_timezone_set('America/Denver'); ?>
 
+   		<?php date("Y-m-d H:i:s", time()); ?>
       	<div id="wrapper">
 	      	
 	      	<?php if ($this->session->flashdata('message')) { ?>
