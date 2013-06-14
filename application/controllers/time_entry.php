@@ -11,7 +11,7 @@ class Time_entry extends CI_Controller {
 
 	public function all_entries() {
 
-		if($session_id = $this->session->userdata('role')) {
+		if($session_id = $this->session->userdata('role') == 'admin') {
 
 			redirect('/admin/get_entries');
 		}

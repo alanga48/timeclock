@@ -31,7 +31,7 @@ class User extends CI_Controller {
 
 			} else {
 			
-				redirect('/');
+				redirect('/time_entry/all_entries');
 
 			}
 		}
