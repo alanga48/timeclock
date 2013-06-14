@@ -10,7 +10,16 @@ class Home extends CI_Controller {
 
 
 	public function index()	{		
-		redirect('time_entry/all_entries');
+		
+		if($logged_in) {
+
+			redirect('time_entry/all_entries');
+		}
+		else {
+
+			redirect('user/login'); exit();
+		}
+		
 	}
 
 	private function _is_logged_in() {

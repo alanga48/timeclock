@@ -37,22 +37,25 @@ $(document).ready( function() {
 	$('.details_box').hide();
 
 
-
 	$('.details').click(function (e) {
 		e.preventDefault();
 		href = $(this).attr('href');
 		console.log(href);
-		$(href).slideToggle(500);
+
+		if ( $(href).is(":visible") ) {
+			$(this).find('i').removeClass('icon-collapse').addClass('icon-expand');
+		} else {
+			$(this).find('i').removeClass('icon-expand').addClass('icon-collapse');
+		}
+
+
+		$(href).slideToggle(200, function() { 
+			//$('i').removeClass('icon-expand-alt').addClass('icon-collapse-alt');
+		});
 	})
 
-});
-
-
-// function expand(target) {
-
-// 	$(target).slideToggle(500);
-
-
-// }
 
 	
+});
+
+// function() { $('<i class="icon-expand-alt"></i>').html('<i class="icon-collapse-alt"></i>') } 

@@ -17,29 +17,38 @@
 
 	</div>
 
-	<p class="employee_info">
-		EMPLOYEE NAME: <?=$user['first_name'] . " " . $user['last_name'] . " #" . $user['id']?>
-		<i class="icon-pencil"> </i><a href="#update_form_<?=$user['id']?>" class ="modal_popup" class="edit_employee">Edit</a> |
-		<i class="icon-remove"> </i><a href="/index.php/admin/delete_employee/<?=$user['id']?>" onclick="return confirm('Are you sure you want to delete this employee?')">Delete</a>
-	</p> 
+	
+		<div class="title">
+			<h4>
+				<?=$user['first_name'] . " " . $user['last_name'] . " #" . $user['id']?> |
+				<a href="#details_<?=$user['id']?>" class="details"><i class="icon-expand"></i>Week Summary</a> |
+				<a href="/index.php/admin/view_employee/<?=$user['id']?>"><i class="icon-time"> </i>Timeclock Details</a> |
+				<a href="#update_form_<?=$user['id']?>" class ="modal_popup" class="edit_employee"><i class="icon-pencil"></i>Edit Employee</a> |
+				<a href="/index.php/admin/delete_employee/<?=$user['id']?>" onclick="return confirm('Are you sure you want to delete this employee?')"><i class="icon-remove"></i>Delete Employee</a> 
+			</h4>
+		</div>
+		
+		<div class="details_box" id="details_<?=$user['id']?>"> 
+			<table class="table">
+				<thead>		
+					<tr>
+						<th>WEEK OF</th>
+						<th>WEEK TOTAL: </th>
+					</tr>
+				</thead>
 
-	<table class="admin_table">
-		<thead>		
-			<tr>
-				<th>WEEK OF</th>
-				<th>WEEK TOTAL: </th>
-			</tr>
-		</thead>
+				<tbody>
+				<?php foreach($user['weeks'] as $week) { ?>
+					<?php $week_number = date("W", strtotime($week['start']) )?>
+					<tr>
+						<td><?=$week['start'] . " - " . $week['end']?></td>
+						<td><a href="/index.php/admin/view_employee/<?=$user['id']?>/#details_<?=$week_number?>"><?=sec_to_output($week['total_seconds'])?></a></td>
+					</tr>
+				<?php } ?>
+				</tbody>				
+			</table>
+		</div> 
+	
 
-		<tbody>
-		<?php foreach($user['weeks'] as $week) { ?>
-			<?php $week_number = date("W", strtotime($week['start']) )?>
-			<tr>
-				<td><?=$week['start'] . " - " . $week['end']?></td>
-				<td><a href="/index.php/admin/view_employee/<?=$user['id']?>/#details_<?=$week_number?>"><?=sec_to_output($week['total_seconds'])?></a></td>
-			</tr>
-		<?php } ?>
-		</tbody>				
-	</table>
 <?php } ?>
 		

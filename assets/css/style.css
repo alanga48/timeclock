@@ -1,18 +1,24 @@
+body {
+	background-image:url('/assets/images/low_contrast_linen.png');
+	background-attachment: fixed;
+	font-family: Tahoma, sans-serif;
+	font-size: 14px;
+	line-height: 18px;
+}
+
 h1 {
 
 	color: #102E37;
-	text-align: center;
 	font-family: Trebuchet MS;
 	font-size: 30px;
-	padding: 1em;
+	padding: 15px 0 15px 0;
 }
 
 h2 {
 
 	font-size: 20px;
-	padding: 0 0 1em 0;
+	padding: 5px;
 	color: #102E37;
-	text-align: center;
 	font-family: Trebuchet MS;
 }
 
@@ -20,7 +26,7 @@ h3 {
 
 	font-size: 18px;
 	color: #102E37;
-	text-align: center;
+	/*text-align: center;*/
 	font-family: Trebuchet MS;
 	padding: 0 0 1.5em 0;
 }
@@ -29,13 +35,26 @@ h4 {
 
 	font-size: 16px;
 	color: #102E37;
-	text-align: center;
 	font-family: Trebuchet MS;
 }
 
-p {
+h4 a i { 
+	
+	font-size: 18px; 
+	font-weight: normal; 
+	padding: 5px; 
+	color: white;
+	display: inline-block !important;
+}
 
-	text-align: center;
+.link {
+
+	font-size: 16px;
+	color: #102E37;
+	font-family: Trebuchet MS;
+	padding: 15px 0 0 5px;
+	font-weight: bold;
+	text-decoration: none;
 }
 
 .employee_info {
@@ -51,40 +70,37 @@ p {
 	padding: 0 30px 30px 30px;
 }
 
-body {
-	background-image:url('/assets/images/low_contrast_linen.png');
-	background-attachment: fixed;
-	font-family: Tahoma, sans-serif;
-}
+
 
 .logged_in p{
 
 	text-align: right;
 }
 
-.week_title {
+.title {
 
 	padding: 10px;
 	margin: 15px 0 0 0;
 	background: #2BBBD8;
+	text-align: left;
 
 }
 
-.week_title h4 {
+.title h4 {
 
 	color: white;
-	font-size: 18px;
+	font-size: 17px;
 }
 
-.week_title a {
+.title a {
 
 	color: #FFFF99;
 	text-decoration: none;
 }
 
-.week_title a:hover {
+.title a:hover {
 
-	color: blue;
+	color: #156C7D;
 }
 
 table {
@@ -95,17 +111,11 @@ table {
 	border: 1px solid #DDE3D3;
 }
 
-.admin_table {
-
-	margin: 2em 0 0 0;
-
-}
 
 td { 
 
 	color: ##6B6C64;
 	padding: 15px;
-	text-align: center;
 	border-collapse:collapse;
 }
 
@@ -113,7 +123,6 @@ tr {
 
 	color: ##6B6C64;
 	padding: 15px;
-	text-align: center;
 
 }
 
@@ -135,7 +144,6 @@ th {
 	background: #C3E2E8;
 	padding: 15px;
 	border-collapse:collapse;
-	text-align: center;
 }
 
 form {
@@ -186,12 +194,12 @@ input {
 .flash h3{
 
 	font-style: italic;
+	padding: 10px;
 
 }
 
 .nav_bar {
 
-	text-align: center;
 	background: #156C7D;
 	padding: 10px;
 	color: #FFFF99;

@@ -1,17 +1,18 @@
 <script type="text/javascript" src="/assets/js/employee_admin.js"></script>
 
-<h3>EMPLOYEE NAME: <?=$user['first_name'] ." ". $user['last_name']; ?></h3>
+<h2>EMPLOYEE NAME: <?=$user['first_name'] ." ". $user['last_name']; ?></h2>
+<i class="icon-arrow-left"></i><a class="link" href="/index.php/admin/get_entries">Go Back</a>
 <?php 
 foreach($entries as $week) { 
 
 	$week_number = date("W", strtotime($week['start'])); ?>
 
-	<div class="week_title" id="week_<?=$week_number?>">
+	<div class="title" id="week_<?=$week_number?>">
 		<h4>WEEK OF: 
 			<?=date("m/d/y", strtotime($week['start'])) . " - " . date("m/d/y", strtotime($week['end']))?>, 
-			<?=sec_to_output($week['total_seconds']) ?>. 
-			<a href="#insert_entry_<?=$user['id'];?>" class="modal_popup">New Entry</a> |
-			<a href="#details_<?=$week_number?>" class="details">Details</a> 
+			<?=sec_to_output($week['total_seconds']) ?>. | 
+			<i class="icon-plus"></i> <a href="#insert_entry_<?=$user['id'];?>" class="modal_popup">New Entry </a> |
+			<i class="icon-expand-alt"></i> <a href="#details_<?=$week_number?>" class="details">Details</a> 
 		</h4>
 	</div>
 
@@ -34,7 +35,7 @@ foreach($entries as $week) {
 							<?= form_input('start', date("m/d/Y H:i", strtotime($entry['start']) ), 'class="datetimepicker clearable"') ?>
 							<label for="end">End</label>
 							<?= form_input('end', date("m/d/Y H:i", strtotime($entry['end']) ), 'class="datetimepicker clearable"') ?>
-							<a href="#" class="clear">clear</a>
+							<a href="#" class="clear">Clear</a>
 							<?= form_submit('submit', 'Submit') ?>
 						<?= form_close() ?>
 					</div>
