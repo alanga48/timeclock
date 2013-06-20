@@ -19,15 +19,3 @@ function sec_to_output($seconds) {
 
 
 
-// function end_output() {
-
-// 	if($entry['end']) == '0000-00-00 00:00:00') {
-// 		$now = time();
-// 		$entry['end'] = date("m/d/Y H:i", strtotime($now) );
-// 	}
-// 	return $now;
-// }
-
-// echo $now;
-
-// ?>

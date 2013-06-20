@@ -31,7 +31,11 @@
 			</ul>
 		</div>
 
+		<?php if ($this->session->userdata('company') == 'btp') { ?>
 		<h1>By The Pixel Timeclock Entries</h1>
+		<?php } else { ?> 
+		<h1>Reynier's Audio Timeclock Entries</h1>
+		<?php } ?>
 
 		<h3>Employee Name: <?=$this->user['first_name'] ." ". $this->user['last_name']; ?></h3>
 		<?php if($open_entry == 1) { ?>

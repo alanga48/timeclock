@@ -21,7 +21,7 @@ class Admin extends CI_Controller {
 
 		$data['users'] = $users;
 
-		// print_rr($data);
+		//print_rr($data);
 
 		$this->template->load('admin', 'admin_view', $data);
 
@@ -37,6 +37,16 @@ class Admin extends CI_Controller {
 		$this->template->load('admin','admin_employee_view', $data);
 
 	}
+
+	// function view_user_info($user_id) {
+
+	// 	$data['user'] = $this->user_model->get($user_id);
+
+	// 	//print_rr($data);
+
+	// 	$this->template->load('admin','view_user_info', $data);
+
+	// }
 
 	function edit_employee() {
 
@@ -74,6 +84,8 @@ class Admin extends CI_Controller {
 	private function _is_logged_in() {
 
 		$session = $this->session->all_userdata();
+
+		//print_rr($session);
 
 		if( isset($session['is_logged_in']) && $session['is_logged_in'] == 1 && $session['role'] == 'admin') {
 			

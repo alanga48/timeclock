@@ -79,7 +79,7 @@ class User_model extends CI_Model {
 
 		public function get_all() {
 
-			return $this->db->get_where('user', array('role' => 'employee'))->result_array();
+			return $this->db->get_where('user', array('role' => 'employee', 'company' => $this->session->userdata('company') ) )->result_array();
 
 		}
 

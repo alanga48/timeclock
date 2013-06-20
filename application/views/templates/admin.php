@@ -2,7 +2,7 @@
 <html lang="en">
 	<meta charset="utf-8" />
 
-	<title>BTP TimeClock</title>
+	<title>TimeClock</title>
 
 	<head>
 		<link rel="stylesheet" media="screen" type="text/css" href="/assets/css/reset.css" />
@@ -37,7 +37,11 @@
 				</ul> 
 			</div>
 
-			<h1>By The Pixel Timeclock Entries</h1>
+			<?php if($this->session->userdata('company') == 'btp') { ?>
+				<h1>By The Pixel Timeclock Entries</h1>
+			<?php } else { ?>
+				<h1>Reynier's Audio Timeclock Entries</h1>
+			<?php } ?>
 	          
 	         <?php echo $body; ?>
           
@@ -54,10 +58,10 @@
 			<label for='password_new'>Password</label>
 				<?= form_password(array('name'=>'password', 'id' =>'password_new', 'class'=>'required')) ?>
 				<label for="role">Role</label>
-				<?= form_dropdown('role', array('employee' => 'Employee', 'administrator' => 'Administrator'), 'employee' ); ?>
+				<?= form_dropdown('role', array('employee' => 'Employee', 'admin' => 'Administrator'), 'employee' ); ?>
 				<br><br>
 				<label for="company">Company</label>
-				<?= form_dropdown('company', array('by_the_pixel' => 'By The Pixel', 'reyniers_audio' => 'Reyniers Audio'), '' ); ?>
+				<?= form_dropdown('company', array('by_the_pixel' => 'By The Pixel', 'r_audio' => 'Reyniers Audio'), '' ); ?>
 				<br><br><button type='submit'>Submit</button>
 			<?= form_close() ?>
 		</div>
