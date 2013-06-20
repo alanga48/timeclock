@@ -26,9 +26,8 @@ h3 {
 
 	font-size: 18px;
 	color: #102E37;
-	/*text-align: center;*/
 	font-family: Trebuchet MS;
-	padding: 0 0 1.5em 0;
+	padding: 15px 0 15px 0;
 }
 
 h4 {
@@ -227,13 +226,13 @@ input {
 .nav_bar a:hover {
 
 	color: #FFFF99;
+	padding: 0 0 25px 0;
 }
 
 .button {
 
-	text-align: center;
-
-	padding: 10px;
+	text-align: left;
+	padding: 10px 0;
 }
 .button a{
 	padding: 5px;
@@ -246,7 +245,7 @@ input {
 
 .button a:hover {
 
-	color: purple;
+	color: yellow;
 
 }
 

@@ -1,4 +1,5 @@
 <h2>Weekly Timeclock Summary By Employee</h2>
+
 <?php foreach($users as $key => $user) { ?>
 
 	<div class="hidden">
@@ -12,6 +13,8 @@
 				<?= form_input(array('name'=>'username', 'value'=>$user['username'], 'id' =>'username_' . $user['id'], 'class'=>'required')) ?>
 			<label for='password_<?=$user['id']?>'>Password</label>
 				<?= form_password(array('name'=>'password', 'value'=>$user['password'], 'id' =>'password_' . $user['id'], 'class'=>'required')) ?>
+			<label for="company">Company</label>
+			<?= form_dropdown('company', array('btp' => 'By The Pixel', 'r_audio' => 'Reyniers Audio'), '' ); ?>
 			<?= form_submit('submit', 'Update') ?>
 		<?= form_close() ?>
 
@@ -41,7 +44,7 @@
 				<?php foreach($user['weeks'] as $week) { ?>
 					<?php $week_number = date("W", strtotime($week['start']) )?>
 					<tr>
-						<td><?=$week['start'] . " - " . $week['end']?></td>
+						<td><?=date("M d, Y", strtotime($week['start'])) . "  -  " . date("M d, Y", strtotime($week['end']))?></td>
 						<td><a href="/index.php/admin/view_employee/<?=$user['id']?>/#details_<?=$week_number?>"><?=sec_to_output($week['total_seconds'])?></a></td>
 					</tr>
 				<?php } ?>

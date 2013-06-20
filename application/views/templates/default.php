@@ -21,9 +21,7 @@
  
  
    <body>
-       
-      
-   		<?php date_default_timezone_set('America/Denver'); ?>
+
 		<?php if($this->session->userdata('is_logged_in') == TRUE ) { ?>
 
 		<div id="wrapper">
@@ -41,9 +39,9 @@
 		<?php } else { ?>
 			<div class="button"><a href="start">CLOCK IN</a></div>
 		<?php } ?>
-          
-        <h3>Previous Employee Timeclock Entries</h3>
-        	<?php echo $body; ?>
+         
+        
+        <?php echo $body; ?>
  
 
       </div>

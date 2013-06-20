@@ -1,3 +1,4 @@
+<?php date_default_timezone_set('America/Denver'); ?>
 <?php foreach($entries as $week) { ?>
 
 <h3>WEEK OF: <?=date("m/d/y", strtotime($week['start'])) . " - " . date("m/d/y", strtotime($week['end']))?></h3>
@@ -8,6 +9,7 @@
 			<th>DAILY TOTAL</th>
 		</tr>
 		<?php foreach($week['entries'] as $entry) { ?>
+         
 		<tr>
 
 			<td><?=date("m/d/y, g:i a", strtotime($entry['start']))?></td>

@@ -21,11 +21,8 @@
  
    <body>
 
-   		<?php date_default_timezone_set('America/Denver'); ?>
+   		<div id="wrapper">
 
-   		<?php date("Y-m-d H:i:s", time()); ?>
-      	<div id="wrapper">
-	      	
 	      	<?php if ($this->session->flashdata('message')) { ?>
 	      	<div class = "flash">
 				<h3><?= $this->session->flashdata('message'); ?></h3>
@@ -58,6 +55,9 @@
 				<?= form_password(array('name'=>'password', 'id' =>'password_new', 'class'=>'required')) ?>
 				<label for="role">Role</label>
 				<?= form_dropdown('role', array('employee' => 'Employee', 'administrator' => 'Administrator'), 'employee' ); ?>
+				<br><br>
+				<label for="company">Company</label>
+				<?= form_dropdown('company', array('by_the_pixel' => 'By The Pixel', 'reyniers_audio' => 'Reyniers Audio'), '' ); ?>
 				<br><br><button type='submit'>Submit</button>
 			<?= form_close() ?>
 		</div>

@@ -42,7 +42,8 @@ class User_model extends CI_Model {
 					'first_name' => $this->input->post('first_name'),
 					'last_name' => $this->input->post('last_name'),
 					'username' => $this->input->post('username'),
-					'password' => $this->input->post('password')
+					'password' => $this->input->post('password'),
+					'company' => $this->input->post('company')
 				);
 			
 			$this->db->where('id', $this->input->post('id'));
@@ -56,6 +57,12 @@ class User_model extends CI_Model {
 				return $result->result_array();
 
 			}
+
+		}
+
+		public function insert_user($array) {
+
+			$this->db->insert('user', $this->input->post());
 
 		}
 

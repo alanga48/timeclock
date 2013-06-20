@@ -9,8 +9,8 @@ foreach($entries as $week) {
 
 	<div class="title" id="week_<?=$week_number?>">
 		<h4>WEEK OF: 
-			<?=date("m/d/y", strtotime($week['start'])) . " - " . date("m/d/y", strtotime($week['end']))?>, 
-			<?=sec_to_output($week['total_seconds']) ?>. | 
+			<?=date("M d,Y", strtotime($week['start'])) . " - " . date("M d,Y", strtotime($week['end']))?>, 
+			<?=sec_to_output($week['total_seconds']) ?>. 
 			<i class="icon-plus"></i> <a href="#insert_entry_<?=$user['id'];?>" class="modal_popup">New Entry </a> |
 			<i class="icon-expand-alt"></i> <a href="#details_<?=$week_number?>" class="details">Details</a> 
 		</h4>
@@ -24,17 +24,16 @@ foreach($entries as $week) {
 				<th>DAILY TOTAL</th>
 				<th>ACTIONS</th>
 			</tr>
-			<?php foreach($week['entries'] as $entry) { ?>
-			
 
+			<?php foreach($week['entries'] as $entry) { ?>
 			<tr>
 				<td>
 					<div class = "hidden">
 						<?= form_open('time_entry/update', $attributes = array('id' => 'update_entry_' . $entry['id'], 'input type' => 'text'), array('id' => $entry['id'], 'user_id' => $entry['user_id']) ) ?>
 							<label for="start">Start</label>
-							<?= form_input('start', date("m/d/Y H:i", strtotime($entry['start']) ), 'class="datetimepicker clearable"') ?>
+							<?= form_input('start', date("m/d/Y g:i a", strtotime($entry['start']) ), 'class="datetimepicker clearable"') ?>
 							<label for="end">End</label>
-							<?= form_input('end', date("m/d/Y H:i", strtotime($entry['end']) ), 'class="datetimepicker clearable"') ?>
+							<?= form_input('end', date("m/d/Y g:i a", strtotime($entry['end']) ), 'class="datetimepicker clearable"') ?>
 							<a href="#" class="clear">Clear</a>
 							<?= form_submit('submit', 'Submit') ?>
 						<?= form_close() ?>
@@ -45,15 +44,15 @@ foreach($entries as $week) {
 					<?=date("m/d/y, g:i a", strtotime($entry['start']))?>
 				</td>
 				<td>
-					<?php if($entry['end'] == '0000-00-00 00:00:00') { 
+					<?php if($entry['end'] == NULL) { 
 						echo ' - ';
 						} else { 
-							echo date("m/d/y, g:i a", strtotime($entry['end']) ); 
+							echo date("m/d/Y, g:i a", strtotime($entry['end']) ); 
 						}
 					?>
 				</td>
 				<td>
-					<?php if($entry['end'] == '0000-00-00 00:00:00') { 
+					<?php if($entry['end'] == NULL) { 
 						echo ' - ';
 						} else { 
 							echo gmdate("H:i:s", $entry['total_seconds']);

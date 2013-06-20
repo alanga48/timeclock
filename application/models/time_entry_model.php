@@ -83,7 +83,6 @@
 
 			$this->db->where('user_id', $this->user['id']);
 			$this->db->where('end IS NULL');
-			$this->db->or_where('end', '0000-00-00 00:00:00');
 			$query = $this->db->get('time_entry');
 
 			$open_entry = $query->result_array();

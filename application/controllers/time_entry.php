@@ -19,7 +19,6 @@ class Time_entry extends CI_Controller {
 		$data['entries'] = $this->time_entry_model->get_employee_entries($this->user['id']);
 		$data['open_entry'] = $this->time_entry_model->open_entry();
 
-
 		$this->template->load('default','home_view', $data);
 		
 	}
@@ -68,7 +67,7 @@ class Time_entry extends CI_Controller {
 		
 		if(!$this->input->post('end')) {
 			
-			$end = '0000-00-00 00:00:00';
+			$end = NULL;
 		}
 		
 		else {
@@ -108,8 +107,13 @@ class Time_entry extends CI_Controller {
 		$start = DateTime::createFromFormat('m/d/Y H:i', $this->input->post('start'));
 		$start = $start->format('Y-m-d H:i:s');
 		
-		$end = DateTime::createFromFormat('m/d/Y H:i', $this->input->post('end'));
-		$end = $end->format('Y-m-d H:i:s');
+		if(!$this->input->post('end')) {
+			$end = NULL;
+			
+		} else {
+			$end = DateTime::createFromFormat('m/d/Y H:i', $this->input->post('end'));
+			$end = $end->format('Y-m-d H:i:s');
+		}
 
 		$this->time_entry_model->insert_entry($user_id, $start, $end);
 
