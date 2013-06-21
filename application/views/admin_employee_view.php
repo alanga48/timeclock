@@ -8,7 +8,7 @@ foreach($entries as $week) {
 	$week_number = date("W", strtotime($week['start'])); ?>
 
 	<div class="title" id="week_<?=$week_number?>">
-		<h3 class="float_right">Hours This Week: <?=sec_to_output($week['total_seconds']) ?>.</h3> 
+		<h3 class="float_right">WEEK TOTAL: <?=sec_to_output($week['total_seconds']) ?>.</h3> 
 		<h4 class="name">WEEK OF: 
 			<?=date("M d, Y", strtotime($week['start'])) . " - " . date("M d, Y", strtotime($week['end']))?>
 		</h4>
