@@ -4,8 +4,25 @@ class User extends CI_Controller {
 
 	public function login()	{
 
-		$this->template->load('default','login');
-		//$this->output->enable_profiler(TRUE);
+		if($this->session->userdata('is_logged_in')) {
+
+			if($this->session->userdata('role') == 'admin') { 
+
+				redirect('/admin/get_entries');
+
+			} else {
+			
+				redirect('/time_entry/all_entries');
+
+			}
+
+		} else {
+
+			$this->template->load('default','login');
+			//$this->output->enable_profiler(TRUE);
+		}
+
+	
 	
 	}
 
