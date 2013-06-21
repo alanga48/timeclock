@@ -38,7 +38,7 @@ h4 {
 }
 
 h4 a i { 
-	
+
 	font-size: 18px; 
 	font-weight: normal; 
 	padding: 5px; 
@@ -68,8 +68,6 @@ h4 a i {
 	color: #102E37;
 	padding: 0 30px 30px 30px;
 }
-
-
 
 .logged_in p{
 
@@ -102,22 +100,9 @@ h4 a i {
 	color: #156C7D;
 }
 
-.title .name {
-
-	font-size: 20px;
-	padding-bottom: 10px;
-}
-
-.title .float_right {
-
-	float: right;
-	color: white;
-
-}
-
 table {
 
-	border-collapse: collapse;
+	border-collapse:collapse;
 	width: 100%;
 	margin: 0 0 25px 0;
 	border: 1px solid #DDE3D3;
@@ -141,13 +126,13 @@ tr {
 tr:nth-child(odd) {
 
 	background: #EDF5E1;
-	
+
 }
 
 tr:nth-child(even) {
 
 	background: #DDE3D3;
-	
+
 }
 
 th {
@@ -158,16 +143,32 @@ th {
 	border-collapse:collapse;
 }
 
+.employee_table th {
+
+	color: white;
+	background-color: #2BBBD8;
+	font-family: Trebuchet MS;
+	font-size: 16px;
+	font-weight: bold;
+
+}
+
 form {
 
 	color: #CC3366;
-	width: 300px;
+	width: 320px;
 	display: block;
 	padding: 1em;
 
 }
 
 
+.comment a {
+
+	text-decoration: none;
+	color: #156C7D;
+	font-size: 16px;
+}
 #title {
 
 	border-bottom: 1px solid ##6B6C64;
@@ -175,9 +176,10 @@ form {
 }
 
 #login_form {
-	width: 250px;
+	width: 300px;
 	margin: 150px auto 0;
 	padding: 1em;
+	/*display: block;*/
 	text-align: center;
 }
 #login_heading {
@@ -190,18 +192,11 @@ input {
 
 	display: block;
 	margin: 1em 0 1em 1.5em;
-	width: 250px;
+	width: 280px;
 	border: 1px solid black;
 	padding: 1em;
 
 }
-
-input[type="submit"] {
-
-	width: 250px;
-
-}
-
 
 .hidden {
 
@@ -259,7 +254,7 @@ input[type="submit"] {
 	background: #2BBBD8;
 	color: white;
 	font-weight: bold;
-	
+
 }
 
 .button a:hover {
@@ -274,6 +269,11 @@ label.invalid {
 	font-family: Trebuchet MS;
 	display: block;
 	padding: 0 0 20px 0;
+}
+
+input.invalid { 
+
+	border-color: red;
 }
 
 .ui-datepicker {

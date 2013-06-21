@@ -39,7 +39,7 @@
 
 		<h3>Employee Name: <?=$this->user['first_name'] ." ". $this->user['last_name']; ?></h3>
 		<?php if($open_entry == 1) { ?>
-			<div class="button"><a href="end">CLOCK OUT</a></div>
+			<div class="button"><a href="#end_comment" class="modal_popup">CLOCK OUT</a></div>
 		<?php } else { ?>
 			<div class="button"><a href="start">CLOCK IN</a></div>
 		<?php } ?>
@@ -52,6 +52,16 @@
 
       <?php } else { echo $body; } ?>
        
+    <div class = "hidden">
+	   	<?php $placeholder = "placeholder='Enter a comment about what you did today'"; ?>
+	   	<?= form_open('time_entry/end', $attributes = array('id' => 'end_comment', 'input type' => 'text') ); ?>
+	   		<label for "Daily Comment" </label>
+	   		<?= form_textarea('comment', '', $placeholder); ?>
+	   		<?= form_submit('submit', 'Submit'); ?>
+	   	<?= form_close(); ?>
+   </div>
+
+
    </body>
     
 </html>

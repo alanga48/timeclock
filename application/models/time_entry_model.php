@@ -114,17 +114,33 @@
 		}
 
 
-		public function end_time($user_id) {
+		public function end_time($user_id, $comment) {
 
 			$today = date("Y-m-d H:i:s");
 			
-			$data = array('end'=> $today);
+			$data = array('end'=> $today, 'comment' => $comment);
 
 			$this->db->where('user_id', $this->user['id']);
 			$this->db->where('end IS NULL');
 
 			$this->db->update('time_entry', $data);
 			
+		}
+
+		public function insert_comment($id, $comment) {
+
+			$this->db->where('id', $id);
+
+			$this->db->set('comment', $comment);
+
+			$this->db->update('time_entry');
+		}
+
+		public function delete_comment($id) {
+
+			$this->db->where('id', $id);
+
+			$this->db->delete('time_entry');
 		}
 
 

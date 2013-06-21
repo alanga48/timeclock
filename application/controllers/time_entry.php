@@ -26,7 +26,6 @@ class Time_entry extends CI_Controller {
 
 	public function start() {
 
-		$this->load->model('time_entry_model');
 		$data = $this->time_entry_model->start_time($this->user['id']);
 
 		redirect('time_entry/all_entries');
@@ -37,9 +36,28 @@ class Time_entry extends CI_Controller {
 
 	public function end() {
 
-		$this->load->model('time_entry_model');
-		$end = $this->time_entry_model->end_time($this->user['id']);
+		$comment = $this->input->post('comment');
 
+		$end = $this->time_entry_model->end_time($this->user['id'], $comment);
+
+		redirect('time_entry/all_entries');
+
+	}
+
+	public function insert_comment() {
+
+		$id = $this->input->post('id');
+		$comment = $this->input->post('comment');
+
+		$this->time_entry_model->insert_comment($id, $comment);
+
+		redirect('time_entry/all_entries');
+	}
+
+	public function delete_comment($id) {
+
+		$this->time_entry_model->delete_comment($id);
+		
 		redirect('time_entry/all_entries');
 
 	}
