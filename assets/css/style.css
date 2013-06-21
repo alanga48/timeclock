@@ -102,6 +102,19 @@ h4 a i {
 	color: #156C7D;
 }
 
+.title .name {
+
+	font-size: 24px;
+	padding-bottom: 10px;
+}
+
+.title .float_right {
+
+	float: right;
+	color: white;
+
+}
+
 table {
 
 	border-collapse:collapse;
@@ -148,7 +161,7 @@ th {
 form {
 
 	color: #CC3366;
-	width: 320px;
+	width: 300px;
 	display: block;
 	padding: 1em;
 
@@ -162,10 +175,9 @@ form {
 }
 
 #login_form {
-	width: 300px;
+	width: 250px;
 	margin: 150px auto 0;
 	padding: 1em;
-	/*display: block;*/
 	text-align: center;
 }
 #login_heading {
@@ -178,11 +190,18 @@ input {
 
 	display: block;
 	margin: 1em 0 1em 1.5em;
-	width: 280px;
+	width: 250px;
 	border: 1px solid black;
 	padding: 1em;
 
 }
+
+input[type="submit"] {
+
+	width: 250px;
+
+}
+
 
 .hidden {
 
@@ -255,11 +274,6 @@ label.invalid {
 	font-family: Trebuchet MS;
 	display: block;
 	padding: 0 0 20px 0;
-}
-
-input.invalid { 
-	
-	border-color: red;
 }
 
 .ui-datepicker {

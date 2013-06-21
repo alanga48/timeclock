@@ -23,7 +23,7 @@
 	
 		<div class="title">
 			<h4>
-				<?=$user['first_name'] . " " . $user['last_name'] . " #" . $user['id']?> |
+				<div class="name"><?=$user['first_name'] . " " . $user['last_name'] . " #" . $user['id']?></div> 
 				<a href="#details_<?=$user['id']?>" class="details"><i class="icon-expand"></i>Week Summary</a> |
 				<a href="/index.php/admin/view_employee/<?=$user['id']?>"><i class="icon-time"> </i>Timeclock Details</a> |
 				<a href="#update_form_<?=$user['id']?>" class ="modal_popup" class="edit_employee"><i class="icon-pencil"></i>Edit Employee</a> |

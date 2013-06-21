@@ -12,13 +12,13 @@
          
 		<tr>
 
-			<td><?=date("m/d/y, g:i a", strtotime($entry['start']))?></td>
+			<td><?=date("m/d/y, g:i ", strtotime($entry['start']))?></td>
 			<td>
 				<?php 
 				if($entry['end'] == NULL) { 
 					echo ' - ';
 				} else { 
-					echo date("m/d/y, g:i a", strtotime($entry['end']));
+					echo date("m/d/y, g:i ", strtotime($entry['end']));
 				}?>
 			</td>
 			<td>

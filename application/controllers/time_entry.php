@@ -58,13 +58,13 @@ class Time_entry extends CI_Controller {
 
 	public function update() {
 
-		// print_rr($this->input->post());
+		//print_rr($this->input->post());
 
 		$id = $this->input->post('id');
 		
-		$start = DateTime::createFromFormat('m/d/Y H:i', $this->input->post('start'));
+		$start = DateTime::createFromFormat('m/d/Y h:i:s', $this->input->post('start'));
 		$start = $start->format('Y-m-d H:i:s');
-		
+
 		if(!$this->input->post('end')) {
 			
 			$end = NULL;
@@ -72,7 +72,7 @@ class Time_entry extends CI_Controller {
 		
 		else {
 
-			$end = DateTime::createFromFormat('m/d/Y H:i', $this->input->post('end'));
+			$end = DateTime::createFromFormat('m/d/Y h:i:s', $this->input->post('end'));
 			$end = $end->format('Y-m-d H:i:s');
 		}
 
@@ -87,6 +87,29 @@ class Time_entry extends CI_Controller {
 
 	}
  
+	public function insert_entry() {
+
+		//print_rr($this->input->post());
+		
+		$user_id = $this->input->post('user_id');
+		
+		$start = DateTime::createFromFormat('m/d/Y h:i:s', $this->input->post('start'));
+		$start = $start->format('Y-m-d H:i:s');
+		
+		if(!$this->input->post('end')) {
+			
+			$end = NULL;
+			
+		} else {
+			
+			$end = DateTime::createFromFormat('m/d/Y H:i:s', $this->input->post('end'));
+			$end = $end->format('Y-m-d H:i:s');
+		}
+
+		$this->time_entry_model->insert_entry($user_id, $start, $end);
+
+		redirect('admin/view_employee/' . $this->input->post('user_id') );
+	}
 
 	public function delete($id) {
 
@@ -99,27 +122,6 @@ class Time_entry extends CI_Controller {
 		redirect('admin/view_employee/' . $entry['user_id']);
 
 	}
-
-	public function insert_entry() {
-		
-		$user_id = $this->input->post('user_id');
-		
-		$start = DateTime::createFromFormat('m/d/Y H:i', $this->input->post('start'));
-		$start = $start->format('Y-m-d H:i:s');
-		
-		if(!$this->input->post('end')) {
-			$end = NULL;
-			
-		} else {
-			$end = DateTime::createFromFormat('m/d/Y H:i', $this->input->post('end'));
-			$end = $end->format('Y-m-d H:i:s');
-		}
-
-		$this->time_entry_model->insert_entry($user_id, $start, $end);
-
-		redirect('admin/view_employee/' . $this->input->post('user_id') );
-	}
-
 
 	private function _is_logged_in() {
 
