@@ -49,7 +49,7 @@
 						onclick="return confirm('Are you sure you want to delete this employee?')">
 						<i class="icon-remove"></i> Delete Comment</a> 
 						<?php } else { ?>
-						<a  href="#insert_comment<?=$entry['id']?>" class="modal_popup">Add a comment</a>
+						<a  href="#insert_comment<?=$entry['id']?>" class="modal_popup"><i class="icon-star"></i> Add a Comment</a>
 						<?php } 
 					} ?>
 				</td>
