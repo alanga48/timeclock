@@ -1,4 +1,7 @@
 <div id="login_form">
+	<?php if ($this->session->flashdata('message')) { ?>
+  	<div class = "wronglogin_flash"><?= $this->session->flashdata('message'); ?></div>
+	<?php } ?>
 	
 	<h1 div id="login_heading">Welcome</h1>
 

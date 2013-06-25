@@ -17,13 +17,12 @@ class User extends CI_Controller {
 			}
 
 		} else {
-
+			
+			$this->session->set_flashdata('message', 'Incorrect Username/Password');
 			$this->template->load('default','login');
-			//$this->output->enable_profiler(TRUE);
+
 		}
 
-	
-	
 	}
 
 	public function verify_credentials() {
@@ -41,8 +40,6 @@ class User extends CI_Controller {
 
 			$this->session->set_userdata($data);
 
-			//print_rr($data);
-
 			if($user_info['role'] == 'admin') { 
 
 				redirect('/admin/get_entries');
@@ -52,10 +49,9 @@ class User extends CI_Controller {
 				redirect('/time_entry/all_entries');
 
 			}
-		}
-		else {
+		
+		} else {
 
-			echo 'Incorrect Login';
 			$this->login();
 		}
 

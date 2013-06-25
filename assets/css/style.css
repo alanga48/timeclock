@@ -3,7 +3,6 @@ charcoal: #102E37
 medium blue: #2BBBD8
 yellow: #FFFF99
 navy blue: #156C7D
-
 */
 
 body {
@@ -232,6 +231,7 @@ form {
 	color: #2BBBD8;
 	font-family: Trebuchet MS;
 }
+
 input {
 
 	display: block;
@@ -241,6 +241,8 @@ input {
 	padding: 1em;
 
 }
+
+
 
 .hidden {
 
@@ -254,6 +256,16 @@ input {
 	padding: 10px;
 	color: orange;
 
+}
+
+.wronglogin_flash {
+
+	color: orange;
+	font-size: 15px;
+	font-style: italic;
+	padding: 15px;
+	padding-left: 60px;
+	font-family: trebuchet ms;
 }
 
 .nav_bar {

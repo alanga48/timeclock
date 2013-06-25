@@ -8,9 +8,8 @@ foreach($entries as $week) {
 	$week_number = date("W", strtotime($week['start'])); ?>
 
 	<div class="title" id="week_<?=$week_number?>">
-		<h3>WEEK TOTAL: <?=sec_to_output($week['total_seconds']) ?>.</h3> 
-		<h4 class="name">WEEK OF: 
-			<?=date("M d, Y", strtotime($week['start'])) . " - " . date("M d, Y", strtotime($week['end']))?>
+		<h3>WEEK OF: <?=date("M d, Y", strtotime($week['start'])) . " - " . date("M d, Y", strtotime($week['end']))?></h3> 
+		<h4 class="name">WEEK TOTAL: <?=sec_to_output($week['total_seconds']) ?>
 			<div class="float_right">
 				<i class="icon-plus"></i> <a href="#insert_entry_<?=$user['id'];?>" class="modal_popup">New Entry </a> |
 				<i class="icon-expand-alt"></i> <a href="#details_<?=$week_number?>" class="details">Details</a> 
