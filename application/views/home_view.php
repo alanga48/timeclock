@@ -39,7 +39,7 @@
 				if($entry['end'] == NULL) { 
 					echo ' - ';
 				} else { 
-					echo gmdate("h:i", $entry['total_seconds']);
+					echo gmdate("H:i", $entry['total_seconds']);
 				}?>
 			</td>
 		</tr>
@@ -64,7 +64,6 @@
 				   	<?php $placeholder = "placeholder='Enter a comment about what you did today'"; ?>
 				   	<?= form_open('time_entry/insert_comment', $attributes = array('id' => 'insert_comment' . $entry['id']) ); ?>
 				   		<?= form_hidden('id', $entry['id']) ?>
-				   		<label for "Daily Comment" </label>
 				   		<?= form_textarea('comment', '', $placeholder); ?>
 				   		<?= form_submit('submit', 'Submit'); ?>
 				   	<?= form_close(); ?>

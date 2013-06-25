@@ -11,8 +11,8 @@ foreach($entries as $week) {
 		<h3>WEEK OF: <?=date("M d, Y", strtotime($week['start'])) . " - " . date("M d, Y", strtotime($week['end']))?></h3> 
 		<h4 class="name">WEEK TOTAL: <?=sec_to_output($week['total_seconds']) ?>
 			<div class="float_right">
-				<i class="icon-plus"></i> <a href="#insert_entry_<?=$user['id'];?>" class="modal_popup">New Entry </a> |
-				<i class="icon-expand-alt"></i> <a href="#details_<?=$week_number?>" class="details">Details</a> 
+				<i class="icon-expand-alt"></i> <a href="#details_<?=$week_number?>" class="details">Details</a> |
+				<i class="icon-plus"></i> <a href="#insert_entry_<?=$user['id'];?>" class="modal_popup">New Entry </a>
 			</div>
 		</h4>
 		
@@ -63,8 +63,8 @@ foreach($entries as $week) {
 					<?php if($entry['end'] == NULL) { 
 						echo ' - ';
 						} else { 
-							echo gmdate("h:i", $entry['total_seconds']);
-						}
+							echo gmdate("H:i:s", $entry['total_seconds']);
+						} 
 					?>
 				</td>
 				<td><a href="#update_entry_<?=$entry['id']?>" class ="modal_popup week_links" class="edit_entry">Update</a> | 

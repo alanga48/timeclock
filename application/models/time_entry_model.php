@@ -104,7 +104,7 @@
 
 		public function start_time($user_id) {
 
-			$today= date("Y-m-d h:i");
+			$today= date("Y-m-d H:i:s");
 
 			$data=array('user_id' =>$this->user['id'],
 						'start'=>$today);
@@ -116,7 +116,7 @@
 
 		public function end_time($user_id, $comment) {
 
-			$today = date("Y-m-d h:i");
+			$today = date("Y-m-d H:i:s");
 			
 			$data = array('end'=> $today, 'comment' => $comment);
 

@@ -19,6 +19,7 @@ class Time_entry extends CI_Controller {
 		$data['entries'] = $this->time_entry_model->get_employee_entries($this->user['id']);
 		$data['open_entry'] = $this->time_entry_model->open_entry();
 
+
 		$this->template->load('default','home_view', $data);
 		
 	}
@@ -78,6 +79,8 @@ class Time_entry extends CI_Controller {
 
 	public function update() {
 
+		//print_rr($this->input->post() );
+
 		$id = $this->input->post('id');
 		
 		$start = DateTime::createFromFormat('m/d/Y h:i', $this->input->post('start'));
@@ -99,6 +102,8 @@ class Time_entry extends CI_Controller {
 		$this->time_entry_model->update_entry($id, $start, $end);
 
 		$week_number = date("W", strtotime($start));
+
+		$this->session->set_flashdata('message', 'Your Changes Have Been Made');
 
 		redirect('admin/view_employee/' . $entry['user_id'] . '/#details_' . $week_number);
 
@@ -126,6 +131,8 @@ class Time_entry extends CI_Controller {
 
 		$week_number = date("W", strtotime($start));
 
+		$this->session->set_flashdata('message', 'Your Changes Have Been Made');
+
 		redirect('admin/view_employee/' . $this->input->post('user_id') . '/#details_' . $week_number );
 	}
 
@@ -139,6 +146,8 @@ class Time_entry extends CI_Controller {
 		$this->time_entry_model->delete_entry($id);
 
 		$week_number = date("W", strtotime($entry['start']));
+
+		$this->session->set_flashdata('message', 'Your Changes Have Been Made');
 
 		redirect('admin/view_employee/' . $entry['user_id'] . '/#details_' . $week_number);
 
