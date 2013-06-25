@@ -32,14 +32,14 @@ foreach($entries as $week) {
 				<td>
 					<div class = "hidden">
 						<?php if($entry['end'] == NULL) {
-							$end = date("m/d/Y h:i:s");
+							$end = date("m/d/Y h:i");
 						} else {
 
-							$end = date("m/d/Y h:i:s", strtotime($entry['start']) );
+							$end = date("m/d/Y h:i", strtotime($entry['end']) );
 						} ?>
 						<?= form_open('time_entry/update', $attributes = array('id' => 'update_entry_' . $entry['id'], 'input type' => 'text'), array('id' => $entry['id'], 'user_id' => $entry['user_id']) ) ?>
 							<label for="start">Start</label>
-							<?= form_input('start', date("m/d/Y h:i:s", strtotime($entry['start']) ), 'class="datetimepicker clearable"') ?>
+							<?= form_input('start', date("m/d/Y h:i", strtotime($entry['start']) ), 'class="datetimepicker clearable"') ?>
 							<label for="end">End</label>
 							<?= form_input('end', $end, 'class="datetimepicker clearable"') ?>
 							<a href="#" class="clear">Clear</a>
@@ -49,13 +49,13 @@ foreach($entries as $week) {
 		
 
 
-					<?=date("m/d/Y, h:i:s", strtotime($entry['start']))?>
+					<?=date("m/d/Y, h:i", strtotime($entry['start']))?>
 				</td>
 				<td>
 					<?php if($entry['end'] == NULL) { 
 						echo ' - ';
 						} else { 
-							echo date("m/d/Y, h:i:s", strtotime($entry['end']) ); 
+							echo date("m/d/Y, h:i", strtotime($entry['end']) ); 
 						}
 					?>
 				</td>
@@ -63,7 +63,7 @@ foreach($entries as $week) {
 					<?php if($entry['end'] == NULL) { 
 						echo ' - ';
 						} else { 
-							echo gmdate("H:i:s", $entry['total_seconds']);
+							echo gmdate("h:i", $entry['total_seconds']);
 						}
 					?>
 				</td>

@@ -78,12 +78,10 @@ class Time_entry extends CI_Controller {
 
 	public function update() {
 
-		//print_rr($this->input->post());
-
 		$id = $this->input->post('id');
 		
-		$start = DateTime::createFromFormat('m/d/Y h:i:s', $this->input->post('start'));
-		$start = $start->format('Y-m-d H:i:s');
+		$start = DateTime::createFromFormat('m/d/Y h:i', $this->input->post('start'));
+		$start = $start->format('Y-m-d h:i');
 
 		if(!$this->input->post('end')) {
 			
@@ -92,17 +90,17 @@ class Time_entry extends CI_Controller {
 		
 		else {
 
-			$end = DateTime::createFromFormat('m/d/Y h:i:s', $this->input->post('end'));
-			$end = $end->format('Y-m-d H:i:s');
+			$end = DateTime::createFromFormat('m/d/Y h:i', $this->input->post('end'));
+			$end = $end->format('Y-m-d h:i');
 		}
 
-		
-		
 		$entry = $this->time_entry_model->get_entry($id);
 
 		$this->time_entry_model->update_entry($id, $start, $end);
 
-		redirect('admin/view_employee/' . $entry['user_id']);
+		$week_number = date("W", strtotime($start));
+
+		redirect('admin/view_employee/' . $entry['user_id'] . '/#details_' . $week_number);
 
 
 	}
@@ -112,7 +110,7 @@ class Time_entry extends CI_Controller {
 		$user_id = $this->input->post('user_id');
 		
 		$start = DateTime::createFromFormat('m/d/Y h:i', $this->input->post('start'));
-		$start = $start->format('Y-m-d H:i:s');
+		$start = $start->format('Y-m-d h:i');
 		
 		if(!$this->input->post('end')) {
 			
@@ -121,7 +119,7 @@ class Time_entry extends CI_Controller {
 		} else {
 			
 			$end = DateTime::createFromFormat('m/d/Y h:i', $this->input->post('end'));
-			$end = $end->format('Y-m-d H:i:s');
+			$end = $end->format('Y-m-d h:i');
 		}
 
 		$this->time_entry_model->insert_entry($user_id, $start, $end);
@@ -131,15 +129,18 @@ class Time_entry extends CI_Controller {
 		redirect('admin/view_employee/' . $this->input->post('user_id') . '/#details_' . $week_number );
 	}
 
+
 	public function delete($id) {
 
 		$this->load->model('time_entry_model');
 
-		//print_rr($id);
 		$entry = $this->time_entry_model->get_entry($id);
+
 		$this->time_entry_model->delete_entry($id);
 
-		redirect('admin/view_employee/' . $entry['user_id']);
+		$week_number = date("W", strtotime($entry['start']));
+
+		redirect('admin/view_employee/' . $entry['user_id'] . '/#details_' . $week_number);
 
 	}
 

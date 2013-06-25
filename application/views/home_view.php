@@ -39,7 +39,7 @@
 				if($entry['end'] == NULL) { 
 					echo ' - ';
 				} else { 
-					echo gmdate("H:i:s", $entry['total_seconds']);
+					echo gmdate("h:i", $entry['total_seconds']);
 				}?>
 			</td>
 		</tr>
