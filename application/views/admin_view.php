@@ -45,7 +45,7 @@
 					<?php $week_number = date("W", strtotime($week['start']) )?>
 					<tr>
 						<td><?=date("M d, Y", strtotime($week['start'])) . "  -  " . date("M d, Y", strtotime($week['end']))?></td>
-						<td><a href="/index.php/admin/view_employee/<?=$user['id']?>/#details_<?=$week_number?>"><?=sec_to_output($week['total_seconds'])?></a></td>
+						<td><a href="/index.php/admin/view_employee/<?=$user['id']?>/#details_<?=$week_number?>" class="week_links"><?=sec_to_output($week['total_seconds'])?></a></td>
 					</tr>
 				<?php } ?>
 				</tbody>				

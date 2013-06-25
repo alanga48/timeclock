@@ -3,7 +3,9 @@
   	<div class = "wronglogin_flash"><?= $this->session->flashdata('message'); ?></div>
 	<?php } ?>
 	
-	<h1 div id="login_heading">Welcome</h1>
+	<div class="login_heading">
+		<p>Welcome</p>
+	</div>
 
 	<?php
 
@@ -16,4 +18,3 @@
 
 	?>
 
-</div>

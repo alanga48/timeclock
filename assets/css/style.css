@@ -19,6 +19,7 @@ h1 {
 	font-family: Trebuchet MS;
 	font-size: 30px;
 	padding: 15px 0 15px 0;
+	font-weight: 100;
 }
 
 h2 {
@@ -27,6 +28,7 @@ h2 {
 	padding: 5px;
 	color: #102E37;
 	font-family: Trebuchet MS;
+	font-weight: 100;
 }
 
 h3 {
@@ -35,6 +37,7 @@ h3 {
 	color: #102E37;
 	font-family: Trebuchet MS;
 	padding: 15px 0 15px 0;
+	
 }
 
 h4 {
@@ -42,6 +45,7 @@ h4 {
 	font-size: 16px;
 	color: #102E37;
 	font-family: Trebuchet MS;
+	
 }
 
 h4 a i { 
@@ -53,11 +57,12 @@ h4 a i {
 	display: inline-block !important;
 }
 
-a {
+.week_links {
 
 	text-decoration: none;
 	color: #156C7D;
-	font-weight: bold;
+	font-family: trebuchet ms;
+	font-size: 16px;
 }
 
 a:hover {
@@ -149,7 +154,7 @@ td {
 
 tr {
 
-	color: ##6B6C64;
+	color: #6B6C64;
 	padding: 25px;
 
 }
@@ -219,17 +224,27 @@ form {
 }
 
 #login_form {
-	width: 300px;
+	width: 400px;
 	margin: 150px auto 0;
 	padding: 1em;
-	/*display: block;*/
-	text-align: center;
+	border: 1px solid #DDE3D3;
+	background-color: white;
 }
-#login_heading {
 
-	padding: 0 0 0 1.5em;
-	color: #2BBBD8;
+.login_heading p {
+
+	padding: 20px 0 5px 35px;
+	color: #102E37;
 	font-family: Trebuchet MS;
+	font-size: 30px;
+}
+
+.company_heading p {
+
+	padding: 20px 0 20px 5px;
+	color: #102E37;
+	font-family: Trebuchet MS;
+	font-size: 30px;
 }
 
 input {
@@ -237,9 +252,25 @@ input {
 	display: block;
 	margin: 1em 0 1em 1.5em;
 	width: 280px;
-	border: 1px solid black;
 	padding: 1em;
 
+}
+
+input[type=submit] {
+
+	color: white;
+	background: #156C7D;
+	font-family: trebuchet ms;
+	border: none;
+	font-size: 14px;
+	width: 120px;
+	clear: right;
+
+}
+
+input[type=submit]:hover {
+
+	color: #FFFF99;
 }
 
 
@@ -260,11 +291,12 @@ input {
 
 .wronglogin_flash {
 
-	color: orange;
+	color: red;
 	font-size: 15px;
 	font-style: italic;
-	padding: 15px;
-	padding-left: 60px;
+	font-weight: bold;
+	padding: 5px;
+	padding-left: 35px;
 	font-family: trebuchet ms;
 }
 
@@ -305,7 +337,7 @@ input {
 	text-align: left;
 	padding: 10px 0;
 }
-.button a{
+.button a {
 	padding: 5px;
 	text-decoration: none;
 	background: #2BBBD8;
