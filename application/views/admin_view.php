@@ -36,7 +36,7 @@
 				<thead>		
 					<tr>
 						<th>WEEK OF</th>
-						<th>WEEK TOTAL: </th>
+						<th>WEEK TOTAL</th>
 					</tr>
 				</thead>
 

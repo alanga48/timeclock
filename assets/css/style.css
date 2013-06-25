@@ -1,3 +1,11 @@
+/*light blue: #C3E2E8
+charcoal: #102E37
+medium blue: #2BBBD8
+yellow: #FFFF99
+navy blue: #156C7D
+
+*/
+
 body {
 	background-image:url('/assets/images/low_contrast_linen.png');
 	background-attachment: fixed;
@@ -46,6 +54,18 @@ h4 a i {
 	display: inline-block !important;
 }
 
+a {
+
+	text-decoration: none;
+	color: #156C7D;
+	font-weight: bold;
+}
+
+a:hover {
+
+	color: #2BBBD8;
+}
+
 .link {
 
 	font-size: 16px;
@@ -60,6 +80,7 @@ h4 a i {
 
 	font-size: 18px;
 }
+
 #wrapper {
 
 	width: 900px;
@@ -76,7 +97,7 @@ h4 a i {
 
 .title {
 
-	padding: 10px;
+	padding: 5px 0 15px 20px;
 	margin: 15px 0 0 0;
 	background: #2BBBD8;
 	text-align: left;
@@ -112,33 +133,43 @@ th {
 
 	color: black;
 	background: #C3E2E8;
-	padding: 15px;
+	padding: 15px 15px 15px 20px;
 	border-collapse:collapse;
+	font-family: trebuchet MS;
+	font-size: 16px;
 }
 
 td { 
 
-	color: ##6B6C64;
-	padding: 15px;
+	color: #102E37;
+	padding: 15px 15px 15px 20px;
 	border-collapse:collapse;
+	font-size: 14px;
+	
 }
 
 tr {
 
 	color: ##6B6C64;
-	padding: 15px;
+	padding: 25px;
 
+}
+
+.float_right {
+
+	float: right;
+	padding-right: 55px;
 }
 
 tr:nth-child(odd) {
 
-	background: #EDF5E1;
+	background: #DDE3D3;
 
 }
 
 tr:nth-child(even) {
 
-	background: #DDE3D3;
+	background: #EDF5E1;
 
 }
 
