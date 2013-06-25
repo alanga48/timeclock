@@ -31,6 +31,12 @@
 			</ul>
 		</div>
 
+		<?php if ($this->session->flashdata('message')) { ?>
+	   	<div class = "flash">
+	   	<h3><?= $this->session->flashdata('message'); ?></h3>
+	   	</div>
+	    <?php } ?>
+
 		<?php if ($this->session->userdata('company') == 'btp') { ?>
 		<h1>By The Pixel Timeclock Entries</h1>
 		<?php } else { ?> 

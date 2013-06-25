@@ -138,9 +138,9 @@
 
 		public function delete_comment($id) {
 
-			$this->db->where('id', $id);
-
-			$this->db->delete('time_entry');
+			$this->db->where ('id', $id);
+			$this->db->set('comment', NULL);
+			$this->db->update('time_entry');
 		}
 
 

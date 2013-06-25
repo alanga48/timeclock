@@ -58,6 +58,8 @@ class Time_entry extends CI_Controller {
 
 		$this->time_entry_model->delete_comment($id);
 		
+		$this->session->set_flashdata('message', 'Your Comment Has Been Deleted');
+
 		redirect('time_entry/all_entries');
 
 	}

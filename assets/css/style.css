@@ -108,6 +108,13 @@ table {
 	border: 1px solid #DDE3D3;
 }
 
+th {
+
+	color: black;
+	background: #C3E2E8;
+	padding: 15px;
+	border-collapse:collapse;
+}
 
 td { 
 
@@ -135,13 +142,6 @@ tr:nth-child(even) {
 
 }
 
-th {
-
-	color: black;
-	background: #C3E2E8;
-	padding: 15px;
-	border-collapse:collapse;
-}
 
 .employee_table th {
 
@@ -153,12 +153,30 @@ th {
 
 }
 
+
+.employee_table tr.row_1 {
+    
+    background: #DDE3D3;
+}
+
+
+.employee_table tr.row_2 {
+    
+    
+    background: #EDF5E1;
+
+}
+
+
 form {
 
-	color: #CC3366;
-	width: 320px;
+	color: #2BBBD8;
+	/*width: 320px;*/
 	display: block;
 	padding: 1em;
+	font-weight: bold;
+	font-family: trebuchet MS;
+	font-size: 16px;
 
 }
 
@@ -168,11 +186,6 @@ form {
 	text-decoration: none;
 	color: #156C7D;
 	font-size: 16px;
-}
-#title {
-
-	border-bottom: 1px solid ##6B6C64;
-
 }
 
 #login_form {
@@ -208,6 +221,7 @@ input {
 
 	font-style: italic;
 	padding: 10px;
+	color: orange;
 
 }
 
