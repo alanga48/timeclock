@@ -31,11 +31,17 @@ foreach($entries as $week) {
 			<tr>
 				<td>
 					<div class = "hidden">
+						<?php if($entry['end'] == NULL) {
+							$end = date("m/d/Y h:i:s");
+						} else {
+
+							$end = date("m/d/Y h:i:s", strtotime($entry['start']) );
+						} ?>
 						<?= form_open('time_entry/update', $attributes = array('id' => 'update_entry_' . $entry['id'], 'input type' => 'text'), array('id' => $entry['id'], 'user_id' => $entry['user_id']) ) ?>
 							<label for="start">Start</label>
 							<?= form_input('start', date("m/d/Y h:i:s", strtotime($entry['start']) ), 'class="datetimepicker clearable"') ?>
 							<label for="end">End</label>
-							<?= form_input('end', date("m/d/Y h:i:s", strtotime($entry['end']) ), 'class="datetimepicker clearable"') ?>
+							<?= form_input('end', $end, 'class="datetimepicker clearable"') ?>
 							<a href="#" class="clear">Clear</a>
 							<?= form_submit('submit', 'Submit') ?>
 						<?= form_close() ?>
@@ -61,8 +67,8 @@ foreach($entries as $week) {
 						}
 					?>
 				</td>
-				<td><a href="#update_entry_<?=$entry['id']?>" class ="modal_popup" class="edit_entry">Update</a> | 
-				<a href="/index.php/time_entry/delete/<?=$entry['id']?>" onclick="return confirm('Are you sure you want to delete this time entry?')">Delete</a></td>
+				<td><a href="#update_entry_<?=$entry['id']?>" class ="modal_popup week_links" class="edit_entry">Update</a> | 
+				<a href="/index.php/time_entry/delete/<?=$entry['id']?>"  class ="week_links" onclick="return confirm('Are you sure you want to delete this time entry?')">Delete</a></td>
 
 			</tr>
 			<?php } ?>
@@ -75,9 +81,9 @@ foreach($entries as $week) {
 <div class = "hidden">
 	<?= form_open('time_entry/insert_entry', $attributes = array('id' => 'insert_entry_' . $entry['user_id']), array('user_id' => $entry['user_id']) ) ?>
 		<label for="start">Start</label>
-		<?= form_input('start', date("m/d/Y h:i:s"), 'class="datetimepicker clearable"') ?>
+		<?= form_input('start', date("m/d/Y h:i"), 'class="datetimepicker clearable"') ?>
 		<label for="end">End (Optional)</label>
-		<?= form_input('end', date("m/d/Y h:i:s"), 'class="datetimepicker clearable"') ?>
+		<?= form_input('end', date("m/d/Y h:i"), 'class="datetimepicker clearable"') ?>
 		<a href="#" class="clear">Clear</a>
 		<?= form_submit(array('name' => 'submit','value' => 'Submit','id' => 'submit')) ?>
 	<?= form_close() ?>

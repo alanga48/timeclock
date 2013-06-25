@@ -108,12 +108,10 @@ class Time_entry extends CI_Controller {
 	}
  
 	public function insert_entry() {
-
-		//print_rr($this->input->post());
 		
 		$user_id = $this->input->post('user_id');
 		
-		$start = DateTime::createFromFormat('m/d/Y h:i:s', $this->input->post('start'));
+		$start = DateTime::createFromFormat('m/d/Y h:i', $this->input->post('start'));
 		$start = $start->format('Y-m-d H:i:s');
 		
 		if(!$this->input->post('end')) {
@@ -122,13 +120,15 @@ class Time_entry extends CI_Controller {
 			
 		} else {
 			
-			$end = DateTime::createFromFormat('m/d/Y H:i:s', $this->input->post('end'));
+			$end = DateTime::createFromFormat('m/d/Y h:i', $this->input->post('end'));
 			$end = $end->format('Y-m-d H:i:s');
 		}
 
 		$this->time_entry_model->insert_entry($user_id, $start, $end);
 
-		redirect('admin/view_employee/' . $this->input->post('user_id') );
+		$week_number = date("W", strtotime($start));
+
+		redirect('admin/view_employee/' . $this->input->post('user_id') . '/#details_' . $week_number );
 	}
 
 	public function delete($id) {
