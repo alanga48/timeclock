@@ -32,14 +32,14 @@ foreach($entries as $week) {
 				<td>
 					<div class = "hidden">
 						<?php if($entry['end'] == NULL) {
-							$end = date("m/d/Y h:i");
+							$end = date("m/d/Y H:i:s");
 						} else {
 
-							$end = date("m/d/Y h:i", strtotime($entry['end']) );
+							$end = date("m/d/Y H:i:s", strtotime($entry['end']) );
 						} ?>
 						<?= form_open('time_entry/update', $attributes = array('id' => 'update_entry_' . $entry['id'], 'input type' => 'text'), array('id' => $entry['id'], 'user_id' => $entry['user_id']) ) ?>
 							<label for="start">Start</label>
-							<?= form_input('start', date("m/d/Y h:i", strtotime($entry['start']) ), 'class="datetimepicker clearable"') ?>
+							<?= form_input('start', date("m/d/Y H:i:s", strtotime($entry['start']) ), 'class="datetimepicker clearable"') ?>
 							<label for="end">End</label>
 							<?= form_input('end', $end, 'class="datetimepicker clearable"') ?>
 							<a href="#" class="clear">Clear</a>
@@ -49,13 +49,13 @@ foreach($entries as $week) {
 		
 
 
-					<?=date("m/d/Y, h:i", strtotime($entry['start']))?>
+					<?=date("m/d/Y, H:i", strtotime($entry['start']))?>
 				</td>
 				<td>
 					<?php if($entry['end'] == NULL) { 
 						echo ' - ';
 						} else { 
-							echo date("m/d/Y, h:i", strtotime($entry['end']) ); 
+							echo date("m/d/Y, H:i", strtotime($entry['end']) ); 
 						}
 					?>
 				</td>
@@ -81,9 +81,9 @@ foreach($entries as $week) {
 <div class = "hidden">
 	<?= form_open('time_entry/insert_entry', $attributes = array('id' => 'insert_entry_' . $entry['user_id']), array('user_id' => $entry['user_id']) ) ?>
 		<label for="start">Start</label>
-		<?= form_input('start', date("m/d/Y h:i"), 'class="datetimepicker clearable"') ?>
+		<?= form_input('start', date("m/d/Y H:i:s"), 'class="datetimepicker clearable"') ?>
 		<label for="end">End (Optional)</label>
-		<?= form_input('end', date("m/d/Y h:i"), 'class="datetimepicker clearable"') ?>
+		<?= form_input('end', date("m/d/Y H:i:s"), 'class="datetimepicker clearable"') ?>
 		<a href="#" class="clear">Clear</a>
 		<?= form_submit(array('name' => 'submit','value' => 'Submit','id' => 'submit')) ?>
 	<?= form_close() ?>

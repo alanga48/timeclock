@@ -83,8 +83,8 @@ class Time_entry extends CI_Controller {
 
 		$id = $this->input->post('id');
 		
-		$start = DateTime::createFromFormat('m/d/Y h:i', $this->input->post('start'));
-		$start = $start->format('Y-m-d h:i');
+		$start = DateTime::createFromFormat('m/d/Y H:i:s', $this->input->post('start'));
+		$start = $start->format('Y-m-d H:i:s');
 
 		if(!$this->input->post('end')) {
 			
@@ -93,8 +93,8 @@ class Time_entry extends CI_Controller {
 		
 		else {
 
-			$end = DateTime::createFromFormat('m/d/Y h:i', $this->input->post('end'));
-			$end = $end->format('Y-m-d h:i');
+			$end = DateTime::createFromFormat('m/d/Y H:i:s', $this->input->post('end'));
+			$end = $end->format('Y-m-d H:i:s');
 		}
 
 		$entry = $this->time_entry_model->get_entry($id);
@@ -111,11 +111,13 @@ class Time_entry extends CI_Controller {
 	}
  
 	public function insert_entry() {
+
+		//print_rr($this->input->post());
 		
 		$user_id = $this->input->post('user_id');
 		
-		$start = DateTime::createFromFormat('m/d/Y h:i', $this->input->post('start'));
-		$start = $start->format('Y-m-d h:i');
+		$start = DateTime::createFromFormat('m/d/Y H:i:s', $this->input->post('start'));
+		$start = $start->format('Y-m-d H:i:s');
 		
 		if(!$this->input->post('end')) {
 			
@@ -123,8 +125,8 @@ class Time_entry extends CI_Controller {
 			
 		} else {
 			
-			$end = DateTime::createFromFormat('m/d/Y h:i', $this->input->post('end'));
-			$end = $end->format('Y-m-d h:i');
+			$end = DateTime::createFromFormat('m/d/Y H:i:s', $this->input->post('end'));
+			$end = $end->format('Y-m-d H:i:s');
 		}
 
 		$this->time_entry_model->insert_entry($user_id, $start, $end);

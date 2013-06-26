@@ -8,7 +8,11 @@ $(document).ready( function() {
 
 	})
 
-	$(".datetimepicker").datetimepicker();
+	$(".datetimepicker").datetimepicker({
+
+		timeFormat: "HH:mm:ss"
+
+	});
 
 
 	$('.validate').each( function() {

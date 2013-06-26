@@ -22,12 +22,6 @@
    <body>
 
    		<div id="wrapper">
-
-	      	<?php if ($this->session->flashdata('message')) { ?>
-	      	<div class = "flash">
-				<h3><?= $this->session->flashdata('message'); ?></h3>
-			</div>
-			<?php } ?>
 			
 			<div class="nav_bar"
 				<ul>
@@ -36,6 +30,13 @@
 					<li>Logged in as <?=$this->user['username']?>. <a href="/index.php/user/logout">Log Out</a></li>
 				</ul> 
 			</div>
+
+			<?php if ($this->session->flashdata('message')) { ?>
+	      	<div class = "flash">
+				<h3><?= $this->session->flashdata('message'); ?></h3>
+			</div>
+			<?php } ?>
+			
 			<div class="company_heading">
 				<?php if($this->session->userdata('company') == 'btp') { ?>
 					<p>By The Pixel Timeclock Entries</p>
