@@ -48,27 +48,16 @@ h4 {
 	
 }
 
-h4 a i { 
-
-	font-size: 18px; 
-	font-weight: normal; 
-	padding: 5px; 
-	color: white;
-	display: inline-block !important;
-}
-
-.week_links {
-
-	text-decoration: none;
-	color: #156C7D;
-	font-family: trebuchet ms;
-	font-size: 16px;
-}
-
 a {
 
-	color: #2BBBD8;
+	color: #156C7D;
 	text-decoration: none;
+	font-family: Tahoma, sans-serif;
+}
+
+a:hover{
+
+	color: #2BBBD8;
 }
 
 p {
@@ -78,10 +67,16 @@ p {
 	font-size: 16px;
 }
 
-a:hover{
 
-	color: #156C7D;
+h4 a i { 
+
+	font-size: 18px; 
+	font-weight: normal; 
+	padding: 5px; 
+	color: white;
+	display: inline-block !important;
 }
+
 
 .link {
 
@@ -180,7 +175,7 @@ tr {
 .float_right {
 
 	float: right;
-	padding-right: 55px;
+	padding-right: 63px;
 }
 
 tr:nth-child(odd) {
@@ -239,6 +234,11 @@ form {
 	text-decoration: none;
 	color: #156C7D;
 	font-size: 16px;
+}
+
+.comment a:hover {
+
+	color: #2BBBD8;
 }
 
 #login_form {

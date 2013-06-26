@@ -27,10 +27,9 @@ class Time_entry extends CI_Controller {
 
 	public function start() {
 
-		$data = $this->time_entry_model->start_time($this->user['id']);
+		$this->time_entry_model->start_time($this->user['id']);
 
 		redirect('time_entry/all_entries');
-		
 		
 	}
 		
