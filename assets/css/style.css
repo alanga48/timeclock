@@ -65,9 +65,15 @@ h4 a i {
 	font-size: 16px;
 }
 
-a:hover {
+a {
 
 	color: #2BBBD8;
+	text-decoration: none;
+}
+
+a:hover{
+
+	color: #156C7D;
 }
 
 .link {
