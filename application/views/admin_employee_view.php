@@ -53,13 +53,13 @@ foreach($entries as $week) {
 						<?= form_close() ?>
 					</div>
 		
-					<?=date("m/d/Y, H:i", strtotime($entry['start']))?>
+					<?=date("D, m/d/Y, H:i", strtotime($entry['start']))?>
 				</td>
 				<td>
 					<?php if($entry['end'] == NULL) { 
 						echo ' - ';
 						} else { 
-							echo date("m/d/Y, H:i", strtotime($entry['end']) ); 
+							echo date("D, m/d/Y, H:i", strtotime($entry['end']) ); 
 						}
 					?>
 				</td>

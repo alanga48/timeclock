@@ -25,7 +25,7 @@ h1 {
 h2 {
 
 	font-size: 20px;
-	padding: 5px;
+	padding: 15px 0 15px 5px;
 	color: #102E37;
 	font-family: Trebuchet MS;
 	font-weight: 100;
@@ -259,7 +259,7 @@ form {
 
 .company_heading p {
 
-	padding: 20px 0 20px 5px;
+	padding: 50px 0 30px 5px;
 	color: #102E37;
 	font-family: Trebuchet MS;
 	font-size: 30px;
@@ -317,7 +317,11 @@ input[type=submit]:hover {
 
 }
 
+.name {
 
+	font-size: 22px;
+	padding: 10px;
+}
 .flash h3{
 
 	padding: 10px;
@@ -347,8 +351,8 @@ input[type=submit]:hover {
 .nav_bar {
 
 	background: #156C7D;
-	padding: 10px;
-	color: #FFFF99;
+	padding: 10px 10px 10px 30px;
+	color: white;
 	margin: 0 -30px;
 }
 .nav_bar ul {
@@ -367,12 +371,12 @@ input[type=submit]:hover {
 .nav_bar a {
 
 	text-decoration: none;
-	color: white;
+	color: #FFFF99;
 }
 
 .nav_bar a:hover {
 
-	color: #FFFF99;
+	color: #2BBBD8;
 	padding: 0 0 25px 0;
 }
 

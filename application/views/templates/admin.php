@@ -22,6 +22,14 @@
    <body>
 
    		<div id="wrapper">
+
+   			<div class="company_heading">
+				<?php if($this->session->userdata('company') == 'btp') { ?>
+					<p>By The Pixel Timeclock Entries</p>
+				<?php } else { ?>
+					<p>Reynier's Audio Timeclock Entries</p>
+				<?php } ?>
+	        </div>
 			
 			<div class="nav_bar"
 				<ul>
@@ -30,14 +38,6 @@
 					<li>Logged in as <?=$this->user['username']?>. <a href="/index.php/user/logout">Log Out</a></li>
 				</ul> 
 			</div>
-
-			<div class="company_heading">
-				<?php if($this->session->userdata('company') == 'btp') { ?>
-					<p>By The Pixel Timeclock Entries</p>
-				<?php } else { ?>
-					<p>Reynier's Audio Timeclock Entries</p>
-				<?php } ?>
-	        </div>
 
 	        <?php echo $body; ?>
           
