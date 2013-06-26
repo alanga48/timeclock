@@ -61,10 +61,10 @@
 						<?php } 
 					} ?>
 					<div class = "hidden">
-				   	<?php $placeholder = "placeholder='Enter a comment about what you did today'"; ?>
+				   	<?php $placeholder = "placeholder='What did you do today?'"; ?>
 				   	<?= form_open('time_entry/insert_comment', $attributes = array('id' => 'insert_comment' . $entry['id']) ); ?>
 				   		<?= form_hidden('id', $entry['id']) ?>
-				   		<?= form_textarea('comment', '', $placeholder); ?>
+				   		<?= form_textarea('comment', $entry['comment'], $placeholder); ?>
 				   		<?= form_submit('submit', 'Submit'); ?>
 				   	<?= form_close(); ?>
    					</div>

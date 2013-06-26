@@ -38,8 +38,8 @@
 		<?php } ?>
 
 		<?php if ($this->session->flashdata('message')) { ?>
-	   	<div class = "flash">
-	   	<h3><?= $this->session->flashdata('message'); ?></h3>
+	   	<div class = "flash_employee">
+	   	<h3><i class="icon-exclamation-sign"></i><?= $this->session->flashdata('message'); ?></h3>
 	   	</div>
 	    <?php } ?>
 

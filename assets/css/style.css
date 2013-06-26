@@ -322,7 +322,14 @@ input[type=submit]:hover {
 
 	padding: 10px;
 	padding-top: 20px;
-	color: #00D474;
+	color: #02C970;
+
+}
+
+.flash_employee h3 {
+
+	padding-bottom: 10px;
+	color: #02C970;
 
 }
 
