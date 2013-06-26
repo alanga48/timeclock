@@ -31,12 +31,6 @@
 				</ul> 
 			</div>
 
-			<?php if ($this->session->flashdata('message')) { ?>
-	      	<div class = "flash">
-				<h3><?= $this->session->flashdata('message'); ?></h3>
-			</div>
-			<?php } ?>
-			
 			<div class="company_heading">
 				<?php if($this->session->userdata('company') == 'btp') { ?>
 					<p>By The Pixel Timeclock Entries</p>
@@ -63,7 +57,7 @@
 				<?= form_dropdown('role', array('employee' => 'Employee', 'admin' => 'Administrator'), 'employee' ); ?>
 				<br><br>
 				<label for="company">Company</label>
-				<?= form_dropdown('company', array('by_the_pixel' => 'By The Pixel', 'r_audio' => 'Reyniers Audio'), '' ); ?>
+				<?= form_dropdown('company', array('btp' => 'By The Pixel', 'r_audio' => 'Reyniers Audio'), '' ); ?>
 				<br><br><button type='submit'>Submit</button>
 			<?= form_close() ?>
 		</div>

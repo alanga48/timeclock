@@ -103,7 +103,7 @@ class Time_entry extends CI_Controller {
 
 		$week_number = date("W", strtotime($start));
 
-		$this->session->set_flashdata('message', 'Your Changes Have Been Made');
+		$this->session->set_flashdata('message', 'Time Entry #' . $id . ' Has Been Updated');
 
 		redirect('admin/view_employee/' . $entry['user_id'] . '/#details_' . $week_number);
 
@@ -133,7 +133,7 @@ class Time_entry extends CI_Controller {
 
 		$week_number = date("W", strtotime($start));
 
-		$this->session->set_flashdata('message', 'Your Changes Have Been Made');
+		$this->session->set_flashdata('message', 'New Entry Insert Successful');
 
 		redirect('admin/view_employee/' . $this->input->post('user_id') . '/#details_' . $week_number );
 	}
@@ -149,7 +149,7 @@ class Time_entry extends CI_Controller {
 
 		$week_number = date("W", strtotime($entry['start']));
 
-		$this->session->set_flashdata('message', 'Your Changes Have Been Made');
+		$this->session->set_flashdata('message', 'Entry #' . $id . ' Successfully Deleted');
 
 		redirect('admin/view_employee/' . $entry['user_id'] . '/#details_' . $week_number);
 

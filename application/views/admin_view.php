@@ -1,4 +1,9 @@
 <h2>Weekly Timeclock Summary By Employee</h2>
+<?php if ($this->session->flashdata('message')) { ?>
+    <div class = "flash">
+	<h3><i class="icon-exclamation-sign"></i> <?= $this->session->flashdata('message'); ?></h3>
+	</div>
+<?php } ?>
 
 <?php foreach($users as $key => $user) { ?>
 
@@ -31,27 +36,35 @@
 			</h4>
 		</div>
 		
-		<div class="details_box" id="details_<?=$user['id']?>"> 
-			<table class="table">
-				<thead>		
-					<tr>
-						<th>WEEK OF</th>
-						<th>WEEK TOTAL</th>
-					</tr>
-				</thead>
 
-				<tbody>
-				<?php foreach($user['weeks'] as $week) { ?>
-					<?php $week_number = date("W", strtotime($week['start']) )?>
-					<tr>
-						<td><?=date("M d, Y", strtotime($week['start'])) . "  -  " . date("M d, Y", strtotime($week['end']))?></td>
-						<td><a href="/index.php/admin/view_employee/<?=$user['id']?>/#details_<?=$week_number?>" class="week_links"><?=sec_to_output($week['total_seconds'])?></a></td>
-					</tr>
+			<div class="details_box" id="details_<?=$user['id']?>"> 
+				<?php if($user['weeks']) { ?>
+					<table class="table">
+						<thead>		
+							<tr>
+								<th>WEEK OF</th>
+								<th>WEEK TOTAL</th>
+							</tr>
+						</thead>
+
+						<tbody>
+						<?php foreach($user['weeks'] as $week) { ?>
+							<?php $week_number = date("W", strtotime($week['start']) )?>
+							<tr>
+								<td><?=date("M d, Y", strtotime($week['start'])) . "  -  " . date("M d, Y", strtotime($week['end']))?></td>
+								<td><a href="/index.php/admin/view_employee/<?=$user['id']?>/#details_<?=$week_number?>" class="week_links"><?=sec_to_output($week['total_seconds'])?></a></td>
+							</tr>
+						<?php } ?>
+						</tbody>				
+					</table>
+				
+				<?php } else { ?>
+
+				<p>There are no time entries for this employee. <a href="view_employee/<?=$user['id']?>/#insert_entry_<?=$user['id']?>" class="link"> Add a New Entry</a></p>
+
 				<?php } ?>
-				</tbody>				
-			</table>
+
 		</div> 
-	
 
 <?php } ?>
 		

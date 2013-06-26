@@ -71,6 +71,13 @@ a {
 	text-decoration: none;
 }
 
+p {
+
+	padding: 15px;
+	font-family: trebuchet ms;
+	font-size: 16px;
+}
+
 a:hover{
 
 	color: #156C7D;
@@ -81,7 +88,7 @@ a:hover{
 	font-size: 16px;
 	color: #102E37;
 	font-family: Trebuchet MS;
-	padding: 15px 0 0 5px;
+	padding: 25px 0 0 5px;
 	font-weight: bold;
 	text-decoration: none;
 }
@@ -112,6 +119,11 @@ a:hover{
 	background: #2BBBD8;
 	text-align: left;
 
+}
+
+.title h3 {
+
+	color: #FFFF99;
 }
 
 .title h4 {
@@ -287,11 +299,30 @@ input[type=submit]:hover {
 
 }
 
+.first_entry p {
+
+	color: #102E37;
+	padding: 35px 0 5px 15px;
+	font-style: italic;
+
+}
+
+.first_entry h4 {
+
+	color: #102E37;
+	padding: 10px 0 15px 15px;
+	display: block;
+	font-size: 18px;
+
+
+}
+
+
 .flash h3{
 
-	font-style: italic;
 	padding: 10px;
-	color: orange;
+	padding-top: 20px;
+	color: #00D474;
 
 }
 

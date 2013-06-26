@@ -1,7 +1,13 @@
 <script type="text/javascript" src="/assets/js/employee_admin.js"></script>
 
 <h2>EMPLOYEE NAME: <?=$user['first_name'] ." ". $user['last_name']; ?></h2>
-<i class="icon-arrow-left"></i><a class="link" href="/index.php/admin/get_entries">Go Back</a>
+<?php if($entries) { ?> <i class="icon-plus"></i> <a href="#insert_entry_<?=$user['id'];?>" class="modal_popup link">New Entry</a> | <?php } ?>
+<i class="icon-arrow-left"></i><a class="link" href="/index.php/admin/get_entries"> Go Back</a> 
+<?php if ($this->session->flashdata('message')) { ?>
+    <div class = "flash">
+	<h3><i class="icon-exclamation-sign"> </i><?= $this->session->flashdata('message'); ?></h3>
+	</div>
+<?php } ?>
 <?php 
 foreach($entries as $week) { 
 
@@ -11,16 +17,15 @@ foreach($entries as $week) {
 		<h3>WEEK OF: <?=date("M d, Y", strtotime($week['start'])) . " - " . date("M d, Y", strtotime($week['end']))?></h3> 
 		<h4 class="name">WEEK TOTAL: <?=sec_to_output($week['total_seconds']) ?>
 			<div class="float_right">
-				<i class="icon-expand-alt"></i> <a href="#details_<?=$week_number?>" class="details">Details</a> |
-				<i class="icon-plus"></i> <a href="#insert_entry_<?=$user['id'];?>" class="modal_popup">New Entry </a>
+				<i class="icon-expand-alt"></i> <a href="#details_<?=$week_number?>" class="details">View Details</a> 
 			</div>
 		</h4>
-		
 	</div>
 
 	<div class="details_box" id="details_<?=$week_number?>">
 		<table>
 			<tr>
+				<th>ENTRY</th>
 				<th>CLOCK IN</th>
 				<th>CLOCK OUT</th>
 				<th>DAILY TOTAL</th>
@@ -29,6 +34,7 @@ foreach($entries as $week) {
 
 			<?php foreach($week['entries'] as $entry) { ?>
 			<tr>
+				<td>#<?=$entry['id'] ?></td>
 				<td>
 					<div class = "hidden">
 						<?php if($entry['end'] == NULL) {
@@ -47,8 +53,6 @@ foreach($entries as $week) {
 						<?= form_close() ?>
 					</div>
 		
-
-
 					<?=date("m/d/Y, H:i", strtotime($entry['start']))?>
 				</td>
 				<td>
@@ -76,10 +80,14 @@ foreach($entries as $week) {
 		</table>
 	</div>
 <?php } ?>
-
-
-<div class = "hidden">
-	<?= form_open('time_entry/insert_entry', $attributes = array('id' => 'insert_entry_' . $entry['user_id']), array('user_id' => $entry['user_id']) ) ?>
+	<?php if($entries) { ?>
+	<div class="hidden">
+	<?php } else { ?>
+	<div class="first_entry">
+		<p>There are currently no time entries for this employee.</p>
+		<h4>Insert a New Time Entry for <?=$user['first_name'] ." ". $user['last_name']; ?></h4>
+	<?php } ?>
+	<?= form_open('time_entry/insert_entry', $attributes = array('id' => 'insert_entry_' . $user['id']), array('user_id' => $user['id']) ) ?>
 		<label for="start">Start</label>
 		<?= form_input('start', date("m/d/Y H:i:s"), 'class="datetimepicker clearable"') ?>
 		<label for="end">End (Optional)</label>
@@ -87,4 +95,5 @@ foreach($entries as $week) {
 		<a href="#" class="clear">Clear</a>
 		<?= form_submit(array('name' => 'submit','value' => 'Submit','id' => 'submit')) ?>
 	<?= form_close() ?>
-</div>
+	</div>
+
