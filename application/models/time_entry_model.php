@@ -44,6 +44,20 @@
 
 		}
 
+		public function get_project() {
+
+			$this->db->select('t.id as time_entry_id, p.title as title, p.company as company, t.user_id as user_id, t.start as start, t.end as end');
+			$this->db->from('project as p');
+			$this->db->join('time_entry as t', 't.project_id = p.id');
+			$result = $this->db->get();
+			$entries = $result->result_array();
+
+			return $entries;
+
+
+		}
+
+
 		public function get_all_entries() {
 
 			$this->db->select('*');

@@ -88,7 +88,7 @@ class Admin extends CI_Controller {
 		$query = $this->time_entry_model->insert_project($array);
 
 		if($query) {
-			
+
 			$this->session->set_flashdata('message', 'New Project Successfully Added for ' . $this->session->userdata['company'] );
 			redirect('admin/get_entries');
 		}
