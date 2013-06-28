@@ -8,7 +8,8 @@
 		<tr>
 			<th>CLOCK IN</th>
 			<th>CLOCK OUT</th>
-			<th>DAILY TOTAL</th>
+			<th>PROJECT</th>
+			<th>TOTAL TIME</th>
 		</tr>
 
 		<?php $c = true; ?>
@@ -35,6 +36,9 @@
 				}?>
 			</td>
 			<td>
+				<?= $entry['title']; ?>
+			</td>
+			<td>
 				<?php 
 				if($entry['end'] == NULL) { 
 					echo ' - ';
@@ -46,7 +50,7 @@
 
 		<tr class="<?= $class ?>">
 
-			<td colspan="3">
+			<td colspan="4">
 				<div class="comment">
 					<?php
 					if($entry['end'] == NULL) { 
@@ -60,10 +64,12 @@
 						<a  href="#insert_comment<?=$entry['id']?>" class="modal_popup"><i class="icon-star"></i> Add a Comment</a>
 						<?php } 
 					} ?>
-					<div class = "hidden">
+					<div class = "hidden project_form">
 				   	<?php $placeholder = "placeholder='What did you do today?'"; ?>
 				   	<?= form_open('time_entry/insert_comment', $attributes = array('id' => 'insert_comment' . $entry['id']) ); ?>
 				   		<?= form_hidden('id', $entry['id']) ?>
+				   		<label for='project_task'>Select a Project</label>
+				   		<?= form_dropdown('project', array('1' => 'Reyniers Audio', '2' => 'Production') ); ?>
 				   		<?= form_textarea('comment', $entry['comment'], $placeholder); ?>
 				   		<?= form_submit('submit', 'Submit'); ?>
 				   	<?= form_close(); ?>

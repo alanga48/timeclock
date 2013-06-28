@@ -1,3 +1,20 @@
+<!-- $this->db->select('*');
+$this->db->from('blogs');
+$this->db->join('comments', 'comments.id = blogs.id');
+
+$query = $this->db->get();
+
+// Produces: 
+// SELECT * FROM blogs
+// JOIN comments ON comments.id = blogs.id
+
+SELECT *
+
+FROM `time_entry`
+
+JOIN project ON time_entry.project_id = project.id
+
+ -->
 <?php
 
 	class Time_entry_model extends CI_Model {
@@ -5,10 +22,16 @@
 		
 		public function get_employee_entries($user_id) {
 			
+			// $this->db->where('user_id', $user_id);
+			// $this->db->order_by('start', 'desc');
+			// $result = $this->db->get('time_entry');
+
+			$this->db->select('t.*, p.id AS project_id, p.title as title');
+			$this->db->from('time_entry as t');
+			$this->db->join('project as p', 't.project_id = p.id', 'left outer');
 			$this->db->where('user_id', $user_id);
-			//$this->db->where('end !=', 'NULL');
 			$this->db->order_by('start', 'desc');
-			$result = $this->db->get('time_entry');
+			$result = $this->db->get();
 			
 			$entries = $result->result_array();
 
@@ -33,7 +56,6 @@
 				$result = $this->_calculate_week($week['entries']);
 				$grouped_entries[$key] = $grouped_entries[$key] + $result;
 			}
-
 
 			return $grouped_entries;
 
@@ -127,11 +149,13 @@
 			
 		}
 
-		public function insert_comment($id, $comment) {
+		public function insert_comment($id, $comment, $project) {
 
 			$this->db->where('id', $id);
 
 			$this->db->set('comment', $comment);
+
+			$this->db->set('project_id', $project);
 
 			$this->db->update('time_entry');
 		}

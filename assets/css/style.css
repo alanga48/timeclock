@@ -225,7 +225,13 @@ form {
 	font-weight: bold;
 	font-family: trebuchet MS;
 	font-size: 16px;
+	display: block;
 
+}
+
+.project_form {
+
+	clear: right;
 }
 
 
@@ -398,6 +404,11 @@ input[type=submit]:hover {
 
 	color: yellow;
 
+}
+
+label {
+
+	display: block;
 }
 
 label.invalid {

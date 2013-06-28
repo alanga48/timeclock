@@ -28,6 +28,7 @@ foreach($entries as $week) {
 				<th>ENTRY</th>
 				<th>CLOCK IN</th>
 				<th>CLOCK OUT</th>
+				<th>PROJECT</th>
 				<th>DAILY TOTAL</th>
 				<th>ACTIONS</th>
 			</tr>
@@ -62,6 +63,9 @@ foreach($entries as $week) {
 							echo date("D, m/d/Y, H:i", strtotime($entry['end']) ); 
 						}
 					?>
+				</td>
+				<td>
+					<?= $entry['title']; ?>
 				</td>
 				<td>
 					<?php if($entry['end'] == NULL) { 

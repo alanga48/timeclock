@@ -19,6 +19,7 @@ class Time_entry extends CI_Controller {
 		$data['entries'] = $this->time_entry_model->get_employee_entries($this->user['id']);
 		$data['open_entry'] = $this->time_entry_model->open_entry();
 
+		//print_rr($data);
 
 		$this->template->load('default','home_view', $data);
 		
@@ -36,6 +37,7 @@ class Time_entry extends CI_Controller {
 
 	public function end() {
 
+		$project = $this->input->post('project');
 		$comment = $this->input->post('comment');
 
 		$end = $this->time_entry_model->end_time($this->user['id'], $comment);
@@ -46,10 +48,13 @@ class Time_entry extends CI_Controller {
 
 	public function insert_comment() {
 
+		//print_rr($this->input->post());
+
+		$project = $this->input->post('project');
 		$id = $this->input->post('id');
 		$comment = $this->input->post('comment');
 
-		$this->time_entry_model->insert_comment($id, $comment);
+		$this->time_entry_model->insert_comment($id, $comment, $project);
 
 		$this->session->set_flashdata('message', ' Your Changes Have Been Made');
 

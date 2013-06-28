@@ -27,13 +27,9 @@
 		<div id="wrapper">
 
 		<div class="company_heading">
-			<?php if($this->session->userdata('company') == 'btp') { ?>
-				<p>By The Pixel Timeclock Entries</p>
-			<?php } else { ?>
-				<p>Reynier's Audio Timeclock Entries</p>
-			<?php } ?>
+			<p><?= $this->user['company']; ?> Timeclock Entries</p>
         </div>
-        
+
 		<div class="nav_bar">
 			<ul>
 				<li>You are logged in as <?=$this->user['username']?>. <a href="/index.php/user/logout">Log Out</a></li>
@@ -61,10 +57,12 @@
 
       <?php } else { echo $body; } ?>
        
-    <div class = "hidden">
+    <div class = "hidden project_form">
 	   	<?php $placeholder = "placeholder='Enter a comment about what you did today'"; ?>
 	   	<?= form_open('time_entry/end', $attributes = array('id' => 'end_comment', 'input type' => 'text') ); ?>
 	   		<label for "Daily Comment" </label>
+	   		<label for='project_task'>Select a Project</label>
+			<?= form_dropdown('project', array('1' => 'Reyniers Audio', '2' => 'Production') ); ?>
 	   		<?= form_textarea('comment', '', $placeholder); ?>
 	   		<?= form_submit('submit', 'Submit'); ?>
 	   	<?= form_close(); ?>

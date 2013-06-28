@@ -24,17 +24,14 @@
    		<div id="wrapper">
 
    			<div class="company_heading">
-				<?php if($this->session->userdata('company') == 'btp') { ?>
-					<p>By The Pixel Timeclock Entries</p>
-				<?php } else { ?>
-					<p>Reynier's Audio Timeclock Entries</p>
-				<?php } ?>
-	        </div>
+			<p><?= $this->user['company']; ?> Timeclock Entries</p>
+       		</div>
 			
 			<div class="nav_bar"
 				<ul>
 					<li><a href="/index.php/admin/get_entries">Home</a></li> |
-					<li><a href="#insert_employee" class ="modal_popup" class = "insert_employee">Add a New Employee</a></li> |
+					<li><a href="#insert_employee" class ="modal_popup">Add a New Employee</a></li> |
+					<li><a href="#insert_project" class ="modal_popup insert_project">Add a New Project</a></li> |
 					<li>Logged in as <?=$this->user['username']?>. <a href="/index.php/user/logout">Log Out</a></li>
 				</ul> 
 			</div>
@@ -57,8 +54,15 @@
 				<?= form_dropdown('role', array('employee' => 'Employee', 'admin' => 'Administrator'), 'employee' ); ?>
 				<br><br>
 				<label for="company">Company</label>
-				<?= form_dropdown('company', array('btp' => 'By The Pixel', 'r_audio' => 'Reyniers Audio'), '' ); ?>
-				<br><br><button type='submit'>Submit</button>
+				<?= form_dropdown('company', array('By The Pixel' => 'By The Pixel', 'Reyniers Audio' => 'Reyniers Audio'), '' ); ?>
+				<?= form_submit('submit', 'Submit'); ?>
+			<?= form_close() ?>
+		</div>
+		<div class = "hidden">
+			<?= form_open('admin/insert_project', $attributes = array('name' => 'insert_project', 'id' => 'insert_project', 'class' => 'validate') ) ?>
+			<label>Create a New Project for <?= $this->user['company']; ?></label>
+			<?= form_input( array('name'=>'project', 'class' => 'required') );  ?>
+			<?= form_submit('submit', 'Submit'); ?>
 			<?= form_close() ?>
 		</div>
 
