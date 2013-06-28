@@ -20,7 +20,7 @@ class Time_entry extends CI_Controller {
 		$data['open_entry'] = $this->time_entry_model->open_entry();
 		$data['project'] = $this->time_entry_model->get_project();
 
-		print_rr($data);
+		//print_rr($data);
 
 		$this->template->load('default','home_view', $data);
 		
