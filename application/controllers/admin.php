@@ -81,6 +81,19 @@ class Admin extends CI_Controller {
 		
 	}
 
+	function insert_project() {
+
+		$array = array('company' => $this->session->userdata['company'], 'title' => $this->input->post('project') );
+
+		$query = $this->time_entry_model->insert_project($array);
+
+		if($query) {
+			
+			$this->session->set_flashdata('message', 'New Project Successfully Added for ' . $this->session->userdata['company'] );
+			redirect('admin/get_entries');
+		}
+	}
+
 	private function _is_logged_in() {
 
 		$session = $this->session->all_userdata();

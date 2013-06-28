@@ -1,20 +1,3 @@
-<!-- $this->db->select('*');
-$this->db->from('blogs');
-$this->db->join('comments', 'comments.id = blogs.id');
-
-$query = $this->db->get();
-
-// Produces: 
-// SELECT * FROM blogs
-// JOIN comments ON comments.id = blogs.id
-
-SELECT *
-
-FROM `time_entry`
-
-JOIN project ON time_entry.project_id = project.id
-
- -->
 <?php
 
 	class Time_entry_model extends CI_Model {
@@ -205,6 +188,16 @@ JOIN project ON time_entry.project_id = project.id
 
 			$this->db->insert('time_entry', $array);
 
+		}
+
+		public function insert_project($array) {
+
+			$query = $this->db->insert('project', $array);
+
+			if($query) {
+
+				return true;
+			}
 		}
 
 		private function _calculate_week($week_entries) {

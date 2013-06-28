@@ -50,7 +50,7 @@
 				<?= form_input(array('name'=>'username', 'id' =>'username_new', 'class'=>'required')) ?>
 			<label for='password_new'>Password</label>
 				<?= form_password(array('name'=>'password', 'id' =>'password_new', 'class'=>'required')) ?>
-				<label for="role">Role</label>
+				<label for="role">Role</label> 
 				<?= form_dropdown('role', array('employee' => 'Employee', 'admin' => 'Administrator'), 'employee' ); ?>
 				<br><br>
 				<label for="company">Company</label>
