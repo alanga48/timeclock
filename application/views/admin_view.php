@@ -3,6 +3,7 @@
 	<h3><i class="icon-exclamation-sign"></i> <?= $this->session->flashdata('message'); ?></h3>
 	</div>
 <?php } ?>
+
 <h2>Weekly Timeclock Summary By Employee</h2>
 
 <?php foreach($users as $key => $user) { ?>

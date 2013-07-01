@@ -60,10 +60,10 @@
     <div class = "hidden project_form">
 	   	<?php $placeholder = "placeholder='Enter a comment about what you did today'"; ?>
 	   	<?= form_open('time_entry/end', $attributes = array('id' => 'end_comment', 'input type' => 'text') ); ?>
-	   		<label for "Daily Comment" </label>
-	   		<label for='project_task'>Select a Project</label>
-			<?= form_dropdown('project', array('1' => 'Reyniers Audio', '2' => 'Production') ); ?>
-	   		<?= form_textarea('comment', '', $placeholder); ?>
+	   			<label for='clockout_comment'>Clock Out Comment</label>
+	   			<?= form_textarea('comment', '', $placeholder); ?>
+		   		<label for='project_task'>Select a Project</label>
+		   		<?= form_dropdown('project', $projects ); ?>
 	   		<?= form_submit('submit', 'Submit'); ?>
 	   	<?= form_close(); ?>
    </div>

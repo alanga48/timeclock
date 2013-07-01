@@ -40,20 +40,26 @@
 				$grouped_entries[$key] = $grouped_entries[$key] + $result;
 			}
 
+			//print_rr($grouped_entries);
+
 			return $grouped_entries;
 
 		}
 
-		public function get_project() {
+		public function get_projects() {
 
-			$this->db->select('t.id as time_entry_id, p.title as title, p.company as company, t.user_id as user_id, t.start as start, t.end as end');
-			$this->db->from('project as p');
-			$this->db->join('time_entry as t', 't.project_id = p.id');
-			$result = $this->db->get();
-			$entries = $result->result_array();
+			$this->db->select('*');
+			$this->db->where('company', $this->session->userdata('company'));
+			$result = $this->db->get('project');
+			$results = $result->result_array();
+			
+			$projects = array();
+			foreach($results as $project) {
 
-			return $entries;
+				$projects[$project['id']] = $project['title'];
+			}
 
+			return $projects;
 
 		}
 
@@ -212,6 +218,12 @@
 
 				return true;
 			}
+		}
+
+		public function delete_project($id) {
+
+			$this->db->where('id', $id);
+			$this->db->delete('project');
 		}
 
 		private function _calculate_week($week_entries) {

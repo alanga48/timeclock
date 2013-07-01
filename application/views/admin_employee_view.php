@@ -77,7 +77,6 @@ foreach($entries as $week) {
 				</td>
 				<td><a href="#update_entry_<?=$entry['id']?>" class ="modal_popup week_links" class="edit_entry">Update</a> | 
 				<a href="/index.php/time_entry/delete/<?=$entry['id']?>"  class ="week_links" onclick="return confirm('Are you sure you want to delete this time entry?')">Delete</a></td>
-
 			</tr>
 			<?php } ?>
 

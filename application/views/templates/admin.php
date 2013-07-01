@@ -32,6 +32,7 @@
 					<li><a href="/index.php/admin/get_entries">Home</a></li> |
 					<li><a href="#insert_employee" class ="modal_popup">Add a New Employee</a></li> |
 					<li><a href="#insert_project" class ="modal_popup insert_project">Add a New Project</a></li> |
+					<li><a href="#delete_project" class ="modal_popup delete_project">Delete a Project</a></li> |
 					<li>Logged in as <?=$this->user['username']?>. <a href="/index.php/user/logout">Log Out</a></li>
 				</ul> 
 			</div>
@@ -60,11 +61,25 @@
 		</div>
 		<div class = "hidden">
 			<?= form_open('admin/insert_project', $attributes = array('name' => 'insert_project', 'id' => 'insert_project', 'class' => 'validate') ) ?>
+			<h2>Current Projects</h2>
+			<?php foreach($projects as $project) { ?>
+				<ul>
+					<li><?=$project ?></li>
+				</ul>
+			<?php } ?>
 			<label>Create a New Project for <?= $this->user['company']; ?></label>
 			<?= form_input( array('name'=>'project', 'class' => 'required') );  ?>
 			<?= form_submit('submit', 'Submit'); ?>
 			<?= form_close() ?>
 		</div>
+
+		 <div class = "hidden">
+	   	<?= form_open('admin/delete_project', $attributes = array('id' => 'delete_project', 'input type' => 'text') ); ?>
+		   		<label for='project_task'>Select the Project You Would Like to Delete</label>
+		   		<?= form_dropdown('project', $projects ); ?>
+	   		<?= form_submit('submit', 'Submit'); ?>
+	   	<?= form_close(); ?>
+   </div>
 
    </body>
     

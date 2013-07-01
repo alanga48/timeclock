@@ -20,8 +20,8 @@ class Admin extends CI_Controller {
 		}
 
 		$data['users'] = $users;
-
-		//print_rr($data);
+		$data['projects'] = $this->time_entry_model->get_projects();
+	
 
 		$this->template->load('admin', 'admin_view', $data);
 
@@ -32,21 +32,12 @@ class Admin extends CI_Controller {
 
 		$data['user'] = $this->user_model->get($user_id);
 		$data['entries'] = $this->time_entry_model->get_employee_entries($user_id);
-
-		//print_rr($data);
+		$data['projects'] = $this->time_entry_model->get_projects();
+	
 		$this->template->load('admin','admin_employee_view', $data);
 
 	}
 
-	// function view_user_info($user_id) {
-
-	// 	$data['user'] = $this->user_model->get($user_id);
-
-	// 	//print_rr($data);
-
-	// 	$this->template->load('admin','view_user_info', $data);
-
-	// }
 
 	function edit_employee() {
 
@@ -93,6 +84,17 @@ class Admin extends CI_Controller {
 			redirect('admin/get_entries');
 		}
 	}
+
+	function delete_project() {
+
+		$id = $this->input->post('project');
+		$this->time_entry_model->delete_project($id);
+
+		$this->session->set_flashdata('message', 'Project Deleted');
+			redirect('admin/get_entries');
+
+	}
+
 
 	private function _is_logged_in() {
 
