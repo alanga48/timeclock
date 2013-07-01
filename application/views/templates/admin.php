@@ -31,15 +31,15 @@
 				<ul>
 					<li><a href="/index.php/admin/get_entries">Home</a></li> |
 					<li><a href="#insert_employee" class ="modal_popup">Add a New Employee</a></li> |
-					<li><a href="#insert_project" class ="modal_popup insert_project">Add a New Project</a></li> |
-					<li><a href="#delete_project" class ="modal_popup delete_project">Delete a Project</a></li> |
+					<li><a href="#project" class = "modal_popup"><?= $this->user['company']; ?> Projects</a></li> | 
 					<li>Logged in as <?=$this->user['username']?>. <a href="/index.php/user/logout">Log Out</a></li>
 				</ul> 
 			</div>
 
+
 	        <?php echo $body; ?>
           
-    	</div>       
+    	</div> 
 
 	 	<div class = "hidden">
 			<?= form_open('admin/insert_employee', $attributes = array('name' => 'insert_employee', 'id' => 'insert_employee', 'class' => 'validate') ) ?>
@@ -59,17 +59,28 @@
 				<?= form_submit('submit', 'Submit'); ?>
 			<?= form_close() ?>
 		</div>
+
+		<div class = "hidden">
+   			<div id = "project" class="content">
+				<h2>Current Projects for <?= $this->user['company']; ?></h2>
+				<?php foreach($projects as $project) { ?>
+					<ul>
+						<li><?=$project ?></li>
+					</ul>
+				<?php } ?>
+				<h2>Actions</h2>
+				<a href="#insert_project" class ="modal_popup link"><i class="icon-plus"></i> Add a New Project</a>
+				<a href="#delete_project" class ="modal_popup link"><i class="icon-remove"></i> Delete a Project</a>
+			</div>
+		</div>      
+
+
 		<div class = "hidden">
 			<?= form_open('admin/insert_project', $attributes = array('name' => 'insert_project', 'id' => 'insert_project', 'class' => 'validate') ) ?>
-			<h2>Current Projects</h2>
-			<?php foreach($projects as $project) { ?>
-				<ul>
-					<li><?=$project ?></li>
-				</ul>
-			<?php } ?>
 			<label>Create a New Project for <?= $this->user['company']; ?></label>
 			<?= form_input( array('name'=>'project', 'class' => 'required') );  ?>
 			<?= form_submit('submit', 'Submit'); ?>
+			<a href="#project" class = "modal_popup link">Go Back</a>
 			<?= form_close() ?>
 		</div>
 
@@ -78,8 +89,9 @@
 		   		<label for='project_task'>Select the Project You Would Like to Delete</label>
 		   		<?= form_dropdown('project', $projects ); ?>
 	   		<?= form_submit('submit', 'Submit'); ?>
+	   		<a href="#project" class = "modal_popup link">Go Back</a>
 	   	<?= form_close(); ?>
-   </div>
+   		</div>
 
    </body>
     

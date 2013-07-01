@@ -67,7 +67,6 @@ p {
 	font-size: 16px;
 }
 
-
 h4 a i { 
 
 	font-size: 18px; 
@@ -95,14 +94,37 @@ h4 a i {
 
 #wrapper {
 
-	width: 900px;
+	width: 1000px;
 	margin: 25px auto 0;
 	background: white;
 	color: #102E37;
 	padding: 0 30px 30px 30px;
 }
 
-.logged_in p{
+.content {
+
+	padding: 15px;
+}
+
+.content h2 {
+
+	color: #2BBBD8;
+}
+
+.content a {
+
+	display: block;
+	font-weight: bold;
+	padding-top: 5px;
+}
+
+.content ul {
+
+	padding: 8px 0 0 8px;
+
+}
+
+.logged_in p {
 
 	text-align: right;
 }
