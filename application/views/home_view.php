@@ -1,8 +1,14 @@
 <?php date_default_timezone_set('America/Denver'); ?>
 <?php foreach($entries as $week) { ?>
 
+<div class = "project_right">
+	<?php foreach($week['projects'] as $project) { ?>
+		<h4><?=$project['title']?>: <?=sec_to_output($project['total_seconds'])?></h4>
+	<?php } ?>	
+	</div>
 <h3>WEEK OF: <?=date("M d, Y", strtotime($week['start'])) . " - " . date("M d, Y", strtotime($week['end']))?></h3>
-<h4><?=sec_to_output($week['total_seconds'])?> </h4>
+<h4>Week Total: <?=sec_to_output($week['total_seconds'])?></h4>
+
 <br>
 <table class="employee_table">
 		<tr>

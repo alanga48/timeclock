@@ -20,6 +20,8 @@ class Time_entry extends CI_Controller {
 		$data['open_entry'] = $this->time_entry_model->open_entry();
 		$data['projects'] = $this->time_entry_model->get_projects();
 
+		//print_rr($data['projects']);
+
 		$this->template->load('default','home_view', $data);
 		
 	}
@@ -36,10 +38,10 @@ class Time_entry extends CI_Controller {
 
 	public function end() {
 
-		$project = $this->input->post('project');
+		$project_id = $this->input->post('project');
 		$comment = $this->input->post('comment');
 
-		$end = $this->time_entry_model->end_time($this->user['id'], $comment);
+		$end = $this->time_entry_model->end_time($this->user['id'], $comment, $project_id);
 
 		redirect('time_entry/all_entries');
 

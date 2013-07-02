@@ -14,7 +14,7 @@ function sec_to_output($seconds) {
 	$hours = floor($seconds / 3600);
 	$mins = floor(($seconds - ($hours*3600)) / 60);
 	
-	return $hours .' Hours and ' . $mins . ' Minutes';
+	return $hours .' Hrs and ' . $mins . ' Mins';
 
 }
 

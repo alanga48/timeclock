@@ -141,6 +141,7 @@ h4 a i {
 .title h3 {
 
 	color: #FFFF99;
+	padding-left: 10px;
 }
 
 .title h4 {
@@ -197,7 +198,30 @@ tr {
 .float_right {
 
 	float: right;
-	padding-right: 63px;
+	text-align: left;
+	padding: 15px 5px 15px 5px;
+	display: block;
+	width: 375px;
+	line-height: 25px;
+
+}
+
+.project_right {
+
+	margin: 0px 7px 0px 0px;
+	float: right;
+	padding: 12px;
+}
+
+.project_right h4 {
+
+	padding: 5px;
+}
+
+
+.clear {
+
+	clear: both;
 }
 
 tr:nth-child(odd) {

@@ -139,11 +139,11 @@
 		}
 
 
-		public function end_time($user_id, $comment) {
+		public function end_time($user_id, $comment, $project_id) {
 
 			$today = date("Y-m-d H:i:s");
 			
-			$data = array('end'=> $today, 'comment' => $comment);
+			$data = array('end'=> $today, 'comment' => $comment, 'project_id' => $project_id);
 
 			$this->db->where('user_id', $this->user['id']);
 			$this->db->where('end IS NULL');

@@ -14,12 +14,16 @@ foreach($entries as $week) {
 	$week_number = date("W", strtotime($week['start'])); ?>
 
 	<div class="title" id="week_<?=$week_number?>">
+		<div class="float_right">
+			<?php foreach($week['projects'] as $project) { ?>
+			<h4><?=$project['title'] ?>: <?=sec_to_output($project['total_seconds']) ?></h4>
+			<?php } ?>
+			
+		</div>
+
 		<h3>WEEK OF: <?=date("M d, Y", strtotime($week['start'])) . " - " . date("M d, Y", strtotime($week['end']))?></h3> 
-		<h4 class="name">WEEK TOTAL: <?=sec_to_output($week['total_seconds']) ?>
-			<div class="float_right">
-				<i class="icon-expand-alt"></i> <a href="#details_<?=$week_number?>" class="details">View Details</a> 
-			</div>
-		</h4>
+		<h4 class="name">WEEK TOTAL: <?=sec_to_output($week['total_seconds']) ?> | <a href="#details_<?=$week_number?>" class="details"><i class="icon-expand"></i> Details</a></h4>
+
 	</div>
 
 	<div class="details_box" id="details_<?=$week_number?>">
