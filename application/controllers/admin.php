@@ -51,7 +51,7 @@ class Admin extends CI_Controller {
 	
 	function insert_employee() {
 
-		print_rr($this->input->post() );
+		//print_rr($this->input->post() );
 		$this->user_model->insert_user($this->input->post()) ;
 
 		$this->session->set_flashdata('message', 'Employee Added Successfully');
