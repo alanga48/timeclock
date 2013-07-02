@@ -54,11 +54,15 @@
 			$results = $result->result_array();
 			
 			$projects = array();
+
+			$projects['0'] = '-- none --';
+			
 			foreach($results as $project) {
 
 				$projects[$project['id']] = $project['title'];
 			}
 
+			//print_rr($projects);
 			return $projects;
 
 		}
@@ -182,9 +186,10 @@
 
 		}
 
-		public function update_entry($id, $start, $end) {
+		public function update_entry($id, $project_id, $start, $end) {
 
 			$this->db->where('id', $id);
+			$this->db->set('project_id', $project_id);
 			$this->db->set('start', $start);
 			$this->db->set('end', $end);
 			$this->db->update('time_entry');

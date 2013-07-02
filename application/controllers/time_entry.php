@@ -89,7 +89,7 @@ class Time_entry extends CI_Controller {
 		//print_rr($this->input->post() );
 
 		$id = $this->input->post('id');
-		
+		$project_id = $this->input->post('project');
 		$start = DateTime::createFromFormat('m/d/Y H:i:s', $this->input->post('start'));
 		$start = $start->format('Y-m-d H:i:s');
 
@@ -106,7 +106,7 @@ class Time_entry extends CI_Controller {
 
 		$entry = $this->time_entry_model->get_entry($id);
 
-		$this->time_entry_model->update_entry($id, $start, $end);
+		$this->time_entry_model->update_entry($id, $project_id, $start, $end);
 
 		$week_number = date("W", strtotime($start));
 

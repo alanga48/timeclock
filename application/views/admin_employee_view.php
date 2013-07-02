@@ -53,6 +53,8 @@ foreach($entries as $week) {
 							<?= form_input('start', date("m/d/Y H:i:s", strtotime($entry['start']) ), 'class="datetimepicker clearable"') ?>
 							<label for="end">End</label>
 							<?= form_input('end', $end, 'class="datetimepicker clearable"') ?>
+							<label>Project</label>
+							<?= form_dropdown('project', $projects) ?>
 							<a href="#" class="clear">Clear</a>
 							<?= form_submit('submit', 'Submit') ?>
 						<?= form_close() ?>
