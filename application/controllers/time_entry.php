@@ -57,8 +57,6 @@ class Time_entry extends CI_Controller {
 
 		$this->time_entry_model->insert_comment($id, $comment, $project);
 
-		$this->session->set_flashdata('message', ' Your Changes Have Been Made');
-
 		redirect('time_entry/all_entries');
 	}
 
@@ -66,7 +64,6 @@ class Time_entry extends CI_Controller {
 
 		$this->time_entry_model->delete_comment($id);
 		
-		$this->session->set_flashdata('message', ' Your Changes Have Been Made');
 
 		redirect('time_entry/all_entries');
 

@@ -89,7 +89,7 @@
 	   	<?= form_open('admin/delete_project', $attributes = array('id' => 'delete_project', 'input type' => 'text') ); ?>
 		   		<label for='project_task'>Select the Project You Would Like to Delete</label>
 		   		<?= form_dropdown('project', $projects ); ?>
-	   		<?= form_submit('submit', 'Submit'); ?>
+	   		<?= form_submit('submit', 'Delete'); ?>
 	   		<a href="#project" class = "modal_popup link">Go Back</a>
 	   	<?= form_close(); ?>
    		</div>
