@@ -40,7 +40,7 @@
 				$grouped_entries[$key] = $grouped_entries[$key] + $result;
 			}
 
-			print_rr($grouped_entries);
+			//print_rr($grouped_entries);
 
 			return $grouped_entries;
 
@@ -250,29 +250,25 @@
 				$return['start'] = $start;
 				$return['end'] = $end;
 
+				if ($entry['project_id']) {
 
-				if(!isset($return['projects']['title']) )
+					if(!isset($return['projects'][$entry['project_id']]) )
+						$return['projects'][$entry['project_id']] = array();
 
-					$return['projects']['title'] = array();
-				
-					$return['projects']['title'][] = $entry['title'];
+					$return['projects'][$entry['project_id']]['title'] = $entry['title'];
 
-					foreach($return['projects'] as $project) {
+					if(!isset($return['projects'][$entry['project_id']]['total_seconds']) ) {
 
-						if(!isset($return['projects']['title']['total_seconds']) ) {
-
-						$return['projects']['title']['total_seconds'] = array();
-						$return['projects']['title']['total_seconds'][] = $entry['total_seconds'];
+						$return['projects'][$entry['project_id']]['total_seconds'] = 0;
+					
 					}
 
-					}
+					$return['projects'][$entry['project_id']]['total_seconds'] += $entry['total_seconds'];
 
-						
+				}
 
-				// $return['projects']['x'] = array('title'=>'x','totle_seconds'=>123);
-				// $return['projects']['y'] = array('title'=>'y','totle_seconds'=>1232);
-				 
 			}
+
 
 			return $return;
 
