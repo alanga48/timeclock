@@ -64,13 +64,12 @@
    			<div id = "project" class="content">
 				<h2>Current Projects for <?= $this->user['company']; ?></h2>
 				<?php foreach($projects as $key => $project) { ?>
-					<?php if($key > 1) { ?>
+					<?php if($key != 0) { ?>
 					<ul>
 						<li><?=$project ?></li>
 					</ul>
 					<?php } ?>
 				<?php } ?>
-				<h2>Actions</h2>
 				<a href="#insert_project" class ="modal_popup link"><i class="icon-plus"></i> Add a New Project</a>
 				<a href="#delete_project" class ="modal_popup link"><i class="icon-remove"></i> Delete a Project</a>
 			</div>

@@ -106,6 +106,16 @@ h4 a i {
 	padding: 15px;
 }
 
+.content ul {
+
+	list-style: none;
+}
+
+.content li {
+
+	display: inline;
+}
+
 .content h2 {
 
 	color: #2BBBD8;
