@@ -51,9 +51,16 @@ class Admin extends CI_Controller {
 	
 	function insert_employee() {
 
-		//print_rr($this->input->post() );
-		$this->user_model->insert_user($this->input->post()) ;
+		$employee = array('first_name' => $this->input->post('first_name'),
+						'last_name' => $this->input->post('last_name'),
+						'username' => $this->input->post('username'),
+						'password' => $this->input->post('password'),
+						'role' => $this->input->post('role'),
+						'company' => $this->input->post('company'));
+		
+		$query = $this->user_model->insert_user($employee) ;
 
+		if($query == true)
 		$this->session->set_flashdata('message', 'Employee Added Successfully');
 
 		redirect('admin/get_entries');

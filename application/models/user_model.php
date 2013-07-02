@@ -60,9 +60,14 @@ class User_model extends CI_Model {
 
 		}
 
-		public function insert_user($array) {
+		public function insert_user($employee) {
 
-			$this->db->insert('user', $this->input->post());
+			$query = $this->db->insert('user', $employee);
+
+			if($query) {
+
+				return true;
+			}
 
 		}
 
