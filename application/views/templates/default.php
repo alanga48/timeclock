@@ -44,9 +44,9 @@
 
 		<h3>Employee Name: <?=$this->user['first_name'] ." ". $this->user['last_name']; ?></h3>
 		<?php if($open_entry == 1) { ?>
-			<div class="button"><a href="#end_comment" class="modal_popup">CLOCK OUT</a></div>
+			<div class="button"><a href="#end_comment" class="modal_popup">Clock Out</a></div>
 		<?php } else { ?>
-			<div class="button"><a href="start">CLOCK IN</a></div>
+			<div class="button"><a href="start">Clock In</a></div>
 		<?php } ?>
          
         

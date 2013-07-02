@@ -345,6 +345,9 @@ input[type=submit] {
 	font-size: 14px;
 	width: 120px;
 	clear: right;
+	border-radius: 5px;
+	border: 1.5px solid #525454;
+
 
 }
 
@@ -352,7 +355,6 @@ input[type=submit]:hover {
 
 	color: #FFFF99;
 }
-
 
 
 .hidden {
@@ -444,21 +446,30 @@ input[type=submit]:hover {
 
 .button {
 
-	text-align: left;
-	padding: 10px 0;
+	color: white;
+	background: #156C7D;
+	font-family: trebuchet ms;
+	border: none;
+	font-size: 14px;
+	width: 90px;
+	text-align: center;
+	padding: 16px;
+	letter-spacing: 1px;
+	border-radius: 5px;
+	border: 1.5px solid #525454;
+
 }
 .button a {
+	
 	padding: 5px;
 	text-decoration: none;
-	background: #2BBBD8;
 	color: white;
-	font-weight: bold;
 
 }
 
 .button a:hover {
 
-	color: yellow;
+	color: #FFFF99;
 
 }
 
