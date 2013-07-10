@@ -68,6 +68,7 @@
 					<ul>
 						<li><?=$project ?></li>
 					</ul>
+					<br>
 					<?php } ?>
 				<?php } ?>
 				<a href="#insert_project" class ="modal_popup link"><i class="icon-plus"></i> Add a New Project</a>

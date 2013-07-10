@@ -20,7 +20,7 @@
 			<label for='password_<?=$user['id']?>'>Password</label>
 				<?= form_password(array('name'=>'password', 'value'=>$user['password'], 'id' =>'password_' . $user['id'], 'class'=>'required')) ?>
 			<label for="company">Company</label>
-			<?= form_dropdown('company', array('btp' => 'By The Pixel', 'r_audio' => 'Reyniers Audio'), '' ); ?>
+			<?= form_dropdown('company', array('By The Pixel' => 'By The Pixel', 'Reyniers Audio' => 'Reyniers Audio'), '' ); ?>
 			<?= form_submit('submit', 'Update') ?>
 		<?= form_close() ?>
 
