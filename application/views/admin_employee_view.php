@@ -34,25 +34,20 @@ foreach($entries as $week) {
 				<th>CLOCK OUT</th>
 				<th>PROJECT</th>
 				<th>DAILY TOTAL</th>
+				<th>COMMENT</th>
 				<th>ACTIONS</th>
 			</tr>
-
 			<?php foreach($week['entries'] as $entry) { ?>
 			<tr>
 				<td>#<?=$entry['id'] ?></td>
 				<td>
 					<div class = "hidden">
-						<?php if($entry['end'] == NULL) {
-							$end = date("m/d/Y H:i:s");
-						} else {
-
-							$end = date("m/d/Y H:i:s", strtotime($entry['end']) );
-						} ?>
+						
 						<?= form_open('time_entry/update', $attributes = array('id' => 'update_entry_' . $entry['id'], 'input type' => 'text'), array('id' => $entry['id'], 'user_id' => $entry['user_id']) ) ?>
 							<label for="start">Start</label>
 							<?= form_input('start', date("m/d/Y H:i:s", strtotime($entry['start']) ), 'class="datetimepicker clearable"') ?>
 							<label for="end">End</label>
-							<?= form_input('end', $end, 'class="datetimepicker clearable"') ?>
+							<?= form_input('end', date("m/d/Y H:i:s", strtotime($entry['end']) ), 'class="datetimepicker clearable"') ?>
 							<label>Project</label>
 							<?= form_dropdown('project', $projects) ?>
 							<a href="#" class="clear">Clear</a>
@@ -60,13 +55,13 @@ foreach($entries as $week) {
 						<?= form_close() ?>
 					</div>
 		
-					<?=date("D, m/d/Y, H:i", strtotime($entry['start']))?>
+					<?=date("D, m/d/Y, g:i a", strtotime($entry['start']))?>
 				</td>
 				<td>
 					<?php if($entry['end'] == NULL) { 
 						echo ' - ';
 						} else { 
-							echo date("D, m/d/Y, H:i", strtotime($entry['end']) ); 
+							echo date("D, m/d/Y, g:i a", strtotime($entry['end']) ); 
 						}
 					?>
 				</td>
@@ -76,13 +71,28 @@ foreach($entries as $week) {
 				<td>
 					<?php if($entry['end'] == NULL) { 
 						echo ' - ';
-						} else { 
+						} else {  
 							echo gmdate("H:i:s", $entry['total_seconds']);
 						} 
 					?>
 				</td>
-				<td><a href="#update_entry_<?=$entry['id']?>" class ="modal_popup week_links" class="edit_entry">Update</a> | 
-				<a href="/index.php/time_entry/delete/<?=$entry['id']?>"  class ="week_links" onclick="return confirm('Are you sure you want to delete this time entry?')">Delete</a></td>
+				<td class = "comment_column">
+					<?= substr($entry['comment'], 0, 100)?>
+					<?php if(strlen($entry['comment']) > 100) { ?> 
+
+						<div id = "comment_full_<?=$entry['id']?>" class="hidden">
+							<?= substr($entry['comment'], 101)?>
+						</div>
+
+						<a href="#comment_full_<?=$entry['id']?>" class="comment">View Full Comment</a> 
+
+					<?php } ?>
+
+				</td>
+				<td class = "action_column">
+					<a href="#update_entry_<?=$entry['id']?>" class ="modal_popup week_links" class="edit_entry">Update</a> | 
+				<a href="/index.php/time_entry/delete/<?=$entry['id']?>"  class ="week_links" onclick="return confirm('Are you sure you want to delete this time entry?')">Delete</a>
+				</td>
 			</tr>
 			<?php } ?>
 

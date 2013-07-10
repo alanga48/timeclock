@@ -177,6 +177,7 @@ table {
 	width: 100%;
 	margin: 0 0 25px 0;
 	border: 1px solid #DDE3D3;
+	font-weight: bold;
 }
 
 th {
@@ -185,9 +186,10 @@ th {
 	background: #C3E2E8;
 	padding: 15px 15px 15px 20px;
 	border-collapse:collapse;
-	font-family: trebuchet MS;
-	font-size: 16px;
+	
 }
+
+
 
 td { 
 
@@ -202,16 +204,32 @@ tr {
 
 	color: #6B6C64;
 	padding: 25px;
+	height: 50px;
 
 }
 
+.comment_column {
+
+	width: 250px;
+}
+
+.comment_column a {
+
+	display: block;
+	padding-top: 5px;
+}
+
+.action_column {
+
+	width: 100px;
+}
 .float_right {
 
 	float: right;
 	text-align: left;
-	padding: 15px 5px 15px 5px;
+	padding-top: 12px;
 	display: block;
-	width: 375px;
+	width: 360px;
 	line-height: 25px;
 
 }
@@ -290,12 +308,18 @@ form {
 	clear: right;
 }
 
+.comment {
+
+	color: #1D4B59;
+}
+
 
 .comment a {
 
 	text-decoration: none;
 	color: #156C7D;
 	font-size: 16px;
+	font-weight: normal;
 }
 
 .comment a:hover {

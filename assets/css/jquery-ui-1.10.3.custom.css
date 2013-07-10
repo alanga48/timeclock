@@ -298,7 +298,7 @@ button.ui-button::-moz-focus-inner {
 	padding: 0;
 }
 .ui-datepicker {
-	width: 17em;
+	width: 20em;
 	padding: .2em .2em 0;
 	display: none;
 }
@@ -808,8 +808,8 @@ body .ui-tooltip {
 	color: #333333;
 }
 .ui-widget-header {
-	border: 1px solid #e78f08;
-	background: #f6a828 url(/assets/images/jquery-ui/ui-bg_gloss-wave_35_f6a828_500x100.png) 50% 50% repeat-x;
+	border: 1px solid #156C7D;
+	background: #156C7D;
 	color: #ffffff;
 	font-weight: bold;
 }
