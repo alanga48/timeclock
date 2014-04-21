@@ -4,7 +4,7 @@
 <div class = "project_right">
 	<?php foreach($week['projects'] as $project) { ?>
 		<h4><?=$project['title']?>: <?=sec_to_output($project['total_seconds'])?></h4>
-	<?php } ?>	
+	<?php } ?>
 	</div>
 <h3>WEEK OF: <?=date("M d, Y", strtotime($week['start'])) . " - " . date("M d, Y", strtotime($week['end']))?></h3>
 <h4>Week Total: <?=sec_to_output($week['total_seconds'])?></h4>
@@ -19,10 +19,10 @@
 		</tr>
 
 		<?php $c = true; ?>
-		
+
 		<?php foreach($week['entries'] as $entry) { ?>
-		<?php 
-		if($c) { 
+		<?php
+		if($c) {
 			$c = false;
      		$class = 'row_1';
 		} else {
@@ -34,10 +34,10 @@
 
 			<td><?=date("M d, Y, g:i a", strtotime($entry['start']))?></td>
 			<td>
-				<?php 
-				if($entry['end'] == NULL) { 
+				<?php
+				if($entry['end'] == NULL) {
 					echo ' - ';
-				} else { 
+				} else {
 					echo date("M d, Y, g:i a", strtotime($entry['end']));
 				}?>
 			</td>
@@ -45,10 +45,10 @@
 				<?= $entry['title']; ?>
 			</td>
 			<td>
-				<?php 
-				if($entry['end'] == NULL) { 
+				<?php
+				if($entry['end'] == NULL) {
 					echo ' - ';
-				} else { 
+				} else {
 					echo gmdate("H:i", $entry['total_seconds']);
 				}?>
 			</td>
@@ -59,16 +59,16 @@
 			<td colspan="4">
 				<div class="comment">
 					<?php
-					if($entry['end'] == NULL) { 
+					if($entry['end'] == NULL) {
 						echo '';
 					} else {
-						if($entry['comment']) { ?> 
+						if($entry['comment']) { ?>
 						<?= $entry['comment'];?><br><br>
-						<a href="#insert_comment<?=$entry['id']?>" class="modal_popup"><i class="icon-pencil"></i> Edit Comment</a> | 
-						<a href="/index.php/time_entry/delete_comment/<?=$entry['id']?>" onclick="return confirm('Are you sure you want to delete this comment?')"><i class="icon-remove"></i> Delete Comment</a> 
+						<a href="#insert_comment<?=$entry['id']?>" class="modal_popup"><i class="icon-pencil"></i> Edit Comment</a> |
+						<a href="/index.php/time_entry/delete_comment/<?=$entry['id']?>" onclick="return confirm('Are you sure you want to delete this comment?')"><i class="icon-remove"></i> Delete Comment</a>
 						<?php } else { ?>
 						<a  href="#insert_comment<?=$entry['id']?>" class="modal_popup"><i class="icon-star"></i> Add a Comment</a>
-						<?php } 
+						<?php }
 					} ?>
 					<div class = "hidden project_form">
 				   	<?php $placeholder = "placeholder='Enter a comment about what you did today'"; ?>
@@ -86,8 +86,8 @@
 			</td>
 
 		</tr>
-		
-	
+
+
 	<?php } ?>
 
 </table>

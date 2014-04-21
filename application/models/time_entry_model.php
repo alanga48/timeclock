@@ -2,9 +2,9 @@
 
 	class Time_entry_model extends CI_Model {
 
-		
+
 		public function get_employee_entries($user_id) {
-			
+
 			// $this->db->where('user_id', $user_id);
 			// $this->db->order_by('start', 'desc');
 			// $result = $this->db->get('time_entry');
@@ -15,7 +15,7 @@
 			$this->db->where('user_id', $user_id);
 			$this->db->order_by('start', 'desc');
 			$result = $this->db->get();
-			
+
 			$entries = $result->result_array();
 
 			//print_rr($entries);
@@ -23,7 +23,7 @@
 
 			foreach($entries as $entry) {
 
-				$week_number = date('W',strtotime($entry['start']));
+				$week_number = date('W',strtotime($entry['start'])) . '_' . date('Y',strtotime($entry['start']));
 
 				if(!isset($grouped_entries[$week_number])) {
 					$grouped_entries[$week_number] = array();
@@ -31,7 +31,7 @@
 
 				$entry['total_seconds'] = $this->_calculate_entry_seconds($entry);
 
-				$grouped_entries[$week_number]['entries'][] = $entry; 
+				$grouped_entries[$week_number]['entries'][] = $entry;
 
 			}
 
@@ -52,11 +52,11 @@
 			$this->db->where('company', $this->session->userdata('company'));
 			$result = $this->db->get('project');
 			$results = $result->result_array();
-			
+
 			$projects = array();
 
 			$projects['0'] = '-- none --';
-			
+
 			foreach($results as $project) {
 
 				$projects[$project['id']] = $project['title'];
@@ -96,7 +96,7 @@
 
 			foreach($all_entries as $key => $user) {
 
-				$result = $this->_calculate_week($user['entries']);		
+				$result = $this->_calculate_week($user['entries']);
 				$all_entries[$key] = $all_entries[$key] + $result;
 			}
 
@@ -104,7 +104,7 @@
 
 			exit();
 
-			
+
 			return $all_entries;
 		}
 
@@ -118,7 +118,7 @@
 
 			//print_rr($open_entry);
 
-			
+
 			if(empty($open_entry)) {
 
 				return false;
@@ -128,7 +128,7 @@
 
 				return true;
 			}
-			
+
 		}
 
 		public function start_time($user_id) {
@@ -146,14 +146,14 @@
 		public function end_time($user_id, $comment, $project_id) {
 
 			$today = date("Y-m-d H:i:s");
-			
+
 			$data = array('end'=> $today, 'comment' => $comment, 'project_id' => $project_id);
 
 			$this->db->where('user_id', $this->user['id']);
 			$this->db->where('end IS NULL');
 
 			$this->db->update('time_entry', $data);
-			
+
 		}
 
 		public function insert_comment($id, $comment, $project) {
@@ -209,7 +209,7 @@
 			$array = array('user_id' => $user_id,
 					       'start' => $start,
 					       'end' => $end);
-			
+
 
 			$this->db->insert('time_entry', $array);
 
@@ -236,18 +236,18 @@
 			$return = array();
 			$return['total_seconds'] = 0;
 			$return['projects'] = array();
-			
+
 			foreach($week_entries as $entry) {
 
 				$week_number = date('W',strtotime($entry['start']));
 				$year = date('Y',strtotime($entry['start']));
-				
+
 				$start_timestamp = strtotime("{$year}-W{$week_number}-1");
 				$end_timestamp = strtotime("{$year}-W{$week_number}-7");
 
 				$start = date('Y-m-d', $start_timestamp);
 				$end = date('Y-m-d', $end_timestamp);
-					
+
 				// Calculate total seconds for entry
 				$seconds = $this->_calculate_entry_seconds($entry);
 
@@ -265,7 +265,7 @@
 					if(!isset($return['projects'][$entry['project_id']]['total_seconds']) ) {
 
 						$return['projects'][$entry['project_id']]['total_seconds'] = 0;
-					
+
 					}
 
 					$return['projects'][$entry['project_id']]['total_seconds'] += $entry['total_seconds'];
@@ -287,8 +287,8 @@
 			// Calculate total seconds for entry
 			$start_sec = strtotime($entry['start']);
 			$end_sec = strtotime($entry['end']);
-			$seconds = $end_sec- $start_sec;	
-			return $seconds;			
+			$seconds = $end_sec- $start_sec;
+			return $seconds;
 		}
 
 }

@@ -21,7 +21,7 @@ class Admin extends CI_Controller {
 
 		$data['users'] = $users;
 		$data['projects'] = $this->time_entry_model->get_projects();
-	
+
 
 		$this->template->load('admin', 'admin_view', $data);
 
@@ -33,7 +33,7 @@ class Admin extends CI_Controller {
 		$data['user'] = $this->user_model->get($user_id);
 		$data['entries'] = $this->time_entry_model->get_employee_entries($user_id);
 		$data['projects'] = $this->time_entry_model->get_projects();
-	
+
 		$this->template->load('admin','admin_employee_view', $data);
 
 	}
@@ -48,7 +48,7 @@ class Admin extends CI_Controller {
 		redirect('admin/get_entries');
 	}
 
-	
+
 	function insert_employee() {
 
 		$employee = array('first_name' => $this->input->post('first_name'),
@@ -57,7 +57,7 @@ class Admin extends CI_Controller {
 						'password' => $this->input->post('password'),
 						'role' => $this->input->post('role'),
 						'company' => $this->input->post('company'));
-		
+
 		$query = $this->user_model->insert_user($employee) ;
 
 		if($query == true)
@@ -76,7 +76,7 @@ class Admin extends CI_Controller {
 		$this->session->set_flashdata('message', 'Employee Deleted Successfully');
 
 		redirect('admin/get_entries');
-		
+
 	}
 
 	function insert_project() {
@@ -110,17 +110,17 @@ class Admin extends CI_Controller {
 		//print_rr($session);
 
 		if( isset($session['is_logged_in']) && $session['is_logged_in'] == 1 && $session['role'] == 'admin') {
-			
+
 			$logged_in_admin = true;
 
 			$this->user = $this->user_model->get($session['user_id']);
 
-		} 
+		}
 
 		else {
-			
+
 			$logged_in_admin = false;
-			redirect('/user/login'); exit(); 
+			redirect('/user/login'); exit();
 		}
 
 	}

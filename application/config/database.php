@@ -76,3 +76,4 @@ if(ENVIRONMENT == 'production') {
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */
+/* Online DB Manager: https://mysql.dfw1-2.websitesettings.com */

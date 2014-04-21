@@ -15,26 +15,24 @@ class Time_entry extends CI_Controller {
 
 			redirect('/admin/get_entries');
 		}
-		
+
 		$data['entries'] = $this->time_entry_model->get_employee_entries($this->user['id']);
 		$data['open_entry'] = $this->time_entry_model->open_entry();
 		$data['projects'] = $this->time_entry_model->get_projects();
 
-		//print_rr($data['projects']);
-
 		$this->template->load('default','home_view', $data);
-		
+
 	}
-	
+
 
 	public function start() {
 
 		$this->time_entry_model->start_time($this->user['id']);
 
 		redirect('time_entry/all_entries');
-		
+
 	}
-		
+
 
 	public function end() {
 
@@ -63,7 +61,7 @@ class Time_entry extends CI_Controller {
 	public function delete_comment($id) {
 
 		$this->time_entry_model->delete_comment($id);
-		
+
 
 		redirect('time_entry/all_entries');
 
@@ -73,7 +71,7 @@ class Time_entry extends CI_Controller {
 
 		$this->load->model('time_entry_model');
 		$entry = $this->time_entry_model->get_entry($id);
-		
+
 		//print_rr($entry);
 
 		$this->template->load('default','update_entry', $entry);
@@ -91,10 +89,10 @@ class Time_entry extends CI_Controller {
 		$start = $start->format('Y-m-d H:i:s');
 
 		if(!$this->input->post('end')) {
-			
+
 			$end = NULL;
 		}
-		
+
 		else {
 
 			$end = DateTime::createFromFormat('m/d/Y H:i:s', $this->input->post('end'));
@@ -113,22 +111,22 @@ class Time_entry extends CI_Controller {
 
 
 	}
- 
+
 	public function insert_entry() {
 
 		//print_rr($this->input->post());
-		
+
 		$user_id = $this->input->post('user_id');
-		
+
 		$start = DateTime::createFromFormat('m/d/Y H:i:s', $this->input->post('start'));
 		$start = $start->format('Y-m-d H:i:s');
-		
+
 		if(!$this->input->post('end')) {
-			
+
 			$end = NULL;
-			
+
 		} else {
-			
+
 			$end = DateTime::createFromFormat('m/d/Y H:i:s', $this->input->post('end'));
 			$end = $end->format('Y-m-d H:i:s');
 		}
@@ -167,10 +165,10 @@ class Time_entry extends CI_Controller {
 
 		if( isset($session['is_logged_in']) && $session['is_logged_in'] == 1 ) {
 			$logged_in = true;
-			
+
 			$this->user = $this->user_model->get($session['user_id']);
 
-		} 
+		}
 
 		else {
 			$logged_in = false;
